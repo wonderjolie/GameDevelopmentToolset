@@ -1,7 +1,7 @@
-Operator:     gamedev::vertex_animation_textures
+Operator:     gamedev::vertex_animation_textures::2.0
 Label:        GameDev Vertex Animation Textures
-Path:         oplib:/gamedev::Driver/vertex_animation_textures?gamedev::Driver/vertex_animation_textures
-Icon:         NODEFLAGS_output
+Path:         oplib:/gamedev::Driver/vertex_animation_textures::2.0?gamedev::Driver/vertex_animation_textures::2.0
+Icon:         opdef:/gamedev::Driver/vertex_animation_textures?IconSVG
 Table:        Driver
 License:      
 Extra:        
@@ -10,5 +10,19 @@ Inputs:       0 to 0
 Subnet:       true
 Python:       false
 Empty:        false
-Modified:     Fri Aug 17 16:31:04 2018
+Modified:     Tue Nov 12 14:25:36 2019
+
+Operator:     gamedev::vertex_animation_textures
+Label:        GameDev Vertex Animation Textures
+Path:         oplib:/gamedev::Driver/vertex_animation_textures?gamedev::Driver/vertex_animation_textures
+Icon:         opdef:/gamedev::Driver/vertex_animation_textures?IconSVG
+Table:        Driver
+License:      
+Extra:        
+User:         
+Inputs:       0 to 0
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Mon Jul  1 00:08:41 2019
 

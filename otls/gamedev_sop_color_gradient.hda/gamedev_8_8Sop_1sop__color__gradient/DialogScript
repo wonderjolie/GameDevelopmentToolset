@@ -22,7 +22,6 @@
         menutoggle {
             [ "opmenu -l pointwrangle1 group" ]
         }
-        range   { 0 1 }
         parmtag { "autoscope" "0000000000000000" }
         parmtag { "script_action" "import soputils\nkwargs['geometrytype'] = kwargs['node'].parmTuple('grouptype')\nkwargs['inputindex'] = 0\nsoputils.selectGroupParm(kwargs)" }
         parmtag { "script_action_help" "Select geometry from an available viewport." }
@@ -40,19 +39,27 @@
             "points"    "Points"
             "prims"     "Primitives"
         }
-        range   { 0 1 }
         parmtag { "autoscope" "0000000000000000" }
     }
     parm {
         name    "axis"
         label   "Axis"
         type    ordinal
-        default { "2" }
+        default { "1" }
         menu {
             "0" "X"
             "1" "Y"
             "2" "Z"
+            "3" "Custom"
         }
+    }
+    parm {
+        name    "fRotationAngle"
+        label   "Angle"
+        type    angle
+        default { "0" }
+        hidewhen "{ axis != 3 }"
+        range   { 0 360 }
     }
     parm {
         name    "custom_attribute"
@@ -72,7 +79,7 @@
     parm {
         name    "ramp"
         label   "Ramp"
-        type    ramp_flt
+        type    ramp_rgb
         default { "2" }
         range   { 1! 10 }
         parmtag { "autoscope" "0000000000000000" }

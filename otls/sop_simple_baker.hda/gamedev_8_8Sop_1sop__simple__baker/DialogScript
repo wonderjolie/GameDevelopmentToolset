@@ -15,18 +15,50 @@
     inputlabel	4	"Sub-Network Input #4"
 
     parm {
-        name    "render"
+        name    "execute"
         label   "Render"
         type    button
-        invisible
+        joinnext
         default { "0" }
         parmtag { "script_callback" "hou.pwd().hdaModule().render()" }
         parmtag { "script_callback_language" "python" }
     }
     parm {
-        name    "execute"
+        name    "spacer"
+        label   "_"
+        type    label
+        nolabel
+        joinnext
+        default { "" }
+    }
+    parm {
+        name    "like_tool"
+        label   "Like Tool"
+        type    button
+        nolabel
+        joinnext
+        default { "0" }
+        help    "Let us know that you're enjoying this Tool"
+        parmtag { "button_icon" "heart.svg" }
+        parmtag { "script_callback" "import gamedevutils;gamedevutils.like_node(hou.pwd())" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "dont_like"
+        label   "Thumbs Down"
+        type    button
+        nolabel
+        default { "0" }
+        help    "Let us know you don't like this tool. Ideally also send us a mail at support@sidefx.com"
+        parmtag { "button_icon" "thumbs-down.svg" }
+        parmtag { "script_callback" "import gamedevutils;gamedevutils.dislike_node(hou.pwd())" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "render"
         label   "Render"
         type    button
+        invisible
         default { "0" }
         parmtag { "script_callback" "hou.pwd().hdaModule().render()" }
         parmtag { "script_callback_language" "python" }
@@ -41,7 +73,7 @@
             type    intvector2
             joinnext
             size    2
-            default { "2048" "2048" }
+            default { "512" "512" }
             range   { -1 1 }
             parmtag { "autoscope" "0000000000000000" }
         }
@@ -332,10 +364,25 @@
                 parmtag { "spare_category" "Baking" }
             }
             parm {
+                name    "bBasecolorLinearSpace"
+                label   "Output basecolor in Linear Space"
+                type    toggle
+                default { "off" }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
                 name    "vm_bake_tangentnormalflipy"
                 label   "Tangent Normal Flip Y"
                 type    toggle
                 default { "off" }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "spare_category" "Baking" }
+            }
+            parm {
+                name    "vm_bake_skipcf"
+                label   "Disable Lighting/Emission"
+                type    toggle
+                default { "on" }
                 parmtag { "autoscope" "0000000000000000" }
                 parmtag { "spare_category" "Baking" }
             }
@@ -394,7 +441,7 @@
             label   "Base Color"
             type    color
             size    3
-            default { "0.4" "0.4" "0.4" }
+            default { "1" "1" "1" }
             range   { 0 1 }
             parmtag { "autoscope" "0000000000000000" }
             parmtag { "ogl_diff" "1" }
@@ -405,7 +452,7 @@
             name    "ior"
             label   "IOR"
             type    float
-            default { "1.52" }
+            default { "1" }
             range   { 1 3 }
             parmtag { "autoscope" "0000000000000000" }
             parmtag { "ogl_ior" "1" }
@@ -416,7 +463,7 @@
             name    "rough"
             label   "Roughness"
             type    float
-            default { "0.518" }
+            default { "1" }
             range   { 0 1 }
             parmtag { "autoscope" "0000000000000000" }
             parmtag { "ogl_rough" "1" }
@@ -427,7 +474,7 @@
             name    "visualize_channel"
             label   "Diffuse Map"
             type    string
-            default { "ao" }
+            default { "basecolor" }
         }
     }
 

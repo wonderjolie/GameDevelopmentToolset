@@ -1,0 +1,14 @@
+Operator:     gamedev::sop_rizomuv_processor
+Label:        GameDev RizomUV Processor
+Path:         oplib:/gamedev::Sop/sop_rizomuv_processor?gamedev::Sop/sop_rizomuv_processor
+Icon:         opdef:/gamedev::Sop/sop_rizomuv_processor?IconImage
+Table:        Sop
+License:      
+Extra:        
+User:         
+Inputs:       1 to 1
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Fri Nov 22 20:52:45 2019
+

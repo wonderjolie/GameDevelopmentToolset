@@ -1,7 +1,7 @@
 Operator:     gamedev::sop_flowmap_to_color
 Label:        GameDev Flowmap to Color
 Path:         oplib:/gamedev::Sop/sop_flowmap_to_color?gamedev::Sop/sop_flowmap_to_color
-Icon:         SOP_heightfield_erode
+Icon:         opdef:/gamedev::Sop/sop_flowmap_to_color?IconSVG
 Table:        Sop
 License:      
 Extra:        
@@ -10,5 +10,5 @@ Inputs:       1 to 1
 Subnet:       true
 Python:       false
 Empty:        false
-Modified:     Thu Aug  2 15:19:36 2018
+Modified:     Tue Mar  5 13:06:46 2019
 

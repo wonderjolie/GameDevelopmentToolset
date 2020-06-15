@@ -17,6 +17,7 @@
     groupsimple {
         name    "folder1"
         label   "Method"
+        grouptag { "group_type" "simple" }
 
         parm {
             name    "uvattrib"
@@ -38,6 +39,7 @@
                 "0" "Shortest Path"
                 "1" "Cluster"
                 "3" "UV Unwrap"
+                "4" "UV AutoSeam"
             }
         }
         parm {
@@ -119,32 +121,51 @@
             parmtag { "autoscope" "0000000000000000" }
         }
         parm {
-            name    "cusp_angle"
-            label   "Cusp Angle"
+            name    "graintol"
+            label   "Grain Tolerance"
             type    float
-            default { "20" }
+            default { "0.12" }
             hidewhen "{ method != 4 }"
-            range   { 0 10 }
+            range   { 0! 1 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "mergethreshold"
+            label   "Merge Threshold"
+            type    float
+            default { "0.5" }
+            hidewhen "{ method != 4 }"
+            range   { 0! 1! }
+            parmtag { "autoscope" "0000000000000000" }
         }
     }
 
     groupsimple {
         name    "folder0"
         label   "Packing Options"
+        grouptag { "group_type" "simple" }
 
+        parm {
+            name    "merge_small_islands"
+            label   "Merge Small Islands"
+            type    toggle
+            default { "0" }
+        }
         parm {
             name    "small_island_cutoff"
             label   "Small Island CutOff"
             type    float
             default { "0.01" }
+            disablewhen "{ merge_small_islands == 0 }"
             range   { 0 0.5 }
         }
         parm {
             name    "optimize_uv_border"
             label   "Optimize UV Border"
             type    toggle
-            default { "on" }
+            default { [ "on" hscript-expr ] }
             help    "Attempts to remove triangles that are sticking to the side of the UV island. May cause small islands to reappear"
+            disablewhen "{ merge_small_islands == 0 }"
             parmtag { "autoscope" "0000000000000000" }
         }
         parm {
@@ -202,4 +223,43 @@
         }
     }
 
+    parm {
+        name    "spacer"
+        label   "_"
+        type    label
+        nolabel
+        joinnext
+        default { "" }
+    }
+    parm {
+        name    "like_tool"
+        label   "Like Tool"
+        type    button
+        nolabel
+        joinnext
+        default { "0" }
+        help    "Let us know that you're enjoying this Tool"
+        parmtag { "button_icon" "heart.svg" }
+        parmtag { "script_callback" "import gamedevutils;gamedevutils.like_node(hou.pwd())" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "dont_like"
+        label   "Thumbs Down"
+        type    button
+        nolabel
+        default { "0" }
+        help    "Let us know you don't like this tool. Ideally also send us a mail at support@sidefx.com"
+        parmtag { "button_icon" "thumbs-down.svg" }
+        parmtag { "script_callback" "import gamedevutils;gamedevutils.dislike_node(hou.pwd())" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "cusp_angle"
+        label   "__UNUSED"
+        type    float
+        invisible
+        default { "0" }
+        range   { 0 10 }
+    }
 }

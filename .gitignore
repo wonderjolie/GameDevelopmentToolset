@@ -11,5 +11,9 @@ otls/backup
 .DS_Store
 hip/backup/
 tests/hip/export/
-hip/geo/
 hip/export/
+hip/render/
+forum_post.txt
+log.log
+log_parser.py
+.OPfallbacks

@@ -1,7 +1,7 @@
-Operator:     gamedev::sop_gameres
+Operator:     gamedev::sop_gameres::2.0
 Label:        GameDev GameRes
-Path:         oplib:/gamedev::Sop/sop_gameres?gamedev::Sop/sop_gameres
-Icon:         CHOP_gamepad
+Path:         oplib:/gamedev::Sop/sop_gameres::2.0?gamedev::Sop/sop_gameres::2.0
+Icon:         opdef:/gamedev::Sop/sop_gameres::2.0?IconSVG
 Table:        Sop
 License:      
 Extra:        
@@ -10,5 +10,19 @@ Inputs:       1 to 1
 Subnet:       true
 Python:       false
 Empty:        false
-Modified:     Thu Aug  2 15:43:04 2018
+Modified:     Thu Oct 24 14:19:44 2019
+
+Operator:     gamedev::sop_gameres
+Label:        GameDev GameRes
+Path:         oplib:/gamedev::Sop/sop_gameres?gamedev::Sop/sop_gameres
+Icon:         opdef:/gamedev::Sop/sop_gameres?IconSVG
+Table:        Sop
+License:      
+Extra:        
+User:         
+Inputs:       1 to 1
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Tue Oct 30 19:37:05 2018
 

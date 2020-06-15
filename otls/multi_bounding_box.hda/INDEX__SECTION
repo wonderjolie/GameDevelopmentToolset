@@ -1,0 +1,14 @@
+Operator:     gamedev::multi_bounding_box
+Label:        GameDev Multi Bounding Box
+Path:         oplib:/gamedev::Sop/multi_bounding_box?gamedev::Sop/multi_bounding_box
+Icon:         VIEW_layout_quad
+Table:        Sop
+License:      
+Extra:        
+User:         
+Inputs:       1 to 1
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Tue Oct 22 10:57:30 2019
+

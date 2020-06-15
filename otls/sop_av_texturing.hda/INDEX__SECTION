@@ -1,0 +1,42 @@
+Operator:     gamedev::sop_av_texturing
+Label:        GameDev AV Texturing
+Path:         oplib:/gamedev::Sop/sop_av_texturing?gamedev::Sop/sop_av_texturing
+Icon:         opdef:/gamedev::Sop/sop_av_texturing?IconImage
+Table:        Sop
+License:      
+Extra:        
+User:         
+Inputs:       1 to 1
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Thu Feb 14 10:03:56 2019
+
+Operator:     gamedev::sop_av_texturing::2.0
+Label:        GameDev AV Texturing
+Path:         oplib:/gamedev::Sop/sop_av_texturing::2.0?gamedev::Sop/sop_av_texturing::2.0
+Icon:         opdef:/gamedev::Sop/sop_av_texturing::2.0?IconImage
+Table:        Sop
+License:      
+Extra:        
+User:         
+Inputs:       1 to 1
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Mon Sep 30 15:17:41 2019
+
+Operator:     gamedev::sop_av_texturing::3.0
+Label:        GameDev AV Texturing
+Path:         oplib:/gamedev::Sop/sop_av_texturing::3.0?gamedev::Sop/sop_av_texturing::3.0
+Icon:         opdef:/gamedev::Sop/sop_av_texturing::3.0?IconImage
+Table:        Sop
+License:      
+Extra:        
+User:         
+Inputs:       1 to 1
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Mon Sep 30 13:25:48 2019
+

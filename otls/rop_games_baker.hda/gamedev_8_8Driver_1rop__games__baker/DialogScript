@@ -284,6 +284,8 @@
                 "on"        "Render Frame Range Only (Strict)"
             }
             parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback" "kwargs['node'].hm().CheckExportPath(kwargs['node'])" }
+            parmtag { "script_callback_language" "python" }
         }
         parm {
             name    "f"
@@ -306,10 +308,24 @@
             parmtag { "spare_category" "Baking" }
         }
         parm {
+            name    "bBasecolorLinearSpace"
+            label   "Output basecolor in Linear Space"
+            type    toggle
+            default { "0" }
+        }
+        parm {
             name    "vm_bake_tangentnormalflipy"
             label   "Tangent Normal Flip Y"
             type    toggle
             default { "off" }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "spare_category" "Baking" }
+        }
+        parm {
+            name    "vm_bake_skipcf"
+            label   "Disable Lighting/Emission"
+            type    toggle
+            default { "on" }
             parmtag { "autoscope" "0000000000000000" }
             parmtag { "spare_category" "Baking" }
         }

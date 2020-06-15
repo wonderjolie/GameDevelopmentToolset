@@ -1,7 +1,13 @@
 import os
-import requests
 import hou
 import uuid
+
+try:
+    import requests
+    requests_enabled = True
+except:
+    # requests library missing
+    requests_enabled = False
 
 try:
     from PySide2.QtCore import QSettings
@@ -41,7 +47,6 @@ def track_event(category, action, label=None, value=0):
         if settings.value("uuid"):
             hou_uuid = settings.value("uuid")
         else:
-            hou_uuid = uuid.uuid4()
             settings.setValue("uuid", hou_uuid)
 
     data = {
@@ -57,21 +62,40 @@ def track_event(category, action, label=None, value=0):
         'ev': value,  # Event value, must be an integer
     }
 
-    try:
-        response = requests.post(
-            'http://www.google-analytics.com/collect', data=data, timeout=0.1)
+    if requests_enabled:
+        try:
+            response = requests.post(
+                'http://www.google-analytics.com/collect', data=data, timeout=0.1)
 
-    except:
-        pass
+        except:
+            pass
 
 
 def like_node(node):
     if can_send_anonymous_stats():
         track_event("Like Events", "liked node", str(node.type().name()))
-        hou.ui.displayMessage("Thanks!\n We're glad you like using this tool.\n"
-                              " Letting us know will help us prioritize which tools get focused on. ")
+    hou.ui.displayMessage("Thanks!\n We're glad you like using this tool.\n"
+                          " Letting us know will help us prioritize which tools get focused on. ")
+
+def dislike_node(node):
+    if can_send_anonymous_stats():
+        track_event("Like Events", "dislike node", str(node.type().name()))
+    hou.ui.displayMessage("Thanks!\n We're sorry you're not enjoying using this tool.\n"
+                          " If you'd like to share your thoughts, please email us at support@sidefx.com. ")
+
 
 
 def send_on_create_analytics(node):
     if can_send_anonymous_stats():
         track_event("Node Created", str(node.type().name()), str(node.type().definition().version()))
+
+def empty_directory_recursive(dir):
+    for file in os.listdir(dir):
+        file_path = os.path.join(dir, file)
+        try:
+            if os.path.isfile(file_path):
+                os.unlink(file_path)
+            elif os.path.isdir(file_path):
+                shutil.rmtree(file_path)
+        except:
+            pass

@@ -10,5 +10,19 @@ Inputs:       2 to 4
 Subnet:       true
 Python:       false
 Empty:        false
-Modified:     Thu Aug  2 15:06:48 2018
+Modified:     Mon Apr 15 16:07:43 2019
+
+Operator:     gamedev::sop_destruction_cleanup::2.0
+Label:        GameDev Destruction Cleanup
+Path:         oplib:/gamedev::Sop/sop_destruction_cleanup::2.0?gamedev::Sop/sop_destruction_cleanup::2.0
+Icon:         opdef:/gamedev::Sop/sop_destruction_cleanup::2.0?IconSVG
+Table:        Sop
+License:      
+Extra:        
+User:         
+Inputs:       1 to 2
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Tue Jul 23 16:48:56 2019
 

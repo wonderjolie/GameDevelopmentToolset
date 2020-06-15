@@ -32,27 +32,23 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.45294 -2.21176
-connectornextid 2
-flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+position -2.71768 1.83854
+connectornextid 0
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
 inputsNamed3
 {
-0 	uvunwrap1 1 1 "input1"
-1 	polybevel1 1 1 "input2"
 }
 inputs
 {
-0 	uvunwrap1 0 1
-1 	polybevel1 0 1
 }
 stat
 {
-  create 1534441909
-  modify 1534442041
-  author MAINGEAR@DESKTOP-P98C1VA
+  create 1557263467
+  modify 1557263485
+  author prisms@threadripper1
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -67,7 +63,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"0.2"
+		"value":"0.3"
 	}
 }
 
@@ -91,7 +87,7 @@ Content-Disposition: attachment; filename="hdaroot/ropnet1.def"
 Content-Type: text/plain
 
 comment ""
-position 1.86044 0.743844
+position 3.14813 0.743844
 connectornextid 0
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -106,7 +102,7 @@ inputs
 stat
 {
   create 1509395633
-  modify 1522783370
+  modify 1541452297
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -132,7 +128,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.565"
+		"value":"17.5.229"
 	}
 }
 
@@ -163,7 +159,7 @@ inputs
 stat
 {
   create 1510086161
-  modify 1534442034
+  modify 1557263489
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -171,6 +167,14 @@ color UT_Color RGB 0.8 0.8 0.8
 delscript ""
 exprlanguage hscript
 end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/ropnet1/rop_games_baker.multiparm"
+Content-Type: text/plain
+
+2
+custom_attribute_name_# ../../custom_attribute_name_#
+custom_attribute_suffix_# ../../custom_attribute_suffix_#
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/ropnet1/rop_games_baker.chn"
@@ -188,6 +192,20 @@ Content-Type: text/plain
       righttype = extend
       flags = 0
       segment { length = 0 value = 240 240 expr = ch(\"../../f2\") }
+    }
+    channel vm_uvunwrapresx {
+      lefttype = extend
+      righttype = extend
+      default = 256
+      flags = 0
+      segment { length = 0 value = 256 256 expr = ch(\"../../vm_uvunwrapresx\") }
+    }
+    channel vm_uvunwrapresy {
+      lefttype = extend
+      righttype = extend
+      default = 256
+      flags = 0
+      segment { length = 0 value = 256 256 expr = ch(\"../../vm_uvunwrapresy\") }
     }
     channel base_path {
       lefttype = extend
@@ -218,6 +236,45 @@ Content-Type: text/plain
       righttype = extend
       flags = 0
       segment { length = 0 expr = chs(\"../../Nt_suffix\") }
+    }
+    channel bake_alpha {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../bake_alpha\") }
+    }
+    channel alpha_suffix {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"alpha\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../../alpha_suffix\") }
+    }
+    channel bake_specrough {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../bake_specrough\") }
+    }
+    channel specrough_suffix {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"roughness\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../../specrough_suffix\") }
+    }
+    channel bake_metallic {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../bake_metallic\") }
+    }
+    channel metallic_suffix {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"metallic\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../../metallic_suffix\") }
     }
     channel bake_N {
       lefttype = extend
@@ -291,12 +348,6 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = chs(\"../../Ds_suffix\") }
     }
-    channel custom_channels {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../../custom_channels\") }
-    }
     channel trange {
       lefttype = extend
       righttype = extend
@@ -321,12 +372,6 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = ch(\"../../vm_bake_tangentnormalflipy\") }
     }
-    channel vm_uvcageobject1 {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = chsop(\"../../vm_uvcageobject1\") }
-    }
     channel border_padding {
       lefttype = extend
       righttype = extend
@@ -345,58 +390,37 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = -1 -1 expr = ch(\"../../ray_distance\") }
     }
-    channel bake_specrough {
+    channel bBasecolorLinearSpace {
       lefttype = extend
       righttype = extend
       flags = 0
-      segment { length = 0 expr = ch(\"../../bake_specrough\") }
+      segment { length = 0 expr = ch(\"../../bBasecolorLinearSpace\") }
     }
-    channel specrough_suffix {
+    channel vm_uvcageobject1 {
       lefttype = extend
       righttype = extend
-      defaultString = \"roughness\"
       flags = 0
-      segment { length = 0 expr = chs(\"../../specrough_suffix\") }
+      segment { length = 0 expr = chsop(\"../../vm_uvcageobject1\") }
     }
-    channel bake_metallic {
+    channel custom_channels {
       lefttype = extend
       righttype = extend
       flags = 0
-      segment { length = 0 expr = ch(\"../../bake_metallic\") }
+      segment { length = 0 expr = ch(\"../../custom_channels\") }
     }
-    channel metallic_suffix {
+    channel vm_bake_skipcf {
       lefttype = extend
       righttype = extend
-      defaultString = \"metallic\"
+      default = 1
       flags = 0
-      segment { length = 0 expr = chs(\"../../metallic_suffix\") }
+      segment { length = 0 value = 1 1 expr = ch(\"../../vm_bake_skipcf\") }
     }
-    channel bake_alpha {
+    channel baking_samples {
       lefttype = extend
       righttype = extend
+      default = 4
       flags = 0
-      segment { length = 0 expr = ch(\"../../bake_alpha\") }
-    }
-    channel alpha_suffix {
-      lefttype = extend
-      righttype = extend
-      defaultString = \"alpha\"
-      flags = 0
-      segment { length = 0 expr = chs(\"../../alpha_suffix\") }
-    }
-    channel vm_uvunwrapresx {
-      lefttype = extend
-      righttype = extend
-      default = 256
-      flags = 0
-      segment { length = 0 value = 256 256 expr = ch(\"../../vm_uvunwrapresx\") }
-    }
-    channel vm_uvunwrapresy {
-      lefttype = extend
-      righttype = extend
-      default = 256
-      flags = 0
-      segment { length = 0 value = 256 256 expr = ch(\"../../vm_uvunwrapresy\") }
+      segment { length = 0 value = 4 4 expr = ch(\"../../baking_samples\") }
     }
   }
 
@@ -411,7 +435,7 @@ renderdialog	[ 0	locks=0 ]	(	0	)
 meshes	[ 0	locks=0	autoscope=0 ]	(	1	)
 vm_uvunwrapres	[ 8	locks=0 ]	(	[ vm_uvunwrapresx	512 ] 	[ vm_uvunwrapresy	512 ] 	)
 uvresmenu	[ 0	locks=0 ]	(	0	)
-base_path	[ 0	locks=0	autoscope=0 ]	(	[ base_path	C:/Users/MAINGEAR/Downloads/render/bakercage_$(CHANNEL).tga ] 	)
+base_path	[ 0	locks=0	autoscope=0 ]	(	[ base_path	"C:/Program Files/SideFX/render/untitled_$(CHANNEL).tga" ] 	)
 channels	[ 0	locks=0 ]	(	1	1	)
 bake_basecolor	[ 0	locks=0	autoscope=0 ]	(	[ bake_basecolor	1 ] 	)
 basecolor_suffix	[ 0	locks=0	autoscope=0 ]	(	[ basecolor_suffix	basecolor ] 	)
@@ -439,10 +463,12 @@ custom_channels	[ 0	locks=0	autoscope=0 ]	(	[ custom_channels	0 ] 	)
 trange	[ 0	locks=0	autoscope=0 ]	(	[ trange	0 ] 	)
 f	[ 0	locks=0	autoscope=0 ]	(	[ f1	1 ] 	[ f2	240 ] 	[ f3	1 ] 	)
 vm_bake_usemikkt	[ 0	locks=0	autoscope=0 ]	(	[ vm_bake_usemikkt	1 ] 	)
+bBasecolorLinearSpace	[ 0	locks=0 ]	(	[ bBasecolorLinearSpace	0 ] 	)
 vm_bake_tangentnormalflipy	[ 0	locks=0	autoscope=0 ]	(	[ vm_bake_tangentnormalflipy	0 ] 	)
-vm_uvcageobject1	[ 0	locks=0	autoscope=0 ]	(	[ vm_uvcageobject1	/obj/cagebox ] 	)
+vm_bake_skipcf	[ 0	locks=0 ]	(	[ vm_bake_skipcf	1 ] 	)
+vm_uvcageobject1	[ 0	locks=0	autoscope=0 ]	(	[ vm_uvcageobject1	"" ] 	)
 border_padding	[ 0	locks=0	autoscope=0 ]	(	[ border_padding	2 ] 	)
-baking_samples	[ 0	locks=0 ]	(	4	)
+baking_samples	[ 8	locks=0 ]	(	[ baking_samples	8 ] 	)
 ray_bias	[ 0	locks=0	autoscope=0 ]	(	[ ray_bias	0.01 ] 	)
 ray_distance	[ 0	locks=0	autoscope=0 ]	(	[ ray_distance	-1 ] 	)
 target_mesh_1	[ 0	locks=0	autoscope=0 ]	(	../../LOW	)
@@ -456,7 +482,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"0.3"
+		"value":"0.6"
 	}
 }
 
@@ -543,7 +569,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.565"
+		"value":"17.5.229"
 	}
 }
 
@@ -598,7 +624,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.565"
+		"value":"17.5.229"
 	}
 }
 
@@ -615,7 +641,7 @@ Content-Type: text/plain
 
 comment ""
 position -4.2944 5.65882
-connectornextid 222
+connectornextid 223
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material on
 outputsNamed3
 {
@@ -624,226 +650,227 @@ inputsNamed3
 {
 0 	"" "" 1 "uv"
 1 	"" "" 1 "basecolor"
-2 	"" "" 1 "basecolor_usePointColor"
-3 	"" "" 1 "basecolor_usePackedColor"
-4 	"" "" 1 "frontface"
-5 	"" "" 1 "ior"
-6 	"" "" 1 "rough"
-7 	"" "" 1 "aniso"
-8 	"" "" 1 "anisodir"
-9 	"" "" 1 "metallic"
-10 	"" "" 1 "reflect"
-11 	"" "" 1 "reflecttint"
-12 	"" "" 1 "coat"
-13 	"" "" 1 "coatrough"
-14 	"" "" 1 "transparency"
-15 	"" "" 1 "transcolor"
-16 	"" "" 1 "transdist"
-17 	"" "" 1 "dispersion"
-18 	"" "" 1 "priority"
-19 	"" "" 1 "sss"
-20 	"" "" 1 "sssmodel"
-21 	"" "" 1 "sssdist"
-22 	"" "" 1 "ssscolor"
-23 	"" "" 1 "sssphase"
-24 	"" "" 1 "sheen"
-25 	"" "" 1 "sheentint"
-26 	"" "" 1 "emitcolor"
-27 	"" "" 1 "emitint"
-28 	"" "" 1 "emitillum"
-29 	"" "" 1 "opac"
-30 	"" "" 1 "opaccolor"
-31 	"" "" 1 "fakecausticsenabled"
-32 	"" "" 1 "fakecausticstransmit"
-33 	"" "" 1 "fakecausticsshadow"
-34 	"" "" 1 "fakecausticsopacity"
-35 	"" "" 1 "basecolor_useTexture"
-36 	"" "" 1 "basecolor_texture"
-37 	"" "" 1 "basecolor_textureIntensity"
-38 	"" "" 1 "basecolor_textureWrap"
-39 	"" "" 1 "basecolor_textureColorSpace"
-40 	"" "" 1 "metallic_useTexture"
-41 	"" "" 1 "metallic_texture"
-42 	"" "" 1 "metallic_monoChannel"
-43 	"" "" 1 "metallic_textureWrap"
-44 	"" "" 1 "metallic_textureColorSpace"
-45 	"" "" 1 "transparency_useTexture"
-46 	"" "" 1 "transparency_texture"
-47 	"" "" 1 "transparency_monoChannel"
-48 	"" "" 1 "transparency_textureWrap"
-49 	"" "" 1 "transparency_textureColorSpace"
-50 	"" "" 1 "ior_useTexture"
-51 	"" "" 1 "ior_texture"
-52 	"" "" 1 "ior_monoChannel"
-53 	"" "" 1 "ior_textureWrap"
-54 	"" "" 1 "ior_textureColorSpace"
-55 	"" "" 1 "transcolor_useTexture"
-56 	"" "" 1 "transcolor_texture"
-57 	"" "" 1 "transcolor_textureIntensity"
-58 	"" "" 1 "transcolor_textureWrap"
-59 	"" "" 1 "transcolor_textureColorSpace"
-60 	"" "" 1 "transdist_useTexture"
-61 	"" "" 1 "transdist_texture"
-62 	"" "" 1 "transdist_monoChannel"
-63 	"" "" 1 "transdist_textureWrap"
-64 	"" "" 1 "transdist_textureColorSpace"
-65 	"" "" 1 "dispersion_useTexture"
-66 	"" "" 1 "dispersion_texture"
-67 	"" "" 1 "dispersion_monoChannel"
-68 	"" "" 1 "dispersion_textureWrap"
-69 	"" "" 1 "dispersion_textureColorSpace"
-70 	"" "" 1 "reflect_useTexture"
-71 	"" "" 1 "reflect_texture"
-72 	"" "" 1 "reflect_monoChannel"
-73 	"" "" 1 "reflect_textureWrap"
-74 	"" "" 1 "reflect_textureColorSpace"
-75 	"" "" 1 "reflecttint_useTexture"
-76 	"" "" 1 "reflecttint_texture"
-77 	"" "" 1 "reflecttint_monoChannel"
-78 	"" "" 1 "reflecttint_textureWrap"
-79 	"" "" 1 "reflecttint_textureColorSpace"
-80 	"" "" 1 "rough_useTexture"
-81 	"" "" 1 "rough_texture"
-82 	"" "" 1 "rough_monoChannel"
-83 	"" "" 1 "rough_textureWrap"
-84 	"" "" 1 "rough_textureColorSpace"
-85 	"" "" 1 "aniso_useTexture"
-86 	"" "" 1 "aniso_texture"
-87 	"" "" 1 "aniso_monoChannel"
-88 	"" "" 1 "aniso_textureWrap"
-89 	"" "" 1 "aniso_textureColorSpace"
-90 	"" "" 1 "anisodir_useTexture"
-91 	"" "" 1 "anisodir_texture"
-92 	"" "" 1 "anisodir_monoChannel"
-93 	"" "" 1 "anisodir_textureWrap"
-94 	"" "" 1 "anisodir_textureColorSpace"
-95 	"" "" 1 "anisodir_textureFilter"
-96 	"" "" 1 "sss_useTexture"
-97 	"" "" 1 "sss_texture"
-98 	"" "" 1 "sss_monoChannel"
-99 	"" "" 1 "sss_textureWrap"
-100 	"" "" 1 "sss_textureColorSpace"
-101 	"" "" 1 "sssdist_useTexture"
-102 	"" "" 1 "sssdist_texture"
-103 	"" "" 1 "sssdist_monoChannel"
-104 	"" "" 1 "sssdist_textureWrap"
-105 	"" "" 1 "sssdist_textureColorSpace"
-106 	"" "" 1 "ssscolor_useTexture"
-107 	"" "" 1 "ssscolor_texture"
-108 	"" "" 1 "ssscolor_textureWrap"
-109 	"" "" 1 "ssscolor_textureColorSpace"
-110 	"" "" 1 "sheen_useTexture"
-111 	"" "" 1 "sheen_texture"
-112 	"" "" 1 "sheen_monoChannel"
-113 	"" "" 1 "sheen_textureWrap"
-114 	"" "" 1 "sheen_textureColorSpace"
-115 	"" "" 1 "sheentint_useTexture"
-116 	"" "" 1 "sheentint_texture"
-117 	"" "" 1 "sheentint_monoChannel"
-118 	"" "" 1 "sheentint_textureWrap"
-119 	"" "" 1 "sheentint_textureColorSpace"
-120 	"" "" 1 "coat_useTexture"
-121 	"" "" 1 "coat_texture"
-122 	"" "" 1 "coat_monoChannel"
-123 	"" "" 1 "coat_textureWrap"
-124 	"" "" 1 "coat_textureColorSpace"
-125 	"" "" 1 "coatrough_useTexture"
-126 	"" "" 1 "coatrough_texture"
-127 	"" "" 1 "coatrough_monoChannel"
-128 	"" "" 1 "coatrough_textureWrap"
-129 	"" "" 1 "coatrough_textureColorSpace"
-130 	"" "" 1 "emitcolor_useTexture"
-131 	"" "" 1 "emitcolor_texture"
-132 	"" "" 1 "emitcolor_textureIntensity"
-133 	"" "" 1 "emitcolor_textureWrap"
-134 	"" "" 1 "emitcolor_textureColorSpace"
-135 	"" "" 1 "opaccolor_useTexture"
-136 	"" "" 1 "opaccolor_texture"
-137 	"" "" 1 "opaccolor_textureWrap"
-138 	"" "" 1 "opaccolor_textureIntensity"
-139 	"" "" 1 "opaccolor_textureColorSpace"
-140 	"" "" 1 "surface_textureFilter"
-141 	"" "" 1 "surface_textureFilterWidth"
-142 	"" "" 1 "baseBumpAndNormal_enable"
-143 	"" "" 1 "baseBumpAndNormal_type"
-144 	"" "" 1 "baseBump_colorSpace"
-145 	"" "" 1 "baseBump_bumpScale"
-146 	"" "" 1 "baseBump_bumpTexture"
-147 	"" "" 1 "baseBump_wrap"
-148 	"" "" 1 "baseBump_filter"
-149 	"" "" 1 "baseBump_filterWidth"
-150 	"" "" 1 "baseBump_channel"
-151 	"" "" 1 "baseBump_imagePlane"
-152 	"" "" 1 "baseNormal_colorspace"
-153 	"" "" 1 "baseNormal_vectorSpace"
-154 	"" "" 1 "baseNormal_scale"
-155 	"" "" 1 "baseNormal_texture"
-156 	"" "" 1 "baseNormal_wrap"
-157 	"" "" 1 "baseNormal_filter"
-158 	"" "" 1 "baseNormal_filterWidth"
-159 	"" "" 1 "baseNormal_channel"
-160 	"" "" 1 "baseNormal_imagePlane"
-161 	"" "" 1 "baseNormal_space"
-162 	"" "" 1 "baseNormal_flipX"
-163 	"" "" 1 "baseNormal_flipY"
-164 	"" "" 1 "separateCoatNormals"
-165 	"" "" 1 "coatBumpAndNormal_enable"
-166 	"" "" 1 "coatBumpAndNormal_type"
-167 	"" "" 1 "coatBump_colorSpace"
-168 	"" "" 1 "coatBump_bumpScale"
-169 	"" "" 1 "coatBump_bumpTexture"
-170 	"" "" 1 "coatBump_wrap"
-171 	"" "" 1 "coatBump_filter"
-172 	"" "" 1 "coatBump_filterWidth"
-173 	"" "" 1 "coatBump_channel"
-174 	"" "" 1 "coatBump_imagePlane"
-175 	"" "" 1 "coatNormal_colorspace"
-176 	"" "" 1 "coatNormal_vectorSpace"
-177 	"" "" 1 "coatNormal_scale"
-178 	"" "" 1 "coatNormal_texture"
-179 	"" "" 1 "coatNormal_wrap"
-180 	"" "" 1 "coatNormal_filter"
-181 	"" "" 1 "coatNormal_filterWidth"
-182 	"" "" 1 "coatNormal_channel"
-183 	"" "" 1 "coatNormal_imagePlane"
-184 	"" "" 1 "coatNormal_space"
-185 	"" "" 1 "coatNormal_flipX"
-186 	"" "" 1 "coatNormal_flipY"
-187 	"" "" 1 "dispInput_enable"
-188 	"" "" 1 "dispInput_max"
-189 	"" "" 1 "dispInput_vectorspace"
-190 	"" "" 1 "dispTex_enable"
-191 	"" "" 1 "dispTex_type"
-192 	"" "" 1 "dispTex_colorSpace"
-193 	"" "" 1 "dispTex_vectorSpace"
-194 	"" "" 1 "dispTex_channelOrder"
-195 	"" "" 1 "dispTex_offset"
-196 	"" "" 1 "dispTex_scale"
-197 	"" "" 1 "dispTex_texture"
-198 	"" "" 1 "dispTex_channel"
-199 	"" "" 1 "dispTex_wrap"
-200 	"" "" 1 "dispTex_filter"
-201 	"" "" 1 "dispTex_filterWidth"
-202 	"" "" 1 "dispNoise_enable"
-203 	"" "" 1 "dispNoise_type"
-204 	"" "" 1 "dispNoise_freq"
-205 	"" "" 1 "dispNoise_offset"
-206 	"" "" 1 "dispNoise_amp"
-207 	"" "" 1 "dispNoise_rough"
-208 	"" "" 1 "dispNoise_atten"
-209 	"" "" 1 "dispNoise_turb"
-210 	"" "" 1 "difflabel"
-211 	"" "" 1 "refllabel"
-212 	"" "" 1 "refractlabel"
-213 	"" "" 1 "coatlabel"
-214 	"" "" 1 "ssslabel"
-215 	"" "" 1 "uvtrans"
-216 	"" "" 1 "uvrot"
-217 	"" "" 1 "uvscale"
-218 	"" "" 1 "baseN"
-219 	"" "" 1 "coatN"
-220 	"" "" 1 "disp"
-221 	"" "" 1 "vdisp"
+2 	"" "" 1 "albedomult"
+3 	"" "" 1 "basecolor_usePointColor"
+4 	"" "" 1 "basecolor_usePackedColor"
+5 	"" "" 1 "frontface"
+6 	"" "" 1 "ior"
+7 	"" "" 1 "rough"
+8 	"" "" 1 "aniso"
+9 	"" "" 1 "anisodir"
+10 	"" "" 1 "metallic"
+11 	"" "" 1 "reflect"
+12 	"" "" 1 "reflecttint"
+13 	"" "" 1 "coat"
+14 	"" "" 1 "coatrough"
+15 	"" "" 1 "transparency"
+16 	"" "" 1 "transcolor"
+17 	"" "" 1 "transdist"
+18 	"" "" 1 "dispersion"
+19 	"" "" 1 "priority"
+20 	"" "" 1 "sss"
+21 	"" "" 1 "sssmodel"
+22 	"" "" 1 "sssdist"
+23 	"" "" 1 "ssscolor"
+24 	"" "" 1 "sssphase"
+25 	"" "" 1 "sheen"
+26 	"" "" 1 "sheentint"
+27 	"" "" 1 "emitcolor"
+28 	"" "" 1 "emitint"
+29 	"" "" 1 "emitillum"
+30 	"" "" 1 "opac"
+31 	"" "" 1 "opaccolor"
+32 	"" "" 1 "fakecausticsenabled"
+33 	"" "" 1 "fakecausticstransmit"
+34 	"" "" 1 "fakecausticsshadow"
+35 	"" "" 1 "fakecausticsopacity"
+36 	"" "" 1 "basecolor_useTexture"
+37 	"" "" 1 "basecolor_texture"
+38 	"" "" 1 "basecolor_textureIntensity"
+39 	"" "" 1 "basecolor_textureWrap"
+40 	"" "" 1 "basecolor_textureColorSpace"
+41 	"" "" 1 "metallic_useTexture"
+42 	"" "" 1 "metallic_texture"
+43 	"" "" 1 "metallic_monoChannel"
+44 	"" "" 1 "metallic_textureWrap"
+45 	"" "" 1 "metallic_textureColorSpace"
+46 	"" "" 1 "transparency_useTexture"
+47 	"" "" 1 "transparency_texture"
+48 	"" "" 1 "transparency_monoChannel"
+49 	"" "" 1 "transparency_textureWrap"
+50 	"" "" 1 "transparency_textureColorSpace"
+51 	"" "" 1 "ior_useTexture"
+52 	"" "" 1 "ior_texture"
+53 	"" "" 1 "ior_monoChannel"
+54 	"" "" 1 "ior_textureWrap"
+55 	"" "" 1 "ior_textureColorSpace"
+56 	"" "" 1 "transcolor_useTexture"
+57 	"" "" 1 "transcolor_texture"
+58 	"" "" 1 "transcolor_textureIntensity"
+59 	"" "" 1 "transcolor_textureWrap"
+60 	"" "" 1 "transcolor_textureColorSpace"
+61 	"" "" 1 "transdist_useTexture"
+62 	"" "" 1 "transdist_texture"
+63 	"" "" 1 "transdist_monoChannel"
+64 	"" "" 1 "transdist_textureWrap"
+65 	"" "" 1 "transdist_textureColorSpace"
+66 	"" "" 1 "dispersion_useTexture"
+67 	"" "" 1 "dispersion_texture"
+68 	"" "" 1 "dispersion_monoChannel"
+69 	"" "" 1 "dispersion_textureWrap"
+70 	"" "" 1 "dispersion_textureColorSpace"
+71 	"" "" 1 "reflect_useTexture"
+72 	"" "" 1 "reflect_texture"
+73 	"" "" 1 "reflect_monoChannel"
+74 	"" "" 1 "reflect_textureWrap"
+75 	"" "" 1 "reflect_textureColorSpace"
+76 	"" "" 1 "reflecttint_useTexture"
+77 	"" "" 1 "reflecttint_texture"
+78 	"" "" 1 "reflecttint_monoChannel"
+79 	"" "" 1 "reflecttint_textureWrap"
+80 	"" "" 1 "reflecttint_textureColorSpace"
+81 	"" "" 1 "rough_useTexture"
+82 	"" "" 1 "rough_texture"
+83 	"" "" 1 "rough_monoChannel"
+84 	"" "" 1 "rough_textureWrap"
+85 	"" "" 1 "rough_textureColorSpace"
+86 	"" "" 1 "aniso_useTexture"
+87 	"" "" 1 "aniso_texture"
+88 	"" "" 1 "aniso_monoChannel"
+89 	"" "" 1 "aniso_textureWrap"
+90 	"" "" 1 "aniso_textureColorSpace"
+91 	"" "" 1 "anisodir_useTexture"
+92 	"" "" 1 "anisodir_texture"
+93 	"" "" 1 "anisodir_monoChannel"
+94 	"" "" 1 "anisodir_textureWrap"
+95 	"" "" 1 "anisodir_textureColorSpace"
+96 	"" "" 1 "anisodir_textureFilter"
+97 	"" "" 1 "sss_useTexture"
+98 	"" "" 1 "sss_texture"
+99 	"" "" 1 "sss_monoChannel"
+100 	"" "" 1 "sss_textureWrap"
+101 	"" "" 1 "sss_textureColorSpace"
+102 	"" "" 1 "sssdist_useTexture"
+103 	"" "" 1 "sssdist_texture"
+104 	"" "" 1 "sssdist_monoChannel"
+105 	"" "" 1 "sssdist_textureWrap"
+106 	"" "" 1 "sssdist_textureColorSpace"
+107 	"" "" 1 "ssscolor_useTexture"
+108 	"" "" 1 "ssscolor_texture"
+109 	"" "" 1 "ssscolor_textureWrap"
+110 	"" "" 1 "ssscolor_textureColorSpace"
+111 	"" "" 1 "sheen_useTexture"
+112 	"" "" 1 "sheen_texture"
+113 	"" "" 1 "sheen_monoChannel"
+114 	"" "" 1 "sheen_textureWrap"
+115 	"" "" 1 "sheen_textureColorSpace"
+116 	"" "" 1 "sheentint_useTexture"
+117 	"" "" 1 "sheentint_texture"
+118 	"" "" 1 "sheentint_monoChannel"
+119 	"" "" 1 "sheentint_textureWrap"
+120 	"" "" 1 "sheentint_textureColorSpace"
+121 	"" "" 1 "coat_useTexture"
+122 	"" "" 1 "coat_texture"
+123 	"" "" 1 "coat_monoChannel"
+124 	"" "" 1 "coat_textureWrap"
+125 	"" "" 1 "coat_textureColorSpace"
+126 	"" "" 1 "coatrough_useTexture"
+127 	"" "" 1 "coatrough_texture"
+128 	"" "" 1 "coatrough_monoChannel"
+129 	"" "" 1 "coatrough_textureWrap"
+130 	"" "" 1 "coatrough_textureColorSpace"
+131 	"" "" 1 "emitcolor_useTexture"
+132 	"" "" 1 "emitcolor_texture"
+133 	"" "" 1 "emitcolor_textureIntensity"
+134 	"" "" 1 "emitcolor_textureWrap"
+135 	"" "" 1 "emitcolor_textureColorSpace"
+136 	"" "" 1 "opaccolor_useTexture"
+137 	"" "" 1 "opaccolor_texture"
+138 	"" "" 1 "opaccolor_textureWrap"
+139 	"" "" 1 "opaccolor_textureIntensity"
+140 	"" "" 1 "opaccolor_textureColorSpace"
+141 	"" "" 1 "surface_textureFilter"
+142 	"" "" 1 "surface_textureFilterWidth"
+143 	"" "" 1 "baseBumpAndNormal_enable"
+144 	"" "" 1 "baseBumpAndNormal_type"
+145 	"" "" 1 "baseBump_colorSpace"
+146 	"" "" 1 "baseBump_bumpScale"
+147 	"" "" 1 "baseBump_bumpTexture"
+148 	"" "" 1 "baseBump_wrap"
+149 	"" "" 1 "baseBump_filter"
+150 	"" "" 1 "baseBump_filterWidth"
+151 	"" "" 1 "baseBump_channel"
+152 	"" "" 1 "baseBump_imagePlane"
+153 	"" "" 1 "baseNormal_colorspace"
+154 	"" "" 1 "baseNormal_vectorSpace"
+155 	"" "" 1 "baseNormal_scale"
+156 	"" "" 1 "baseNormal_texture"
+157 	"" "" 1 "baseNormal_wrap"
+158 	"" "" 1 "baseNormal_filter"
+159 	"" "" 1 "baseNormal_filterWidth"
+160 	"" "" 1 "baseNormal_channel"
+161 	"" "" 1 "baseNormal_imagePlane"
+162 	"" "" 1 "baseNormal_space"
+163 	"" "" 1 "baseNormal_flipX"
+164 	"" "" 1 "baseNormal_flipY"
+165 	"" "" 1 "separateCoatNormals"
+166 	"" "" 1 "coatBumpAndNormal_enable"
+167 	"" "" 1 "coatBumpAndNormal_type"
+168 	"" "" 1 "coatBump_colorSpace"
+169 	"" "" 1 "coatBump_bumpScale"
+170 	"" "" 1 "coatBump_bumpTexture"
+171 	"" "" 1 "coatBump_wrap"
+172 	"" "" 1 "coatBump_filter"
+173 	"" "" 1 "coatBump_filterWidth"
+174 	"" "" 1 "coatBump_channel"
+175 	"" "" 1 "coatBump_imagePlane"
+176 	"" "" 1 "coatNormal_colorspace"
+177 	"" "" 1 "coatNormal_vectorSpace"
+178 	"" "" 1 "coatNormal_scale"
+179 	"" "" 1 "coatNormal_texture"
+180 	"" "" 1 "coatNormal_wrap"
+181 	"" "" 1 "coatNormal_filter"
+182 	"" "" 1 "coatNormal_filterWidth"
+183 	"" "" 1 "coatNormal_channel"
+184 	"" "" 1 "coatNormal_imagePlane"
+185 	"" "" 1 "coatNormal_space"
+186 	"" "" 1 "coatNormal_flipX"
+187 	"" "" 1 "coatNormal_flipY"
+188 	"" "" 1 "dispInput_enable"
+189 	"" "" 1 "dispInput_max"
+190 	"" "" 1 "dispInput_vectorspace"
+191 	"" "" 1 "dispTex_enable"
+192 	"" "" 1 "dispTex_type"
+193 	"" "" 1 "dispTex_colorSpace"
+194 	"" "" 1 "dispTex_vectorSpace"
+195 	"" "" 1 "dispTex_channelOrder"
+196 	"" "" 1 "dispTex_offset"
+197 	"" "" 1 "dispTex_scale"
+198 	"" "" 1 "dispTex_texture"
+199 	"" "" 1 "dispTex_channel"
+200 	"" "" 1 "dispTex_wrap"
+201 	"" "" 1 "dispTex_filter"
+202 	"" "" 1 "dispTex_filterWidth"
+203 	"" "" 1 "dispNoise_enable"
+204 	"" "" 1 "dispNoise_type"
+205 	"" "" 1 "dispNoise_freq"
+206 	"" "" 1 "dispNoise_offset"
+207 	"" "" 1 "dispNoise_amp"
+208 	"" "" 1 "dispNoise_rough"
+209 	"" "" 1 "dispNoise_atten"
+210 	"" "" 1 "dispNoise_turb"
+211 	"" "" 1 "difflabel"
+212 	"" "" 1 "refllabel"
+213 	"" "" 1 "refractlabel"
+214 	"" "" 1 "coatlabel"
+215 	"" "" 1 "ssslabel"
+216 	"" "" 1 "uvtrans"
+217 	"" "" 1 "uvrot"
+218 	"" "" 1 "uvscale"
+219 	"" "" 1 "baseN"
+220 	"" "" 1 "coatN"
+221 	"" "" 1 "disp"
+222 	"" "" 1 "vdisp"
 }
 inputs
 {
@@ -1069,11 +1096,12 @@ inputs
 219 	"" 0 1
 220 	"" 0 1
 221 	"" 0 1
+222 	"" 0 1
 }
 stat
 {
   create 1496848225
-  modify 1497629664
+  modify 1534435763
   author Luiz@Luiz-PC
   access 0777
 }
@@ -1083,28 +1111,2112 @@ exprlanguage hscript
 end
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/ropnet1/rop_games_baker/objnet/matnet/plain_white.spareparmdef"
+Content-Type: text/plain
+
+    parm {
+        name    "specmodel"
+        baseparm
+        label   "OpenGL Specular Model"
+        invisible
+        export  none
+    }
+    parm {
+        name    "coatspecmodel"
+        baseparm
+        label   "OpenGL Coat Specular Model"
+        invisible
+        export  none
+    }
+    parm {
+        name    "specular_tint"
+        baseparm
+        label   "OpenGL Specular Tint"
+        invisible
+        export  none
+    }
+    group {
+        name    "diffuse_folder_16"
+        label   "Surface"
+
+        groupsimple {
+            name    "folder17"
+            label   "Basic"
+
+            parm {
+                name    "basecolor"
+                baseparm
+                label   "Base Color"
+                export  none
+            }
+            parm {
+                name    "basecolor_usePointColor"
+                baseparm
+                label   "Use Point Color"
+                export  none
+            }
+            parm {
+                name    "basecolor_usePackedColor"
+                baseparm
+                label   "Use Packed Color"
+                export  none
+            }
+            parm {
+                name    "frontface"
+                baseparm
+                label   "Shade Both Sides As Front"
+                export  none
+            }
+        }
+
+        groupsimple {
+            name    "folder18"
+            label   "Specular"
+
+            parm {
+                name    "ior"
+                baseparm
+                label   "IOR"
+                export  none
+            }
+            parm {
+                name    "rough"
+                baseparm
+                label   "Roughness"
+                export  none
+            }
+            parm {
+                name    "aniso"
+                baseparm
+                label   "Anisotropy"
+                export  none
+            }
+            parm {
+                name    "anisodir"
+                baseparm
+                label   "Anisotropy Direction"
+                export  none
+            }
+            groupsimple {
+                name    "folder19"
+                label   "Reflection"
+
+                parm {
+                    name    "metallic"
+                    baseparm
+                    label   "Metallic"
+                    export  none
+                }
+                parm {
+                    name    "reflect"
+                    baseparm
+                    label   "Reflectivity"
+                    export  none
+                }
+                parm {
+                    name    "reflecttint"
+                    baseparm
+                    label   "Reflect Tint"
+                    export  none
+                }
+                parm {
+                    name    "coat"
+                    baseparm
+                    label   "Coat"
+                    export  none
+                }
+                parm {
+                    name    "coatrough"
+                    baseparm
+                    label   "Coat Roughness"
+                    export  none
+                }
+            }
+
+            groupsimple {
+                name    "folder20"
+                label   "Transparency"
+
+                parm {
+                    name    "transparency"
+                    baseparm
+                    label   "Transparency"
+                    export  none
+                }
+                parm {
+                    name    "transcolor"
+                    baseparm
+                    label   "Transmission Color"
+                    export  none
+                }
+                parm {
+                    name    "transdist"
+                    baseparm
+                    label   "At Distance"
+                    export  none
+                }
+                parm {
+                    name    "dispersion"
+                    baseparm
+                    label   "Dispersion"
+                    export  none
+                }
+                parm {
+                    name    "priority"
+                    baseparm
+                    label   "Surface Priority"
+                    export  none
+                }
+            }
+
+        }
+
+        groupsimple {
+            name    "folder21"
+            label   "Subsurface Scattering"
+
+            parm {
+                name    "sss"
+                baseparm
+                label   "Subsurface"
+                export  none
+            }
+            parm {
+                name    "sssmodel"
+                baseparm
+                label   "SSS Mode"
+                export  none
+            }
+            parm {
+                name    "sssdist"
+                baseparm
+                label   "Subsurface Distance"
+                export  none
+            }
+            parm {
+                name    "ssscolor"
+                baseparm
+                label   "Subsurface Color"
+                export  none
+            }
+            parm {
+                name    "sssphase"
+                baseparm
+                label   "Scattering Phase"
+                export  none
+            }
+        }
+
+        groupsimple {
+            name    "folder22"
+            label   "Sheen"
+
+            parm {
+                name    "sheen"
+                baseparm
+                label   "Sheen"
+                export  none
+            }
+            parm {
+                name    "sheentint"
+                baseparm
+                label   "Sheen Tint"
+                export  none
+            }
+        }
+
+        groupsimple {
+            name    "folder23"
+            label   "Emission"
+
+            parm {
+                name    "emitcolor"
+                baseparm
+                label   "Emission Color"
+                export  none
+            }
+            parm {
+                name    "emitint"
+                baseparm
+                label   "Emission Intensity"
+                export  none
+            }
+            parm {
+                name    "emitillum"
+                baseparm
+                label   "Emission Illuminates Objects"
+                export  none
+            }
+        }
+
+    }
+
+    group {
+        name    "diffuse_folder_16_1"
+        label   "Opacity"
+
+        groupsimple {
+            name    "folder24"
+            label   "Opacity"
+
+            parm {
+                name    "opac"
+                baseparm
+                label   "Opacity Scale"
+                export  none
+            }
+            parm {
+                name    "opaccolor"
+                baseparm
+                label   "Opacity Color"
+                export  none
+            }
+            parm {
+                name    "opacpointalpha"
+                baseparm
+                label   "Use Point Alpha"
+                export  none
+            }
+            parm {
+                name    "opacpackedalpha"
+                baseparm
+                label   "Use Packed Alpha"
+                export  none
+            }
+        }
+
+        groupsimple {
+            name    "folder25"
+            label   "Fake Caustics"
+
+            parm {
+                name    "fakecausticsenabled"
+                baseparm
+                label   "Enable"
+                export  none
+            }
+            parm {
+                name    "fakecausticstransmit"
+                baseparm
+                label   "Transmission Tint"
+                export  none
+            }
+            parm {
+                name    "fakecausticsshadow"
+                baseparm
+                label   "Shadow Contour"
+                export  none
+            }
+            parm {
+                name    "fakecausticsopacity"
+                baseparm
+                label   "Shadow Opacity"
+                export  none
+            }
+        }
+
+    }
+
+    group {
+        name    "diffuse_folder_16_2"
+        label   "Textures"
+
+        groupsimple {
+            name    "folder56"
+            label   "Base Color"
+            grouptag { "group_type" "simple" }
+
+            parm {
+                name    "basecolor_useTexture"
+                baseparm
+                label   "Use Texture"
+                export  none
+            }
+            parm {
+                name    "basecolor_texture"
+                baseparm
+                label   "Texture"
+                export  none
+            }
+            parm {
+                name    "basecolor_textureIntensity"
+                baseparm
+                label   "Tint Intensity"
+                export  none
+            }
+            parm {
+                name    "basecolor_textureWrap"
+                baseparm
+                label   "Wrap"
+                export  none
+            }
+            parm {
+                name    "basecolor_textureColorSpace"
+                baseparm
+                label   "Source Color Space"
+                export  none
+            }
+        }
+
+        groupsimple {
+            name    "folder26"
+            label   "IOR"
+
+            parm {
+                name    "ior_useTexture"
+                baseparm
+                label   "Use Texture"
+                export  none
+            }
+            parm {
+                name    "ior_texture"
+                baseparm
+                label   "Texture"
+                export  none
+            }
+            parm {
+                name    "ior_monoChannel"
+                baseparm
+                label   "Channel"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "ior_textureWrap"
+                baseparm
+                label   "Wrap"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "ior_textureColorSpace"
+                baseparm
+                label   "Source Color Space"
+                export  none
+            }
+        }
+
+        groupsimple {
+            name    "folder240"
+            label   "Roughness"
+            grouptag { "group_type" "simple" }
+
+            parm {
+                name    "rough_useTexture"
+                baseparm
+                label   "Use Texture"
+                export  none
+            }
+            parm {
+                name    "rough_texture"
+                baseparm
+                label   "Texture"
+                export  none
+            }
+            parm {
+                name    "rough_monoChannel"
+                baseparm
+                label   "Channel"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "rough_textureWrap"
+                baseparm
+                label   "Wrap"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "rough_textureColorSpace"
+                baseparm
+                label   "Source Color Space"
+                export  none
+            }
+        }
+
+        groupsimple {
+            name    "folder241"
+            label   "Anisotropy"
+            grouptag { "group_type" "simple" }
+
+            parm {
+                name    "aniso_useTexture"
+                baseparm
+                label   "Use Texture"
+                export  none
+            }
+            parm {
+                name    "aniso_texture"
+                baseparm
+                label   "Texture"
+                export  none
+            }
+            parm {
+                name    "aniso_monoChannel"
+                baseparm
+                label   "Channel"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "aniso_textureWrap"
+                baseparm
+                label   "Wrap"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "aniso_textureColorSpace"
+                baseparm
+                label   "Source Color Space"
+                export  none
+            }
+        }
+
+        groupsimple {
+            name    "folder242"
+            label   "Anisotropy Direction"
+            grouptag { "group_type" "simple" }
+
+            parm {
+                name    "anisodir_useTexture"
+                baseparm
+                label   "Use Texture"
+                export  none
+            }
+            parm {
+                name    "anisodir_texture"
+                baseparm
+                label   "Texture"
+                export  none
+            }
+            parm {
+                name    "anisodir_monoChannel"
+                baseparm
+                label   "Channel"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "anisodir_textureWrap"
+                baseparm
+                label   "Wrap"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "anisodir_textureColorSpace"
+                baseparm
+                label   "Source Color Space"
+                export  none
+            }
+            parm {
+                name    "anisodir_textureFilter"
+                baseparm
+                label   "Filter Type"
+                export  none
+            }
+        }
+
+        groupsimple {
+            name    "folder57"
+            label   "Metallic"
+            grouptag { "group_type" "simple" }
+
+            parm {
+                name    "metallic_useTexture"
+                baseparm
+                label   "Use Texture"
+                export  none
+            }
+            parm {
+                name    "metallic_texture"
+                baseparm
+                label   "Texture"
+                export  none
+            }
+            parm {
+                name    "metallic_monoChannel"
+                baseparm
+                label   "Channel"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "metallic_textureWrap"
+                baseparm
+                label   "Wrap"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "metallic_textureColorSpace"
+                baseparm
+                label   "Source Color Space"
+                export  none
+            }
+        }
+
+        groupsimple {
+            name    "folder27"
+            label   "Reflectivity"
+
+            parm {
+                name    "reflect_useTexture"
+                baseparm
+                label   "Use Texture"
+                export  none
+            }
+            parm {
+                name    "reflect_texture"
+                baseparm
+                label   "Texture"
+                export  none
+            }
+            parm {
+                name    "reflect_monoChannel"
+                baseparm
+                label   "Channel"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "reflect_textureWrap"
+                baseparm
+                label   "Wrap"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "reflect_textureColorSpace"
+                baseparm
+                label   "Source Color Space"
+                export  none
+            }
+        }
+
+        groupsimple {
+            name    "folder243"
+            label   "Reflect Tint"
+            grouptag { "group_type" "simple" }
+
+            parm {
+                name    "reflecttint_useTexture"
+                baseparm
+                label   "Use Texture"
+                export  none
+            }
+            parm {
+                name    "reflecttint_texture"
+                baseparm
+                label   "Texture"
+                export  none
+            }
+            parm {
+                name    "reflecttint_monoChannel"
+                baseparm
+                label   "Channel"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "reflecttint_textureWrap"
+                baseparm
+                label   "Wrap"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "reflecttint_textureColorSpace"
+                baseparm
+                label   "Source Color Space"
+                export  none
+            }
+        }
+
+        groupsimple {
+            name    "folder244"
+            label   "Coat"
+            grouptag { "group_type" "simple" }
+
+            parm {
+                name    "coat_useTexture"
+                baseparm
+                label   "Use Texture"
+                export  none
+            }
+            parm {
+                name    "coat_texture"
+                baseparm
+                label   "Texture"
+                export  none
+            }
+            parm {
+                name    "coat_monoChannel"
+                baseparm
+                label   "Channel"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "coat_textureWrap"
+                baseparm
+                label   "Wrap"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "coat_textureColorSpace"
+                baseparm
+                label   "Source Color Space"
+                export  none
+            }
+        }
+
+        groupsimple {
+            name    "folder245"
+            label   "Coat Roughness"
+            grouptag { "group_type" "simple" }
+
+            parm {
+                name    "coatrough_useTexture"
+                baseparm
+                label   "Use Texture"
+                export  none
+            }
+            parm {
+                name    "coatrough_texture"
+                baseparm
+                label   "Texture"
+                export  none
+            }
+            parm {
+                name    "coatrough_monoChannel"
+                baseparm
+                label   "Channel"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "coatrough_textureWrap"
+                baseparm
+                label   "Wrap"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "coatrough_textureColorSpace"
+                baseparm
+                label   "Source Color Space"
+                export  none
+            }
+        }
+
+        groupsimple {
+            name    "folder28"
+            label   "Transparency"
+
+            parm {
+                name    "transparency_useTexture"
+                baseparm
+                label   "Use Texture"
+                export  none
+            }
+            parm {
+                name    "transparency_texture"
+                baseparm
+                label   "Texture"
+                export  none
+            }
+            parm {
+                name    "transparency_monoChannel"
+                baseparm
+                label   "Channel"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "transparency_textureWrap"
+                baseparm
+                label   "Wrap"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "transparency_textureColorSpace"
+                baseparm
+                label   "Source Color Space"
+                export  none
+            }
+        }
+
+        groupsimple {
+            name    "folder29"
+            label   "Transmission Color"
+
+            parm {
+                name    "transcolor_useTexture"
+                baseparm
+                label   "Use Texture"
+                export  none
+            }
+            parm {
+                name    "transcolor_texture"
+                baseparm
+                label   "Texture"
+                export  none
+            }
+            parm {
+                name    "transcolor_textureIntensity"
+                baseparm
+                label   "Tint Intensity"
+                export  none
+            }
+            parm {
+                name    "transcolor_textureWrap"
+                baseparm
+                label   "Wrap"
+                export  none
+            }
+            parm {
+                name    "transcolor_textureColorSpace"
+                baseparm
+                label   "Source Color Space"
+                export  none
+            }
+        }
+
+        groupsimple {
+            name    "folder5_3"
+            label   "At Distance"
+
+            parm {
+                name    "transdist_useTexture"
+                baseparm
+                label   "Use Texture"
+                export  none
+            }
+            parm {
+                name    "transdist_texture"
+                baseparm
+                label   "Texture"
+                export  none
+            }
+            parm {
+                name    "transdist_monoChannel"
+                baseparm
+                label   "Channel"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "transdist_textureWrap"
+                baseparm
+                label   "Wrap"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "transdist_textureColorSpace"
+                baseparm
+                label   "Source Color Space"
+                export  none
+            }
+        }
+
+        groupsimple {
+            name    "folder5_4"
+            label   "Dispersion"
+
+            parm {
+                name    "dispersion_useTexture"
+                baseparm
+                label   "Use Texture"
+                export  none
+            }
+            parm {
+                name    "dispersion_texture"
+                baseparm
+                label   "Texture"
+                export  none
+            }
+            parm {
+                name    "dispersion_monoChannel"
+                baseparm
+                label   "Channel"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "dispersion_textureWrap"
+                baseparm
+                label   "Wrap"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "dispersion_textureColorSpace"
+                baseparm
+                label   "Source Color Space"
+                export  none
+            }
+        }
+
+        groupsimple {
+            name    "folder246"
+            label   "Subsurface"
+            grouptag { "group_type" "simple" }
+
+            parm {
+                name    "sss_useTexture"
+                baseparm
+                label   "Use Texture"
+                export  none
+            }
+            parm {
+                name    "sss_texture"
+                baseparm
+                label   "Texture"
+                export  none
+            }
+            parm {
+                name    "sss_monoChannel"
+                baseparm
+                label   "Channel"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "sss_textureWrap"
+                baseparm
+                label   "Wrap"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "sss_textureColorSpace"
+                baseparm
+                label   "Source Color Space"
+                export  none
+            }
+        }
+
+        groupsimple {
+            name    "folder30"
+            label   "Subsurface Scattering Distance"
+
+            parm {
+                name    "sssdist_useTexture"
+                baseparm
+                label   "Use Texture"
+                export  none
+            }
+            parm {
+                name    "sssdist_texture"
+                baseparm
+                label   "Texture"
+                export  none
+            }
+            parm {
+                name    "sssdist_monoChannel"
+                baseparm
+                label   "Channel"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "sssdist_textureWrap"
+                baseparm
+                label   "Wrap"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "sssdist_textureColorSpace"
+                baseparm
+                label   "Source Color Space"
+                export  none
+            }
+        }
+
+        groupsimple {
+            name    "folder3_2"
+            label   "Subsurface Color"
+
+            parm {
+                name    "ssscolor_useTexture"
+                baseparm
+                label   "Use Texture"
+                export  none
+            }
+            parm {
+                name    "ssscolor_texture"
+                baseparm
+                label   "Texture"
+                export  none
+            }
+            parm {
+                name    "ssscolor_textureWrap"
+                baseparm
+                label   "Wrap"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "ssscolor_textureColorSpace"
+                baseparm
+                label   "Source Color Space"
+                export  none
+            }
+        }
+
+        groupsimple {
+            name    "folder247"
+            label   "Sheen"
+            grouptag { "group_type" "simple" }
+
+            parm {
+                name    "sheen_useTexture"
+                baseparm
+                label   "Use Texture"
+                export  none
+            }
+            parm {
+                name    "sheen_texture"
+                baseparm
+                label   "Texture"
+                export  none
+            }
+            parm {
+                name    "sheen_monoChannel"
+                baseparm
+                label   "Channel"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "sheen_textureWrap"
+                baseparm
+                label   "Wrap"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "sheen_textureColorSpace"
+                baseparm
+                label   "Source Color Space"
+                export  none
+            }
+        }
+
+        groupsimple {
+            name    "folder248"
+            label   "Sheen Tint"
+            grouptag { "group_type" "simple" }
+
+            parm {
+                name    "sheentint_useTexture"
+                baseparm
+                label   "Use Texture"
+                export  none
+            }
+            parm {
+                name    "sheentint_texture"
+                baseparm
+                label   "Map"
+                export  none
+            }
+            parm {
+                name    "sheentint_monoChannel"
+                baseparm
+                label   "Channel"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "sheentint_textureWrap"
+                baseparm
+                label   "Wrap"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "sheentint_textureColorSpace"
+                baseparm
+                label   "Source Color Space"
+                export  none
+            }
+        }
+
+        groupsimple {
+            name    "diffuse_folder_14_4"
+            label   "Emission"
+
+            parm {
+                name    "emitcolor_useTexture"
+                baseparm
+                label   "Use Texture"
+                export  none
+            }
+            parm {
+                name    "emitcolor_texture"
+                baseparm
+                label   "Texture"
+                export  none
+            }
+            parm {
+                name    "emitcolor_textureIntensity"
+                baseparm
+                label   "Tint Intensity"
+                export  none
+            }
+            parm {
+                name    "emitcolor_textureWrap"
+                baseparm
+                label   "Wrap"
+                export  none
+            }
+            parm {
+                name    "emitcolor_textureColorSpace"
+                baseparm
+                label   "Source Color Space"
+                export  none
+            }
+        }
+
+        groupsimple {
+            name    "folder31"
+            label   "Opacity"
+
+            parm {
+                name    "opaccolor_useTexture"
+                baseparm
+                label   "Use Texture"
+                export  none
+            }
+            parm {
+                name    "opaccolor_texture"
+                baseparm
+                label   "Texture"
+                export  none
+            }
+            parm {
+                name    "opaccolor_textureWrap"
+                baseparm
+                label   "Wrap"
+                export  none
+            }
+            parm {
+                name    "opaccolor_textureIntensity"
+                baseparm
+                label   "Tint Intensity"
+                export  none
+            }
+            parm {
+                name    "opaccolor_textureColorSpace"
+                baseparm
+                label   "Source Color Space"
+                export  none
+            }
+        }
+
+        groupsimple {
+            name    "folder249"
+            label   "Sampling"
+            grouptag { "group_type" "simple" }
+
+            parm {
+                name    "surface_textureFilter"
+                baseparm
+                label   "Filter"
+                export  none
+            }
+            parm {
+                name    "surface_textureFilterWidth"
+                baseparm
+                label   "Filter Width"
+                export  none
+            }
+        }
+
+    }
+
+    group {
+        name    "diffuse_folder_16_3"
+        label   "Bump & Normals"
+
+        parm {
+            name    "roundedEdge_enable"
+            baseparm
+            label   "roundedEdge_enable"
+            nolabel
+            joinnext
+            export  none
+        }
+        parm {
+            name    "roundedEdge_radius"
+            baseparm
+            label   "Round Edge Radius"
+            joinnext
+            export  none
+        }
+        parm {
+            name    "roundedEdge_mode"
+            baseparm
+            label   "Round Edge Mode"
+            nolabel
+            export  none
+        }
+        group {
+            name    "shading_17"
+            label   "Base"
+
+            parm {
+                name    "baseBumpAndNormal_enable"
+                baseparm
+                label   "Enable"
+                export  none
+            }
+            parm {
+                name    "baseBumpAndNormal_type"
+                baseparm
+                label   "Texture Type"
+                export  none
+            }
+            parm {
+                name    "baseBump_colorSpace"
+                baseparm
+                label   "Texture Color Space"
+                export  none
+            }
+            parm {
+                name    "baseBump_bumpScale"
+                baseparm
+                label   "Effect Scale"
+                export  none
+            }
+            parm {
+                name    "baseBump_bumpTexture"
+                baseparm
+                label   "Texture Path"
+                export  none
+            }
+            parm {
+                name    "baseBump_wrap"
+                baseparm
+                label   "Wrap"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "baseBump_filter"
+                baseparm
+                label   "Filter"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "baseBump_filterWidth"
+                baseparm
+                label   "Filter Width"
+                export  none
+            }
+            parm {
+                name    "baseBump_channel"
+                baseparm
+                label   "Channel"
+                export  none
+            }
+            parm {
+                name    "baseBump_imagePlane"
+                baseparm
+                label   "Image Plane"
+                export  none
+            }
+            parm {
+                name    "baseNormal_colorspace"
+                baseparm
+                label   "Texture Color Space"
+                export  none
+            }
+            parm {
+                name    "baseNormal_vectorSpace"
+                baseparm
+                label   "Vector Space"
+                export  none
+            }
+            parm {
+                name    "baseNormal_scale"
+                baseparm
+                label   "Effect Scale"
+                export  none
+            }
+            parm {
+                name    "baseNormal_texture"
+                baseparm
+                label   "Texture Path"
+                export  none
+            }
+            parm {
+                name    "baseNormal_wrap"
+                baseparm
+                label   "Wrap"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "baseNormal_filter"
+                baseparm
+                label   "Filter"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "baseNormal_filterWidth"
+                baseparm
+                label   "Filter Width"
+                export  none
+            }
+            parm {
+                name    "baseNormal_channel"
+                baseparm
+                label   "Channel"
+                export  none
+            }
+            parm {
+                name    "baseNormal_imagePlane"
+                baseparm
+                label   "Image Plane"
+                export  none
+            }
+            parm {
+                name    "baseNormal_space"
+                baseparm
+                label   "Normal Space"
+                export  none
+            }
+            parm {
+                name    "baseNormal_flipX"
+                baseparm
+                label   "Flip X"
+                export  none
+            }
+            parm {
+                name    "baseNormal_flipY"
+                baseparm
+                label   "Flip Y"
+                export  none
+            }
+            parm {
+                name    "baseBump_useTexture"
+                baseparm
+                label   "OpenGL Use Bump Texture"
+                invisible
+                export  none
+            }
+            parm {
+                name    "baseNormal_useTexture"
+                baseparm
+                label   "OpenGL Use Normal Texture"
+                invisible
+                export  none
+            }
+        }
+
+        group {
+            name    "shading_17_1"
+            label   "Coat"
+
+            parm {
+                name    "separateCoatNormals"
+                baseparm
+                label   "Separate Coat Normals"
+                export  none
+            }
+            parm {
+                name    "coatBumpAndNormal_enable"
+                baseparm
+                label   "Enable"
+                export  none
+            }
+            parm {
+                name    "coatBumpAndNormal_type"
+                baseparm
+                label   "Texture Type"
+                export  none
+            }
+            parm {
+                name    "coatBump_colorSpace"
+                baseparm
+                label   "Texture Color Space"
+                export  none
+            }
+            parm {
+                name    "coatBump_bumpScale"
+                baseparm
+                label   "Effect Scale"
+                export  none
+            }
+            parm {
+                name    "coatBump_bumpTexture"
+                baseparm
+                label   "Texture Path"
+                export  none
+            }
+            parm {
+                name    "coatBump_wrap"
+                baseparm
+                label   "Wrap"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "coatBump_filter"
+                baseparm
+                label   "Filter"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "coatBump_filterWidth"
+                baseparm
+                label   "Filter Width"
+                export  none
+            }
+            parm {
+                name    "coatBump_channel"
+                baseparm
+                label   "Channel"
+                export  none
+            }
+            parm {
+                name    "coatBump_imagePlane"
+                baseparm
+                label   "Image Plane"
+                export  none
+            }
+            parm {
+                name    "coatNormal_colorspace"
+                baseparm
+                label   "Texture Color Space"
+                export  none
+            }
+            parm {
+                name    "coatNormal_vectorSpace"
+                baseparm
+                label   "Vector Space"
+                export  none
+            }
+            parm {
+                name    "coatNormal_scale"
+                baseparm
+                label   "Effect Scale"
+                export  none
+            }
+            parm {
+                name    "coatNormal_texture"
+                baseparm
+                label   "Texture Path"
+                export  none
+            }
+            parm {
+                name    "coatNormal_wrap"
+                baseparm
+                label   "Wrap"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "coatNormal_filter"
+                baseparm
+                label   "Filter"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "coatNormal_filterWidth"
+                baseparm
+                label   "Filter Width"
+                export  none
+            }
+            parm {
+                name    "coatNormal_channel"
+                baseparm
+                label   "Channel"
+                export  none
+            }
+            parm {
+                name    "coatNormal_imagePlane"
+                baseparm
+                label   "Image Plane"
+                export  none
+            }
+            parm {
+                name    "coatNormal_space"
+                baseparm
+                label   "Normal Space"
+                export  none
+            }
+            parm {
+                name    "coatNormal_flipX"
+                baseparm
+                label   "Flip X"
+                export  none
+            }
+            parm {
+                name    "coatNormal_flipY"
+                baseparm
+                label   "Flip Y"
+                export  none
+            }
+        }
+
+    }
+
+    group {
+        name    "diffuse_folder_16_4"
+        label   "Displacement"
+
+        parm {
+            name    "shop_disable_displace_shader"
+            baseparm
+            label   "Disable Displace Shader"
+            invisible
+            export  none
+        }
+        groupsimple {
+            name    "folder250"
+            label   "General"
+            grouptag { "group_type" "simple" }
+
+            parm {
+                name    "vm_displacebound"
+                baseparm
+                label   "Displacement Bound"
+                export  none
+            }
+            parm {
+                name    "vm_truedisplace"
+                baseparm
+                label   "True Displacements"
+                export  none
+            }
+            parm {
+                name    "vm_bumpraydisplace"
+                baseparm
+                label   "Add Bump To Ray Traced Displacements"
+                export  none
+            }
+        }
+
+        groupsimple {
+            name    "folder32"
+            label   "Custom Input"
+
+            parm {
+                name    "dispInput_enable"
+                baseparm
+                label   "Enable Input Displacement"
+                export  none
+            }
+            parm {
+                name    "dispInput_max"
+                baseparm
+                label   "Maximum Displacement"
+                export  none
+            }
+            parm {
+                name    "dispInput_vectorspace"
+                baseparm
+                label   "Vector Space"
+                export  none
+            }
+        }
+
+        groupsimple {
+            name    "folder251"
+            label   "Texture"
+            hidewhentab "{ enableDispMap == 0 }"
+            grouptag { "group_type" "simple" }
+
+            parm {
+                name    "dispTex_enable"
+                baseparm
+                label   "Enable Texture Displacement"
+                export  none
+            }
+            parm {
+                name    "dispTex_type"
+                baseparm
+                label   "Texture Type"
+                export  none
+            }
+            parm {
+                name    "dispTex_colorSpace"
+                baseparm
+                label   "Texture Color Space"
+                export  none
+            }
+            parm {
+                name    "dispTex_vectorSpace"
+                baseparm
+                label   "Vector Space"
+                export  none
+            }
+            parm {
+                name    "dispTex_channelOrder"
+                baseparm
+                label   "Channel Order"
+                export  none
+            }
+            parm {
+                name    "dispTex_offset"
+                baseparm
+                label   "Offset"
+                export  none
+            }
+            parm {
+                name    "dispTex_scale"
+                baseparm
+                label   "Effect Scale"
+                export  none
+            }
+            parm {
+                name    "dispTex_texture"
+                baseparm
+                label   "Texture Path"
+                export  none
+            }
+            parm {
+                name    "dispTex_channel"
+                baseparm
+                label   "Channel"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "dispTex_wrap"
+                baseparm
+                label   "Wrap"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "dispTex_filter"
+                baseparm
+                label   "Filter"
+                export  none
+            }
+            parm {
+                name    "dispTex_filterWidth"
+                baseparm
+                label   "Filter Width"
+                export  none
+            }
+        }
+
+        groupsimple {
+            name    "folder252"
+            label   "Noise"
+            hidewhentab "{ enableNoise == 0 }"
+            grouptag { "group_type" "simple" }
+
+            parm {
+                name    "dispNoise_enable"
+                baseparm
+                label   "Enable Noise Displacement"
+                export  none
+            }
+            parm {
+                name    "dispNoise_type"
+                baseparm
+                label   "Noise Type"
+                export  none
+            }
+            parm {
+                name    "dispNoise_freq"
+                baseparm
+                label   "Frequency"
+                export  none
+            }
+            parm {
+                name    "dispNoise_offset"
+                baseparm
+                label   "Offset"
+                export  none
+            }
+            parm {
+                name    "dispNoise_amp"
+                baseparm
+                label   "Amplitude"
+                export  none
+            }
+            parm {
+                name    "dispNoise_rough"
+                baseparm
+                label   "Roughness"
+                export  none
+            }
+            parm {
+                name    "dispNoise_atten"
+                baseparm
+                label   "Attenuation"
+                export  none
+            }
+            parm {
+                name    "dispNoise_turb"
+                baseparm
+                label   "Turbulence"
+                export  none
+            }
+        }
+
+    }
+
+    group {
+        name    "diffuse_folder_16_5"
+        label   "Settings"
+
+        groupsimple {
+            name    "folder253"
+            label   "Component Labels"
+            grouptag { "group_type" "simple" }
+
+            parm {
+                name    "difflabel"
+                baseparm
+                label   "Diffuse"
+                export  none
+            }
+            parm {
+                name    "refllabel"
+                baseparm
+                label   "Reflection"
+                export  none
+            }
+            parm {
+                name    "refractlabel"
+                baseparm
+                label   "Refraction"
+                export  none
+            }
+            parm {
+                name    "coatlabel"
+                baseparm
+                label   "Coat Reflection"
+                export  none
+            }
+            parm {
+                name    "ssslabel"
+                baseparm
+                label   "Subsurface"
+                export  none
+            }
+        }
+
+        groupsimple {
+            name    "folder33"
+            label   "UV"
+
+            parm {
+                name    "uvtrans"
+                baseparm
+                label   "Translate"
+                export  none
+            }
+            parm {
+                name    "uvrot"
+                baseparm
+                label   "Rotate"
+                export  none
+            }
+            parm {
+                name    "uvscale"
+                baseparm
+                label   "Scale"
+                export  none
+            }
+        }
+
+    }
+
+    parm {
+        name    "Cd"
+        baseparm
+        label   "Attribute Color"
+        invisible
+        export  none
+    }
+    parm {
+        name    "Alpha"
+        baseparm
+        label   "Attribute Alpha"
+        invisible
+        export  none
+    }
+    parm {
+        name    "layer"
+        baseparm
+        label   "layer"
+        invisible
+        export  none
+    }
+    parm {
+        name    "direct"
+        baseparm
+        label   "direct"
+        invisible
+        export  none
+    }
+    parm {
+        name    "indirect"
+        baseparm
+        label   "indirect"
+        invisible
+        export  none
+    }
+    parm {
+        name    "Ce"
+        baseparm
+        label   "Ce"
+        invisible
+        export  none
+    }
+    parm {
+        name    "direct_emission"
+        baseparm
+        label   "direct_emission"
+        invisible
+        export  none
+    }
+    parm {
+        name    "all_emission"
+        baseparm
+        label   "all_emission"
+        invisible
+        export  none
+    }
+    parm {
+        name    "all"
+        baseparm
+        label   "all"
+        invisible
+        export  none
+    }
+    parm {
+        name    "indirect_emission"
+        baseparm
+        label   "indirect_emission"
+        invisible
+        export  none
+    }
+    parm {
+        name    "direct_comp"
+        baseparm
+        label   "direct_comp"
+        invisible
+        export  none
+    }
+    parm {
+        name    "indirect_comp"
+        baseparm
+        label   "indirect_comp"
+        invisible
+        export  none
+    }
+    parm {
+        name    "all_comp"
+        baseparm
+        label   "all_comp"
+        invisible
+        export  none
+    }
+    parm {
+        name    "direct_noshadow"
+        baseparm
+        label   "direct_noshadow"
+        invisible
+        export  none
+    }
+    parm {
+        name    "direct_shadow"
+        baseparm
+        label   "direct_shadow"
+        invisible
+        export  none
+    }
+    parm {
+        name    "indirect_noshadow"
+        baseparm
+        label   "indirect_noshadow"
+        invisible
+        export  none
+    }
+    parm {
+        name    "indirect_shadow"
+        baseparm
+        label   "indirect_shadow"
+        invisible
+        export  none
+    }
+    parm {
+        name    "level"
+        baseparm
+        label   "level"
+        invisible
+        export  none
+    }
+    parm {
+        name    "diffuselevel"
+        baseparm
+        label   "diffuselevel"
+        invisible
+        export  none
+    }
+    parm {
+        name    "specularlevel"
+        baseparm
+        label   "specularlevel"
+        invisible
+        export  none
+    }
+    parm {
+        name    "volumelevel"
+        baseparm
+        label   "volumelevel"
+        invisible
+        export  none
+    }
+    parm {
+        name    "direct_samples"
+        baseparm
+        label   "direct_samples"
+        invisible
+        export  none
+    }
+    parm {
+        name    "indirect_samples"
+        baseparm
+        label   "indirect_samples"
+        invisible
+        export  none
+    }
+    parm {
+        name    "nlights"
+        baseparm
+        label   "nlights"
+        invisible
+        export  none
+    }
+    parm {
+        name    "direct_noshadow_comp"
+        baseparm
+        label   "direct_noshadow_comp"
+        invisible
+        export  none
+    }
+    parm {
+        name    "indirect_noshadow_comp"
+        baseparm
+        label   "indirect_noshadow_comp"
+        invisible
+        export  none
+    }
+    parm {
+        name    "nddispersion"
+        baseparm
+        label   "nddispersion"
+        invisible
+        export  none
+    }
+    parm {
+        name    "ndpriority"
+        baseparm
+        label   "ndpriority"
+        invisible
+        export  none
+    }
+    parm {
+        name    "ndior"
+        baseparm
+        label   "ndior"
+        invisible
+        export  none
+    }
+    parm {
+        name    "absorption"
+        baseparm
+        label   "absorption"
+        invisible
+        export  none
+    }
+    parm {
+        name    "Oc"
+        baseparm
+        label   "Oc"
+        invisible
+        export  none
+    }
+    parm {
+        name    "Cv"
+        baseparm
+        label   "Cv"
+        invisible
+        export  none
+    }
+    parm {
+        name    "Th"
+        baseparm
+        label   "Th"
+        invisible
+        export  none
+    }
+    parm {
+        name    "Ab"
+        baseparm
+        label   "Ab"
+        invisible
+        export  none
+    }
+    parm {
+        name    "Cu"
+        baseparm
+        label   "Cu"
+        invisible
+        export  none
+    }
+    parm {
+        name    "Vd"
+        baseparm
+        label   "Vd"
+        invisible
+        export  none
+    }
+    parm {
+        name    "Nt"
+        baseparm
+        label   "Nt"
+        invisible
+        export  none
+    }
+    parm {
+        name    "Ds"
+        baseparm
+        label   "Ds"
+        invisible
+        export  none
+    }
+    parm {
+        name    "pre_disp_P"
+        baseparm
+        label   "pre_disp_P"
+        invisible
+        export  none
+    }
+    parm {
+        name    "pre_disp_utan"
+        baseparm
+        label   "pre_disp_utan"
+        invisible
+        export  none
+    }
+    parm {
+        name    "pre_disp_vtan"
+        baseparm
+        label   "pre_disp_vtan"
+        invisible
+        export  none
+    }
+    parm {
+        name    "pre_disp_N"
+        baseparm
+        label   "pre_disp_N"
+        invisible
+        export  none
+    }
+    parm {
+        name    "disp"
+        baseparm
+        label   "Normal Displacement"
+        invisible
+        export  none
+    }
+    parm {
+        name    "vdisp"
+        baseparm
+        label   "Vector Displacement"
+        invisible
+        export  none
+    }
+    parm {
+        name    "Dt"
+        baseparm
+        label   "Dt"
+        invisible
+        export  none
+    }
+    parm {
+        name    "Vdt"
+        baseparm
+        label   "Vdt"
+        invisible
+        export  none
+    }
+    parm {
+        name    "baseN"
+        baseparm
+        label   "baseN"
+        invisible
+        export  none
+    }
+    parm {
+        name    "coatN"
+        baseparm
+        label   "coatN"
+        invisible
+        export  none
+    }
+    parm {
+        name    "speccolorr"
+        label   "speccolorr"
+        type    float
+        default { "0" }
+        range   { 0 10 }
+    }
+    parm {
+        name    "speccolorg"
+        label   "speccolorg"
+        type    float
+        default { "0" }
+        range   { 0 10 }
+    }
+    parm {
+        name    "speccolorb"
+        label   "speccolorb"
+        type    float
+        default { "0" }
+        range   { 0 10 }
+    }
+    parm {
+        name    "albedomult"
+        baseparm
+        label   "Albedo Multiplier"
+        export  none
+    }
+    parm {
+        name    "speccolor"
+        baseparm
+        label   "Specular Color"
+        invisible
+        export  none
+    }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/ropnet1/rop_games_baker/objnet/matnet/plain_white.chn"
 Content-Type: text/plain
 
 {
-    channel speccolorr {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"basecolorr\") }
-    }
-    channel speccolorg {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"basecolorg\") }
-    }
-    channel speccolorb {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"basecolorb\") }
-    }
     channel specular_tint {
       lefttype = extend
       righttype = extend
@@ -1135,6 +3247,24 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = "1.01*ch(\"dispInput_enable\")*ch(\"dispInput_max\") + ch(\"dispTex_enable\")*max(abs((1.0+ch(\"dispTex_offset\"))*ch(\"dispTex_scale\")), abs(ch(\"dispTex_offset\")*ch(\"dispTex_scale\"))) + ch(\"dispNoise_enable\")*abs(ch(\"dispNoise_amp\"))" }
     }
+    channel speccolorr {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"basecolorr\") }
+    }
+    channel speccolorg {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"basecolorg\") }
+    }
+    channel speccolorb {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"basecolorb\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1145,11 +3275,11 @@ Content-Type: text/plain
 version 0.8
 specmodel	[ 0	locks=0 ]	(	ggx	)
 coatspecmodel	[ 0	locks=0 ]	(	ggx	)
-speccolor	[ 0	locks=0 ]	(	[ speccolorr	1 ] 	[ speccolorg	1 ] 	[ speccolorb	1 ] 	)
 specular_tint	[ 0	locks=0 ]	(	[ specular_tint	0 ] 	)
 diffuse_folder_15	[ 0	locks=0 ]	(	0	0	0	0	0	0	)
 folder7	[ 0	locks=0 ]	(	0	)
 basecolor	[ 0	locks=0 ]	(	1	1	1	)
+albedomult	[ 0	locks=0 ]	(	1	)
 basecolor_usePointColor	[ 0	locks=0 ]	(	"on"	)
 basecolor_usePackedColor	[ 0	locks=0 ]	(	"off"	)
 frontface	[ 0	locks=0 ]	(	"on"	)
@@ -1462,6 +3592,49 @@ Dt	[ 0	locks=0 ]	(	0	0	0	)
 Vdt	[ 0	locks=0 ]	(	0	0	0	)
 baseN	[ 0	locks=0 ]	(	0	0	0	)
 coatN	[ 0	locks=0 ]	(	0	0	0	)
+speccolor	[ 0	locks=0 ]	(	[ speccolorr	1 ] 	[ speccolorg	1 ] 	[ speccolorb	1 ] 	)
+diffuse_folder_16	[ 0	locks=0 ]	(	0	0	0	0	0	0	)
+folder17	[ 0	locks=0 ]	(	0	)
+folder18	[ 0	locks=0 ]	(	0	)
+folder19	[ 0	locks=0 ]	(	0	)
+folder20	[ 0	locks=0 ]	(	0	)
+folder21	[ 0	locks=0 ]	(	0	)
+folder22	[ 0	locks=0 ]	(	0	)
+folder23	[ 0	locks=0 ]	(	0	)
+folder24	[ 0	locks=0 ]	(	0	)
+folder25	[ 0	locks=0 ]	(	0	)
+folder56	[ 0	locks=0 ]	(	0	)
+folder26	[ 0	locks=0 ]	(	0	)
+folder240	[ 0	locks=0 ]	(	0	)
+folder241	[ 0	locks=0 ]	(	0	)
+folder242	[ 0	locks=0 ]	(	0	)
+folder57	[ 0	locks=0 ]	(	0	)
+folder27	[ 0	locks=0 ]	(	0	)
+folder243	[ 0	locks=0 ]	(	0	)
+folder244	[ 0	locks=0 ]	(	0	)
+folder245	[ 0	locks=0 ]	(	0	)
+folder28	[ 0	locks=0 ]	(	0	)
+folder29	[ 0	locks=0 ]	(	0	)
+folder5_3	[ 0	locks=0 ]	(	0	)
+folder5_4	[ 0	locks=0 ]	(	0	)
+folder246	[ 0	locks=0 ]	(	0	)
+folder30	[ 0	locks=0 ]	(	0	)
+folder3_2	[ 0	locks=0 ]	(	0	)
+folder247	[ 0	locks=0 ]	(	0	)
+folder248	[ 0	locks=0 ]	(	0	)
+diffuse_folder_14_4	[ 0	locks=0 ]	(	0	)
+folder31	[ 0	locks=0 ]	(	0	)
+folder249	[ 0	locks=0 ]	(	0	)
+shading_17	[ 0	locks=0 ]	(	0	0	)
+folder250	[ 0	locks=0 ]	(	0	)
+folder32	[ 0	locks=0 ]	(	0	)
+folder251	[ 0	locks=0 ]	(	0	)
+folder252	[ 0	locks=0 ]	(	0	)
+folder253	[ 0	locks=0 ]	(	0	)
+folder33	[ 0	locks=0 ]	(	0	)
+speccolorr	[ 0	locks=0 ]	(	[ speccolorr	0 ] 	)
+speccolorg	[ 0	locks=0 ]	(	[ speccolorg	0 ] 	)
+speccolorb	[ 0	locks=0 ]	(	[ speccolorb	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1536,7 +3709,7 @@ inputs
 stat
 {
   create 1496780581
-  modify 1512055948
+  modify 1534435763
   author Luiz@Luiz-PC
   access 0777
 }
@@ -2264,7 +4437,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.565"
+		"value":"17.5.229"
 	}
 }
 
@@ -2299,7 +4472,7 @@ inputs
 stat
 {
   create 1496867646
-  modify 1504556123
+  modify 1534435763
   author Luiz@Luiz-PC
   access 0777
 }
@@ -2515,18 +4688,259 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/matnet1.init"
+Content-Disposition: attachment; filename="hdaroot/color1.init"
 Content-Type: text/plain
 
-type = matnet
-matchesdef = 0
+type = color
+matchesdef = 1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/matnet1.def"
+Content-Disposition: attachment; filename="hdaroot/color1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -0.00852317 2.92507
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	LOW 1 1 "input1"
+}
+inputs
+{
+0 	LOW 0 1
+}
+stat
+{
+  create 1539887222
+  modify 1543279149
+  author MAINGEAR@DESKTOP-P98C1VA
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/color1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+group	[ 0	locks=0 ]	(	""	)
+grouptype	[ 0	locks=0 ]	(	"guess"	)
+deleteallcolorattribs	[ 0	locks=0 ]	(	"off"	)
+class	[ 0	locks=0 ]	(	2	)
+colortype	[ 0	locks=0 ]	(	0	)
+color	[ 0	locks=0 ]	(	1	1	1	)
+seed	[ 0	locks=0 ]	(	0	)
+rampattribute	[ 0	locks=0 ]	(	""	)
+ramprange	[ 0	locks=0 ]	(	0	1	)
+ramp	[ 0	locks=0 ]	(	2	)
+ramp1pos	[ 0	locks=0 ]	(	0	)
+ramp1c	[ 0	locks=0 ]	(	0	0	0	)
+ramp1interp	[ 0	locks=0 ]	(	"linear"	)
+ramp2pos	[ 0	locks=0 ]	(	1	)
+ramp2c	[ 0	locks=0 ]	(	1	1	1	)
+ramp2interp	[ 0	locks=0 ]	(	"linear"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/color1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	},
+	"___toolcount___":{
+		"type":"string",
+		"value":"2"
+	},
+	"___toolid___":{
+		"type":"string",
+		"value":"sop_color"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_quickmaterial1.init"
+Content-Type: text/plain
+
+type = gamedev::sop_quickmaterial::2.0
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_quickmaterial1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -0.00852317 1.92507
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	color1 1 1 "input1"
+}
+inputs
+{
+0 	color1 0 1
+}
+stat
+{
+  create 1534506889
+  modify 1543279149
+  author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_quickmaterial1.chn"
+Content-Type: text/plain
+
+{
+    channel ior_1 {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../ior\") }
+    }
+    channel rough_1 {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../rough\") }
+    }
+    channel metallic_1 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../bake_metallic\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_quickmaterial1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+mMaterialEntries	[ 0	locks=0 ]	(	1	)
+sMaterialType1	[ 0	locks=0 ]	(	"0"	)
+materialname_1	[ 0	locks=0 ]	(	SimplebakerMaterial	)
+groupselection_1	[ 0	locks=0 ]	(	""	)
+folder0_1	[ 0	locks=0 ]	(	0	)
+basecolorfolder_1	[ 0	locks=0 ]	(	0	)
+basecolor_texture_1	[ 0	locks=0 ]	(	"`strreplace(chs(\"../base_path\"), \"$(CHANNEL)\", chs(\"../visualize_channel\"))`"	)
+basecolor_1	[ 0	locks=0 ]	(	1	1	1	)
+opacityfolder_1	[ 0	locks=0 ]	(	0	)
+opaccolor_texture_1	[ 0	locks=0 ]	(	"`ifs(ch(\"../bake_alpha\"),strreplace(chs(\"../base_path\"), \"$(CHANNEL)\", chs(\"../alpha_suffix\")),\"\")`"	)
+normalfolder_1	[ 0	locks=0 ]	(	0	)
+baseBump_bumpTexture_1	[ 0	locks=0 ]	(	"`strreplace(chs(\"../base_path\"), \"$(CHANNEL)\", chs(\"../Nt_suffix\"))`"	)
+baseNormal_flipY_1	[ 0	locks=0 ]	(	"on"	)
+roundedEdge_enable_1	[ 0	locks=0 ]	(	"off"	)
+roundedEdge_radius_1	[ 0	locks=0 ]	(	0	)
+roundedEdge_mode_1	[ 0	locks=0 ]	(	0	)
+roughnessfolder_1	[ 0	locks=0 ]	(	0	)
+rough_texture_1	[ 0	locks=0 ]	(	"`ifs(ch(\"../bake_specrough\"),strreplace(chs(\"../base_path\"), \"$(CHANNEL)\", chs(\"../specrough_suffix\")),\"\")`"	)
+rough_1	[ 0	locks=0 ]	(	[ rough_1	0.60299999999999998 ] 	)
+ior_1	[ 0	locks=0 ]	(	[ ior_1	1.8200000000000001 ] 	)
+metallicfolder_1	[ 0	locks=0 ]	(	0	)
+metallic_texture_1	[ 0	locks=0 ]	(	"`ifs(ch(\"../bake_metallic\"),strreplace(chs(\"../base_path\"), \"$(CHANNEL)\", chs(\"../metallic_suffix\")),\"\")`"	)
+metallic_1	[ 8	locks=0 ]	(	[ metallic_1	0 ] 	)
+folder0_1_3	[ 0	locks=0 ]	(	0	)
+basecolorfolder_1_2	[ 0	locks=0 ]	(	0	)
+pbr_basecolor_1	[ 0	locks=0 ]	(	1	1	1	)
+pbr_basecolor_useTexture_1	[ 0	locks=0 ]	(	"off"	)
+pbr_basecolor_texture_1	[ 0	locks=0 ]	(	""	)
+roughnessfolder_1_2	[ 0	locks=0 ]	(	0	)
+pbr_IOR_1	[ 0	locks=0 ]	(	1.5	)
+pbr_rough_1	[ 0	locks=0 ]	(	0.29999999999999999	)
+pbr_horizon_fade_1	[ 0	locks=0 ]	(	1	)
+pbr_invert_rough_1	[ 0	locks=0 ]	(	"off"	)
+pbr_rough_useTexture_1	[ 0	locks=0 ]	(	"off"	)
+pbr_rough_texture_1	[ 0	locks=0 ]	(	""	)
+pbr_rough_monoChannel_1	[ 0	locks=0 ]	(	0	)
+metallicfolder_1_2	[ 0	locks=0 ]	(	0	)
+pbr_metallic_1	[ 0	locks=0 ]	(	0	)
+pbr_metallic_useTexture_1	[ 0	locks=0 ]	(	"off"	)
+pbr_metallic_texture_1	[ 0	locks=0 ]	(	""	)
+pbr_metallic_monoChannel_1	[ 0	locks=0 ]	(	0	)
+shading_16_1	[ 0	locks=0 ]	(	0	)
+pbr_baseBumpAndNormal_enable_1	[ 0	locks=0 ]	(	"off"	)
+pbr_baseNormal_texture_1	[ 0	locks=0 ]	(	""	)
+pbr_baseNormal_scale_1	[ 0	locks=0 ]	(	1	)
+pbr_baseNormal_flipX_1	[ 0	locks=0 ]	(	"off"	)
+pbr_baseNormal_flipY_1	[ 0	locks=0 ]	(	"off"	)
+pbr_use_mikkt_1	[ 0	locks=0 ]	(	"off"	)
+folder14_1	[ 0	locks=0 ]	(	0	)
+pbr_occlusion_1	[ 0	locks=0 ]	(	0	)
+pbr_occlusion_useTexture_1	[ 0	locks=0 ]	(	"off"	)
+pbr_occlusion_texture_1	[ 0	locks=0 ]	(	""	)
+pbr_occlusion_monoChannel_1	[ 0	locks=0 ]	(	0	)
+folder9_1	[ 0	locks=0 ]	(	0	)
+pbr_emitint_1	[ 0	locks=0 ]	(	0	)
+pbr_emitcolor_1	[ 0	locks=0 ]	(	0	0	0	)
+pbr_emitcolor_useTexture_1	[ 0	locks=0 ]	(	"off"	)
+pbr_emitcolor_texture_1	[ 0	locks=0 ]	(	""	)
+folder13_1	[ 0	locks=0 ]	(	0	)
+pbr_transparency_1	[ 0	locks=0 ]	(	0	)
+pbr_opaccolor_useTexture_1	[ 0	locks=0 ]	(	"off"	)
+pbr_opaccolor_1	[ 0	locks=0 ]	(	""	)
+diffuse_folder_15_1_1	[ 0	locks=0 ]	(	0	)
+pbr_importance_sampling_diffuse_1	[ 0	locks=0 ]	(	"off"	)
+pbr_nbSamples_diff_1	[ 0	locks=0 ]	(	32	)
+pbr_importance_sampling_1	[ 0	locks=0 ]	(	"on"	)
+pbr_nbSamples_1	[ 0	locks=0 ]	(	32	)
+pbr_frontface_1	[ 0	locks=0 ]	(	"on"	)
+folder0_1_2	[ 0	locks=0 ]	(	0	)
+matcap_basecolor_texture_1	[ 0	locks=0 ]	(	opdef:gamedev::Vop/mat_matcap_shader?matcap_orange.exr	)
+matcap_use_texture_alpha_1	[ 0	locks=0 ]	(	"off"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_quickmaterial1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"0.4"
+	},
+	"___toolcount___":{
+		"type":"string",
+		"value":"2"
+	},
+	"___toolid___":{
+		"type":"string",
+		"value":"gamedev::sop_sop_quickmaterial"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_quickmaterial1/matnet.def"
 Content-Type: text/plain
 
 comment ""
-position 1.86044 -0.21693
+position -3.92559 4.96514
 connectornextid 0
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -2540,9 +4954,9 @@ inputs
 }
 stat
 {
-  create 1509396296
-  modify 1522783370
-  author MAINGEAR@DESKTOP-P98C1VA
+  create 1532947640
+  modify 1541451861
+  author paula@DESKTOP-5213MPP
   access 0777
 }
 color UT_Color RGB 0.3 0.5 0.65 
@@ -2551,7 +4965,7 @@ exprlanguage hscript
 end
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/matnet1.parm"
+Content-Disposition: attachment; filename="hdaroot/sop_quickmaterial1/matnet.parm"
 Content-Type: text/plain
 
 {
@@ -2559,30 +4973,36 @@ version 0.8
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/matnet1.userdata"
+Content-Disposition: attachment; filename="hdaroot/sop_quickmaterial1/matnet.netbox"
+Content-Type: text/plain
+
+__netbox2
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_quickmaterial1/matnet.userdata"
 Content-Type: text/plain
 
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.565"
+		"value":"17.5.229"
 	}
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/matnet1/principledshader1.init"
+Content-Disposition: attachment; filename="hdaroot/sop_quickmaterial1/matnet/SimplebakerMaterial.init"
 Content-Type: text/plain
 
 type = principledshader::2.0
 matchesdef = 1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/matnet1/principledshader1.def"
+Content-Disposition: attachment; filename="hdaroot/sop_quickmaterial1/matnet/SimplebakerMaterial.def"
 Content-Type: text/plain
 
 comment ""
-position 3.13535 4.28458
-connectornextid 227
+position 0 0
+connectornextid 228
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material on
 outputsNamed3
 {
@@ -2591,231 +5011,232 @@ inputsNamed3
 {
 0 	"" "" 1 "uv"
 1 	"" "" 1 "basecolor"
-2 	"" "" 1 "basecolor_usePointColor"
-3 	"" "" 1 "basecolor_usePackedColor"
-4 	"" "" 1 "frontface"
-5 	"" "" 1 "ior"
-6 	"" "" 1 "rough"
-7 	"" "" 1 "aniso"
-8 	"" "" 1 "anisodir"
-9 	"" "" 1 "metallic"
-10 	"" "" 1 "reflect"
-11 	"" "" 1 "reflecttint"
-12 	"" "" 1 "coat"
-13 	"" "" 1 "coatrough"
-14 	"" "" 1 "transparency"
-15 	"" "" 1 "transcolor"
-16 	"" "" 1 "transdist"
-17 	"" "" 1 "dispersion"
-18 	"" "" 1 "priority"
-19 	"" "" 1 "sss"
-20 	"" "" 1 "sssmodel"
-21 	"" "" 1 "sssdist"
-22 	"" "" 1 "ssscolor"
-23 	"" "" 1 "sssphase"
-24 	"" "" 1 "sheen"
-25 	"" "" 1 "sheentint"
-26 	"" "" 1 "emitcolor"
-27 	"" "" 1 "emitint"
-28 	"" "" 1 "emitillum"
-29 	"" "" 1 "opac"
-30 	"" "" 1 "opaccolor"
-31 	"" "" 1 "fakecausticsenabled"
-32 	"" "" 1 "fakecausticstransmit"
-33 	"" "" 1 "fakecausticsshadow"
-34 	"" "" 1 "fakecausticsopacity"
-35 	"" "" 1 "basecolor_useTexture"
-36 	"" "" 1 "basecolor_texture"
-37 	"" "" 1 "basecolor_textureIntensity"
-38 	"" "" 1 "basecolor_textureWrap"
-39 	"" "" 1 "basecolor_textureColorSpace"
-40 	"" "" 1 "metallic_useTexture"
-41 	"" "" 1 "metallic_texture"
-42 	"" "" 1 "metallic_monoChannel"
-43 	"" "" 1 "metallic_textureWrap"
-44 	"" "" 1 "metallic_textureColorSpace"
-45 	"" "" 1 "transparency_useTexture"
-46 	"" "" 1 "transparency_texture"
-47 	"" "" 1 "transparency_monoChannel"
-48 	"" "" 1 "transparency_textureWrap"
-49 	"" "" 1 "transparency_textureColorSpace"
-50 	"" "" 1 "ior_useTexture"
-51 	"" "" 1 "ior_texture"
-52 	"" "" 1 "ior_monoChannel"
-53 	"" "" 1 "ior_textureWrap"
-54 	"" "" 1 "ior_textureColorSpace"
-55 	"" "" 1 "transcolor_useTexture"
-56 	"" "" 1 "transcolor_texture"
-57 	"" "" 1 "transcolor_textureIntensity"
-58 	"" "" 1 "transcolor_textureWrap"
-59 	"" "" 1 "transcolor_textureColorSpace"
-60 	"" "" 1 "transdist_useTexture"
-61 	"" "" 1 "transdist_texture"
-62 	"" "" 1 "transdist_monoChannel"
-63 	"" "" 1 "transdist_textureWrap"
-64 	"" "" 1 "transdist_textureColorSpace"
-65 	"" "" 1 "dispersion_useTexture"
-66 	"" "" 1 "dispersion_texture"
-67 	"" "" 1 "dispersion_monoChannel"
-68 	"" "" 1 "dispersion_textureWrap"
-69 	"" "" 1 "dispersion_textureColorSpace"
-70 	"" "" 1 "reflect_useTexture"
-71 	"" "" 1 "reflect_texture"
-72 	"" "" 1 "reflect_monoChannel"
-73 	"" "" 1 "reflect_textureWrap"
-74 	"" "" 1 "reflect_textureColorSpace"
-75 	"" "" 1 "reflecttint_useTexture"
-76 	"" "" 1 "reflecttint_texture"
-77 	"" "" 1 "reflecttint_monoChannel"
-78 	"" "" 1 "reflecttint_textureWrap"
-79 	"" "" 1 "reflecttint_textureColorSpace"
-80 	"" "" 1 "rough_useTexture"
-81 	"" "" 1 "rough_texture"
-82 	"" "" 1 "rough_monoChannel"
-83 	"" "" 1 "rough_textureWrap"
-84 	"" "" 1 "rough_textureColorSpace"
-85 	"" "" 1 "aniso_useTexture"
-86 	"" "" 1 "aniso_texture"
-87 	"" "" 1 "aniso_monoChannel"
-88 	"" "" 1 "aniso_textureWrap"
-89 	"" "" 1 "aniso_textureColorSpace"
-90 	"" "" 1 "anisodir_useTexture"
-91 	"" "" 1 "anisodir_texture"
-92 	"" "" 1 "anisodir_monoChannel"
-93 	"" "" 1 "anisodir_textureWrap"
-94 	"" "" 1 "anisodir_textureColorSpace"
-95 	"" "" 1 "anisodir_textureFilter"
-96 	"" "" 1 "sss_useTexture"
-97 	"" "" 1 "sss_texture"
-98 	"" "" 1 "sss_monoChannel"
-99 	"" "" 1 "sss_textureWrap"
-100 	"" "" 1 "sss_textureColorSpace"
-101 	"" "" 1 "sssdist_useTexture"
-102 	"" "" 1 "sssdist_texture"
-103 	"" "" 1 "sssdist_monoChannel"
-104 	"" "" 1 "sssdist_textureWrap"
-105 	"" "" 1 "sssdist_textureColorSpace"
-106 	"" "" 1 "ssscolor_useTexture"
-107 	"" "" 1 "ssscolor_texture"
-108 	"" "" 1 "ssscolor_textureWrap"
-109 	"" "" 1 "ssscolor_textureColorSpace"
-110 	"" "" 1 "sheen_useTexture"
-111 	"" "" 1 "sheen_texture"
-112 	"" "" 1 "sheen_monoChannel"
-113 	"" "" 1 "sheen_textureWrap"
-114 	"" "" 1 "sheen_textureColorSpace"
-115 	"" "" 1 "sheentint_useTexture"
-116 	"" "" 1 "sheentint_texture"
-117 	"" "" 1 "sheentint_monoChannel"
-118 	"" "" 1 "sheentint_textureWrap"
-119 	"" "" 1 "sheentint_textureColorSpace"
-120 	"" "" 1 "coat_useTexture"
-121 	"" "" 1 "coat_texture"
-122 	"" "" 1 "coat_monoChannel"
-123 	"" "" 1 "coat_textureWrap"
-124 	"" "" 1 "coat_textureColorSpace"
-125 	"" "" 1 "coatrough_useTexture"
-126 	"" "" 1 "coatrough_texture"
-127 	"" "" 1 "coatrough_monoChannel"
-128 	"" "" 1 "coatrough_textureWrap"
-129 	"" "" 1 "coatrough_textureColorSpace"
-130 	"" "" 1 "emitcolor_useTexture"
-131 	"" "" 1 "emitcolor_texture"
-132 	"" "" 1 "emitcolor_textureIntensity"
-133 	"" "" 1 "emitcolor_textureWrap"
-134 	"" "" 1 "emitcolor_textureColorSpace"
-135 	"" "" 1 "opaccolor_useTexture"
-136 	"" "" 1 "opaccolor_texture"
-137 	"" "" 1 "opaccolor_textureWrap"
-138 	"" "" 1 "opaccolor_textureIntensity"
-139 	"" "" 1 "opaccolor_textureColorSpace"
-140 	"" "" 1 "surface_textureFilter"
-141 	"" "" 1 "surface_textureFilterWidth"
-142 	"" "" 1 "baseBumpAndNormal_enable"
-143 	"" "" 1 "baseBumpAndNormal_type"
-144 	"" "" 1 "baseBump_colorSpace"
-145 	"" "" 1 "baseBump_bumpScale"
-146 	"" "" 1 "baseBump_bumpTexture"
-147 	"" "" 1 "baseBump_wrap"
-148 	"" "" 1 "baseBump_filter"
-149 	"" "" 1 "baseBump_filterWidth"
-150 	"" "" 1 "baseBump_channel"
-151 	"" "" 1 "baseBump_imagePlane"
-152 	"" "" 1 "baseNormal_colorspace"
-153 	"" "" 1 "baseNormal_vectorSpace"
-154 	"" "" 1 "baseNormal_scale"
-155 	"" "" 1 "baseNormal_texture"
-156 	"" "" 1 "baseNormal_wrap"
-157 	"" "" 1 "baseNormal_filter"
-158 	"" "" 1 "baseNormal_filterWidth"
-159 	"" "" 1 "baseNormal_channel"
-160 	"" "" 1 "baseNormal_imagePlane"
-161 	"" "" 1 "baseNormal_space"
-162 	"" "" 1 "baseNormal_flipX"
-163 	"" "" 1 "baseNormal_flipY"
-164 	"" "" 1 "separateCoatNormals"
-165 	"" "" 1 "coatBumpAndNormal_enable"
-166 	"" "" 1 "coatBumpAndNormal_type"
-167 	"" "" 1 "coatBump_colorSpace"
-168 	"" "" 1 "coatBump_bumpScale"
-169 	"" "" 1 "coatBump_bumpTexture"
-170 	"" "" 1 "coatBump_wrap"
-171 	"" "" 1 "coatBump_filter"
-172 	"" "" 1 "coatBump_filterWidth"
-173 	"" "" 1 "coatBump_channel"
-174 	"" "" 1 "coatBump_imagePlane"
-175 	"" "" 1 "coatNormal_colorspace"
-176 	"" "" 1 "coatNormal_vectorSpace"
-177 	"" "" 1 "coatNormal_scale"
-178 	"" "" 1 "coatNormal_texture"
-179 	"" "" 1 "coatNormal_wrap"
-180 	"" "" 1 "coatNormal_filter"
-181 	"" "" 1 "coatNormal_filterWidth"
-182 	"" "" 1 "coatNormal_channel"
-183 	"" "" 1 "coatNormal_imagePlane"
-184 	"" "" 1 "coatNormal_space"
-185 	"" "" 1 "coatNormal_flipX"
-186 	"" "" 1 "coatNormal_flipY"
-187 	"" "" 1 "dispInput_enable"
-188 	"" "" 1 "dispInput_max"
-189 	"" "" 1 "dispInput_vectorspace"
-190 	"" "" 1 "dispTex_enable"
-191 	"" "" 1 "dispTex_type"
-192 	"" "" 1 "dispTex_colorSpace"
-193 	"" "" 1 "dispTex_vectorSpace"
-194 	"" "" 1 "dispTex_channelOrder"
-195 	"" "" 1 "dispTex_offset"
-196 	"" "" 1 "dispTex_scale"
-197 	"" "" 1 "dispTex_texture"
-198 	"" "" 1 "dispTex_channel"
-199 	"" "" 1 "dispTex_wrap"
-200 	"" "" 1 "dispTex_filter"
-201 	"" "" 1 "dispTex_filterWidth"
-202 	"" "" 1 "dispNoise_enable"
-203 	"" "" 1 "dispNoise_type"
-204 	"" "" 1 "dispNoise_freq"
-205 	"" "" 1 "dispNoise_offset"
-206 	"" "" 1 "dispNoise_amp"
-207 	"" "" 1 "dispNoise_rough"
-208 	"" "" 1 "dispNoise_atten"
-209 	"" "" 1 "dispNoise_turb"
-210 	"" "" 1 "difflabel"
-211 	"" "" 1 "refllabel"
-212 	"" "" 1 "refractlabel"
-213 	"" "" 1 "coatlabel"
-214 	"" "" 1 "ssslabel"
-215 	"" "" 1 "uvtrans"
-216 	"" "" 1 "uvrot"
-217 	"" "" 1 "uvscale"
-218 	"" "" 1 "baseN"
-219 	"" "" 1 "coatN"
-220 	"" "" 1 "disp"
-221 	"" "" 1 "vdisp"
-222 	"" "" 1 "opacpointalpha"
-223 	"" "" 1 "roundedEdge_enable"
-224 	"" "" 1 "roundedEdge_radius"
-225 	"" "" 1 "roundedEdge_mode"
-226 	"" "" 1 "opacpackedalpha"
+2 	"" "" 1 "albedomult"
+3 	"" "" 1 "basecolor_usePointColor"
+4 	"" "" 1 "basecolor_usePackedColor"
+5 	"" "" 1 "frontface"
+6 	"" "" 1 "ior"
+7 	"" "" 1 "rough"
+8 	"" "" 1 "aniso"
+9 	"" "" 1 "anisodir"
+10 	"" "" 1 "metallic"
+11 	"" "" 1 "reflect"
+12 	"" "" 1 "reflecttint"
+13 	"" "" 1 "coat"
+14 	"" "" 1 "coatrough"
+15 	"" "" 1 "transparency"
+16 	"" "" 1 "transcolor"
+17 	"" "" 1 "transdist"
+18 	"" "" 1 "dispersion"
+19 	"" "" 1 "priority"
+20 	"" "" 1 "sss"
+21 	"" "" 1 "sssmodel"
+22 	"" "" 1 "sssdist"
+23 	"" "" 1 "ssscolor"
+24 	"" "" 1 "sssphase"
+25 	"" "" 1 "sheen"
+26 	"" "" 1 "sheentint"
+27 	"" "" 1 "emitcolor"
+28 	"" "" 1 "emitint"
+29 	"" "" 1 "emitillum"
+30 	"" "" 1 "opac"
+31 	"" "" 1 "opaccolor"
+32 	"" "" 1 "fakecausticsenabled"
+33 	"" "" 1 "fakecausticstransmit"
+34 	"" "" 1 "fakecausticsshadow"
+35 	"" "" 1 "fakecausticsopacity"
+36 	"" "" 1 "basecolor_useTexture"
+37 	"" "" 1 "basecolor_texture"
+38 	"" "" 1 "basecolor_textureIntensity"
+39 	"" "" 1 "basecolor_textureWrap"
+40 	"" "" 1 "basecolor_textureColorSpace"
+41 	"" "" 1 "metallic_useTexture"
+42 	"" "" 1 "metallic_texture"
+43 	"" "" 1 "metallic_monoChannel"
+44 	"" "" 1 "metallic_textureWrap"
+45 	"" "" 1 "metallic_textureColorSpace"
+46 	"" "" 1 "transparency_useTexture"
+47 	"" "" 1 "transparency_texture"
+48 	"" "" 1 "transparency_monoChannel"
+49 	"" "" 1 "transparency_textureWrap"
+50 	"" "" 1 "transparency_textureColorSpace"
+51 	"" "" 1 "ior_useTexture"
+52 	"" "" 1 "ior_texture"
+53 	"" "" 1 "ior_monoChannel"
+54 	"" "" 1 "ior_textureWrap"
+55 	"" "" 1 "ior_textureColorSpace"
+56 	"" "" 1 "transcolor_useTexture"
+57 	"" "" 1 "transcolor_texture"
+58 	"" "" 1 "transcolor_textureIntensity"
+59 	"" "" 1 "transcolor_textureWrap"
+60 	"" "" 1 "transcolor_textureColorSpace"
+61 	"" "" 1 "transdist_useTexture"
+62 	"" "" 1 "transdist_texture"
+63 	"" "" 1 "transdist_monoChannel"
+64 	"" "" 1 "transdist_textureWrap"
+65 	"" "" 1 "transdist_textureColorSpace"
+66 	"" "" 1 "dispersion_useTexture"
+67 	"" "" 1 "dispersion_texture"
+68 	"" "" 1 "dispersion_monoChannel"
+69 	"" "" 1 "dispersion_textureWrap"
+70 	"" "" 1 "dispersion_textureColorSpace"
+71 	"" "" 1 "reflect_useTexture"
+72 	"" "" 1 "reflect_texture"
+73 	"" "" 1 "reflect_monoChannel"
+74 	"" "" 1 "reflect_textureWrap"
+75 	"" "" 1 "reflect_textureColorSpace"
+76 	"" "" 1 "reflecttint_useTexture"
+77 	"" "" 1 "reflecttint_texture"
+78 	"" "" 1 "reflecttint_monoChannel"
+79 	"" "" 1 "reflecttint_textureWrap"
+80 	"" "" 1 "reflecttint_textureColorSpace"
+81 	"" "" 1 "rough_useTexture"
+82 	"" "" 1 "rough_texture"
+83 	"" "" 1 "rough_monoChannel"
+84 	"" "" 1 "rough_textureWrap"
+85 	"" "" 1 "rough_textureColorSpace"
+86 	"" "" 1 "aniso_useTexture"
+87 	"" "" 1 "aniso_texture"
+88 	"" "" 1 "aniso_monoChannel"
+89 	"" "" 1 "aniso_textureWrap"
+90 	"" "" 1 "aniso_textureColorSpace"
+91 	"" "" 1 "anisodir_useTexture"
+92 	"" "" 1 "anisodir_texture"
+93 	"" "" 1 "anisodir_monoChannel"
+94 	"" "" 1 "anisodir_textureWrap"
+95 	"" "" 1 "anisodir_textureColorSpace"
+96 	"" "" 1 "anisodir_textureFilter"
+97 	"" "" 1 "sss_useTexture"
+98 	"" "" 1 "sss_texture"
+99 	"" "" 1 "sss_monoChannel"
+100 	"" "" 1 "sss_textureWrap"
+101 	"" "" 1 "sss_textureColorSpace"
+102 	"" "" 1 "sssdist_useTexture"
+103 	"" "" 1 "sssdist_texture"
+104 	"" "" 1 "sssdist_monoChannel"
+105 	"" "" 1 "sssdist_textureWrap"
+106 	"" "" 1 "sssdist_textureColorSpace"
+107 	"" "" 1 "ssscolor_useTexture"
+108 	"" "" 1 "ssscolor_texture"
+109 	"" "" 1 "ssscolor_textureWrap"
+110 	"" "" 1 "ssscolor_textureColorSpace"
+111 	"" "" 1 "sheen_useTexture"
+112 	"" "" 1 "sheen_texture"
+113 	"" "" 1 "sheen_monoChannel"
+114 	"" "" 1 "sheen_textureWrap"
+115 	"" "" 1 "sheen_textureColorSpace"
+116 	"" "" 1 "sheentint_useTexture"
+117 	"" "" 1 "sheentint_texture"
+118 	"" "" 1 "sheentint_monoChannel"
+119 	"" "" 1 "sheentint_textureWrap"
+120 	"" "" 1 "sheentint_textureColorSpace"
+121 	"" "" 1 "coat_useTexture"
+122 	"" "" 1 "coat_texture"
+123 	"" "" 1 "coat_monoChannel"
+124 	"" "" 1 "coat_textureWrap"
+125 	"" "" 1 "coat_textureColorSpace"
+126 	"" "" 1 "coatrough_useTexture"
+127 	"" "" 1 "coatrough_texture"
+128 	"" "" 1 "coatrough_monoChannel"
+129 	"" "" 1 "coatrough_textureWrap"
+130 	"" "" 1 "coatrough_textureColorSpace"
+131 	"" "" 1 "emitcolor_useTexture"
+132 	"" "" 1 "emitcolor_texture"
+133 	"" "" 1 "emitcolor_textureIntensity"
+134 	"" "" 1 "emitcolor_textureWrap"
+135 	"" "" 1 "emitcolor_textureColorSpace"
+136 	"" "" 1 "opaccolor_useTexture"
+137 	"" "" 1 "opaccolor_texture"
+138 	"" "" 1 "opaccolor_textureWrap"
+139 	"" "" 1 "opaccolor_textureIntensity"
+140 	"" "" 1 "opaccolor_textureColorSpace"
+141 	"" "" 1 "surface_textureFilter"
+142 	"" "" 1 "surface_textureFilterWidth"
+143 	"" "" 1 "baseBumpAndNormal_enable"
+144 	"" "" 1 "baseBumpAndNormal_type"
+145 	"" "" 1 "baseBump_colorSpace"
+146 	"" "" 1 "baseBump_bumpScale"
+147 	"" "" 1 "baseBump_bumpTexture"
+148 	"" "" 1 "baseBump_wrap"
+149 	"" "" 1 "baseBump_filter"
+150 	"" "" 1 "baseBump_filterWidth"
+151 	"" "" 1 "baseBump_channel"
+152 	"" "" 1 "baseBump_imagePlane"
+153 	"" "" 1 "baseNormal_colorspace"
+154 	"" "" 1 "baseNormal_vectorSpace"
+155 	"" "" 1 "baseNormal_scale"
+156 	"" "" 1 "baseNormal_texture"
+157 	"" "" 1 "baseNormal_wrap"
+158 	"" "" 1 "baseNormal_filter"
+159 	"" "" 1 "baseNormal_filterWidth"
+160 	"" "" 1 "baseNormal_channel"
+161 	"" "" 1 "baseNormal_imagePlane"
+162 	"" "" 1 "baseNormal_space"
+163 	"" "" 1 "baseNormal_flipX"
+164 	"" "" 1 "baseNormal_flipY"
+165 	"" "" 1 "separateCoatNormals"
+166 	"" "" 1 "coatBumpAndNormal_enable"
+167 	"" "" 1 "coatBumpAndNormal_type"
+168 	"" "" 1 "coatBump_colorSpace"
+169 	"" "" 1 "coatBump_bumpScale"
+170 	"" "" 1 "coatBump_bumpTexture"
+171 	"" "" 1 "coatBump_wrap"
+172 	"" "" 1 "coatBump_filter"
+173 	"" "" 1 "coatBump_filterWidth"
+174 	"" "" 1 "coatBump_channel"
+175 	"" "" 1 "coatBump_imagePlane"
+176 	"" "" 1 "coatNormal_colorspace"
+177 	"" "" 1 "coatNormal_vectorSpace"
+178 	"" "" 1 "coatNormal_scale"
+179 	"" "" 1 "coatNormal_texture"
+180 	"" "" 1 "coatNormal_wrap"
+181 	"" "" 1 "coatNormal_filter"
+182 	"" "" 1 "coatNormal_filterWidth"
+183 	"" "" 1 "coatNormal_channel"
+184 	"" "" 1 "coatNormal_imagePlane"
+185 	"" "" 1 "coatNormal_space"
+186 	"" "" 1 "coatNormal_flipX"
+187 	"" "" 1 "coatNormal_flipY"
+188 	"" "" 1 "dispInput_enable"
+189 	"" "" 1 "dispInput_max"
+190 	"" "" 1 "dispInput_vectorspace"
+191 	"" "" 1 "dispTex_enable"
+192 	"" "" 1 "dispTex_type"
+193 	"" "" 1 "dispTex_colorSpace"
+194 	"" "" 1 "dispTex_vectorSpace"
+195 	"" "" 1 "dispTex_channelOrder"
+196 	"" "" 1 "dispTex_offset"
+197 	"" "" 1 "dispTex_scale"
+198 	"" "" 1 "dispTex_texture"
+199 	"" "" 1 "dispTex_channel"
+200 	"" "" 1 "dispTex_wrap"
+201 	"" "" 1 "dispTex_filter"
+202 	"" "" 1 "dispTex_filterWidth"
+203 	"" "" 1 "dispNoise_enable"
+204 	"" "" 1 "dispNoise_type"
+205 	"" "" 1 "dispNoise_freq"
+206 	"" "" 1 "dispNoise_offset"
+207 	"" "" 1 "dispNoise_amp"
+208 	"" "" 1 "dispNoise_rough"
+209 	"" "" 1 "dispNoise_atten"
+210 	"" "" 1 "dispNoise_turb"
+211 	"" "" 1 "difflabel"
+212 	"" "" 1 "refllabel"
+213 	"" "" 1 "refractlabel"
+214 	"" "" 1 "coatlabel"
+215 	"" "" 1 "ssslabel"
+216 	"" "" 1 "uvtrans"
+217 	"" "" 1 "uvrot"
+218 	"" "" 1 "uvscale"
+219 	"" "" 1 "baseN"
+220 	"" "" 1 "coatN"
+221 	"" "" 1 "disp"
+222 	"" "" 1 "vdisp"
+223 	"" "" 1 "opacpointalpha"
+224 	"" "" 1 "roundedEdge_enable"
+225 	"" "" 1 "roundedEdge_radius"
+226 	"" "" 1 "roundedEdge_mode"
+227 	"" "" 1 "opacpackedalpha"
 }
 inputs
 {
@@ -3046,12 +5467,13 @@ inputs
 224 	"" 0 1
 225 	"" 0 1
 226 	"" 0 1
+227 	"" 0 1
 }
 stat
 {
-  create 1509396313
-  modify 1534442033
-  author MAINGEAR@DESKTOP-P98C1VA
+  create 1541451860
+  modify 1553888318
+  author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -3060,33 +5482,15 @@ exprlanguage hscript
 end
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/matnet1/principledshader1.chn"
+Content-Disposition: attachment; filename="hdaroot/sop_quickmaterial1/matnet/SimplebakerMaterial.chn"
 Content-Type: text/plain
 
 {
-    channel speccolorr {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"basecolorr\") }
-    }
-    channel speccolorg {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"basecolorg\") }
-    }
-    channel speccolorb {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"basecolorb\") }
-    }
     channel specular_tint {
       lefttype = extend
       righttype = extend
       flags = 0
-      segment { length = 0 expr = ch(\"metallic\")+(1-ch(\"metallic\"))*ch(\"reflecttint\") }
+      segment { length = 0 expr = (1-ch(\"metallic\"))*ch(\"reflecttint\") }
     }
     channel baseBump_useTexture {
       lefttype = extend
@@ -3112,66 +5516,162 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = "1.01*ch(\"dispInput_enable\")*ch(\"dispInput_max\") + ch(\"dispTex_enable\")*max(abs((1.0+ch(\"dispTex_offset\"))*ch(\"dispTex_scale\")), abs(ch(\"dispTex_offset\")*ch(\"dispTex_scale\"))) + ch(\"dispNoise_enable\")*abs(ch(\"dispNoise_amp\"))" }
     }
+    channel basecolor_texture {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"\"
+      flags = 0
+      segment { options = {	 autoslope  ai ao }
+
+	 length = 0 accel = 0.33333333333333331 0.33333333333333331 expr = chs(\"../../basecolor_texture_1\") }
+    }
     channel basecolorr {
       lefttype = extend
       righttype = extend
-      default = 0.40000000000000002
+      default = 0.20000000000000001
       flags = 0
-      segment { length = 0 value = 0.40000000000000002 0.40000000000000002 expr = ch(\"../../basecolorr\") }
+      segment { options = {	 untie  iv ov is os ia oa }
+
+	 length = 0 expr = ch(\"../../basecolor_1r\") }
     }
     channel basecolorg {
       lefttype = extend
       righttype = extend
-      default = 0.40000000000000002
+      default = 0.20000000000000001
       flags = 0
-      segment { length = 0 value = 0.40000000000000002 0.40000000000000002 expr = ch(\"../../basecolorg\") }
+      segment { options = {	 untie  iv ov is os ia oa }
+
+	 length = 0 expr = ch(\"../../basecolor_1g\") }
     }
     channel basecolorb {
       lefttype = extend
       righttype = extend
-      default = 0.40000000000000002
+      default = 0.20000000000000001
       flags = 0
-      segment { length = 0 value = 0.40000000000000002 0.40000000000000002 expr = ch(\"../../basecolorb\") }
+      segment { options = {	 untie  iv ov is os ia oa }
+
+	 length = 0 expr = ch(\"../../basecolor_1b\") }
     }
-    channel ior {
+    channel opaccolor_texture {
       lefttype = extend
       righttype = extend
-      default = 1.52
+      defaultString = \"\"
       flags = 0
-      segment { length = 0 value = 1.52 1.52 expr = ch(\"../../ior\") }
+      segment { options = {	 autoslope  ai ao }
+
+	 length = 0 accel = 0.33333333333333331 0.33333333333333331 expr = chs(\"../../opaccolor_texture_1\") }
+    }
+    channel baseNormal_texture {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"\"
+      flags = 0
+      segment { options = {	 autoslope  ai ao }
+
+	 length = 0 accel = 0.33333333333333331 0.33333333333333331 expr = chs(\"../../baseBump_bumpTexture_1\") }
+    }
+    channel baseNormal_flipY {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { options = {	 untie  iv ov is os ia oa }
+
+	 length = 0 expr = ch(\"../../baseNormal_flipY_1\") }
+    }
+    channel roundedEdge_enable {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { options = {	 untie  iv ov is os ia oa }
+
+	 length = 0 expr = ch(\"../../roundedEdge_enable_1\") }
+    }
+    channel roundedEdge_radius {
+      lefttype = extend
+      righttype = extend
+      default = 0.01
+      flags = 0
+      segment { options = {	 untie  iv ov is os ia oa }
+
+	 length = 0 expr = ch(\"../../roundedEdge_radius_1\") }
+    }
+    channel roundedEdge_mode {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { options = {	 untie  iv ov is os ia oa }
+
+	 length = 0 expr = ch(\"../../roundedEdge_mode_1\") }
+    }
+    channel rough_texture {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"\"
+      flags = 0
+      segment { options = {	 autoslope  ai ao }
+
+	 length = 0 accel = 0.33333333333333331 0.33333333333333331 expr = chs(\"../../rough_texture_1\") }
     }
     channel rough {
       lefttype = extend
       righttype = extend
-      default = 0.51800000000000002
+      default = 0.29999999999999999
       flags = 0
-      segment { length = 0 value = 0.51800000000000002 0.51800000000000002 expr = ch(\"../../rough\") }
+      segment { options = {	 untie  iv ov is os ia oa }
+
+	 length = 0 expr = ch(\"../../rough_1\") }
+    }
+    channel ior {
+      lefttype = extend
+      righttype = extend
+      default = 1.5
+      flags = 0
+      segment { options = {	 untie  iv ov is os ia oa }
+
+	 length = 0 expr = ch(\"../../ior_1\") }
+    }
+    channel metallic_texture {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"\"
+      flags = 0
+      segment { options = {	 autoslope  ai ao }
+
+	 length = 0 accel = 0.33333333333333331 0.33333333333333331 expr = chs(\"../../metallic_texture_1\") }
+    }
+    channel metallic {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { options = {	 untie  iv ov is os ia oa }
+
+	 length = 0 expr = ch(\"../../metallic_1\") }
     }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/matnet1/principledshader1.parm"
+Content-Disposition: attachment; filename="hdaroot/sop_quickmaterial1/matnet/SimplebakerMaterial.parm"
 Content-Type: text/plain
 
 {
 version 0.8
 specmodel	[ 0	locks=0 ]	(	ggx	)
 coatspecmodel	[ 0	locks=0 ]	(	ggx	)
-speccolor	[ 0	locks=0 ]	(	[ speccolorr	0.40000000000000002 ] 	[ speccolorg	0.40000000000000002 ] 	[ speccolorb	0.40000000000000002 ] 	)
 specular_tint	[ 0	locks=0 ]	(	[ specular_tint	0 ] 	)
 diffuse_folder_15	[ 0	locks=0 ]	(	3	3	3	3	3	3	)
 folder7	[ 0	locks=0 ]	(	0	)
-basecolor	[ 0	locks=0 ]	(	[ basecolorr	0.40000000000000002 ] 	[ basecolorg	0.40000000000000002 ] 	[ basecolorb	0.40000000000000002 ] 	)
+basecolor	[ 0	locks=0 ]	(	[ basecolorr	1 ] 	[ basecolorg	1 ] 	[ basecolorb	1 ] 	)
+albedomult	[ 0	locks=0 ]	(	1	)
 basecolor_usePointColor	[ 0	locks=0 ]	(	"on"	)
 basecolor_usePackedColor	[ 0	locks=0 ]	(	"off"	)
 frontface	[ 0	locks=0 ]	(	"on"	)
 folder4	[ 0	locks=0 ]	(	0	)
-ior	[ 0	locks=0 ]	(	[ ior	1.52 ] 	)
-rough	[ 0	locks=0 ]	(	[ rough	0.51800000000000002 ] 	)
+ior	[ 0	locks=0 ]	(	[ ior	1.8200000000000001 ] 	)
+rough	[ 0	locks=0 ]	(	[ rough	0.60299999999999998 ] 	)
 aniso	[ 0	locks=0 ]	(	0	)
 anisodir	[ 0	locks=0 ]	(	0	)
 folder12	[ 0	locks=0 ]	(	0	)
-metallic	[ 0	locks=0 ]	(	0	)
+metallic	[ 0	locks=0 ]	(	[ metallic	0 ] 	)
 reflect	[ 0	locks=0 ]	(	1	)
 reflecttint	[ 0	locks=0 ]	(	0	)
 coat	[ 0	locks=0 ]	(	0	)
@@ -3207,8 +5707,8 @@ fakecausticsshadow	[ 0	locks=0 ]	(	1	)
 fakecausticsopacity	[ 0	locks=0 ]	(	0	)
 folder54	[ 0	locks=0 ]	(	0	)
 basecolor_useTexture	[ 0	locks=0 ]	(	"on"	)
-basecolor_texture	[ 8	locks=0 ]	(	"`strreplace(chs(\"../../base_path\"), \"$(CHANNEL)\", chs(\"../../visualize_channel\"))`"	)
-basecolor_textureIntensity	[ 8	locks=0 ]	(	0	)
+basecolor_texture	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	[ basecolor_texture	C:/Github/GDT/hip/render/simplebaker_demoscene_ao.tga ] 	)
+basecolor_textureIntensity	[ 0	locks=0 ]	(	1	)
 basecolor_textureWrap	[ 0	locks=0 ]	(	repeat	)
 basecolor_textureColorSpace	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	)
@@ -3218,8 +5718,8 @@ ior_monoChannel	[ 0	locks=0 ]	(	0	)
 ior_textureWrap	[ 0	locks=0 ]	(	repeat	)
 ior_textureColorSpace	[ 0	locks=0 ]	(	linear	)
 folder227	[ 0	locks=0 ]	(	0	)
-rough_useTexture	[ 0	locks=0 ]	(	"off"	)
-rough_texture	[ 0	locks=0 ]	(	""	)
+rough_useTexture	[ 0	locks=0 ]	(	"on"	)
+rough_texture	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	[ rough_texture	"" ] 	)
 rough_monoChannel	[ 0	locks=0 ]	(	0	)
 rough_textureWrap	[ 0	locks=0 ]	(	repeat	)
 rough_textureColorSpace	[ 0	locks=0 ]	(	linear	)
@@ -3237,8 +5737,8 @@ anisodir_textureWrap	[ 0	locks=0 ]	(	repeat	)
 anisodir_textureColorSpace	[ 0	locks=0 ]	(	linear	)
 anisodir_textureFilter	[ 0	locks=0 ]	(	point	)
 folder55	[ 0	locks=0 ]	(	0	)
-metallic_useTexture	[ 0	locks=0 ]	(	"off"	)
-metallic_texture	[ 0	locks=0 ]	(	""	)
+metallic_useTexture	[ 0	locks=0 ]	(	"on"	)
+metallic_texture	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	[ metallic_texture	"" ] 	)
 metallic_monoChannel	[ 0	locks=0 ]	(	0	)
 metallic_textureWrap	[ 0	locks=0 ]	(	repeat	)
 metallic_textureColorSpace	[ 0	locks=0 ]	(	linear	)
@@ -3326,17 +5826,17 @@ emitcolor_textureIntensity	[ 0	locks=0 ]	(	1	)
 emitcolor_textureWrap	[ 0	locks=0 ]	(	repeat	)
 emitcolor_textureColorSpace	[ 0	locks=0 ]	(	repeat	)
 folder14	[ 0	locks=0 ]	(	0	)
-opaccolor_useTexture	[ 0	locks=0 ]	(	"off"	)
-opaccolor_texture	[ 0	locks=0 ]	(	""	)
+opaccolor_useTexture	[ 0	locks=0 ]	(	"on"	)
+opaccolor_texture	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	[ opaccolor_texture	"" ] 	)
 opaccolor_textureWrap	[ 0	locks=0 ]	(	repeat	)
 opaccolor_textureIntensity	[ 0	locks=0 ]	(	1	)
 opaccolor_textureColorSpace	[ 0	locks=0 ]	(	repeat	)
 folder235	[ 0	locks=0 ]	(	0	)
 surface_textureFilter	[ 0	locks=0 ]	(	catrom	)
 surface_textureFilterWidth	[ 0	locks=0 ]	(	1	)
-roundedEdge_enable	[ 0	locks=0 ]	(	"off"	)
-roundedEdge_radius	[ 0	locks=0 ]	(	0.01	)
-roundedEdge_mode	[ 0	locks=0 ]	(	0	)
+roundedEdge_enable	[ 0	locks=0 ]	(	[ roundedEdge_enable	0 ] 	)
+roundedEdge_radius	[ 0	locks=0 ]	(	[ roundedEdge_radius	0 ] 	)
+roundedEdge_mode	[ 0	locks=0 ]	(	[ roundedEdge_mode	0 ] 	)
 shading_16	[ 0	locks=0 ]	(	0	0	)
 baseBumpAndNormal_enable	[ 0	locks=0 ]	(	"on"	)
 baseBumpAndNormal_type	[ 0	locks=0 ]	(	normal	)
@@ -3351,7 +5851,7 @@ baseBump_imagePlane	[ 0	locks=0 ]	(	""	)
 baseNormal_colorspace	[ 0	locks=0 ]	(	linear	)
 baseNormal_vectorSpace	[ 0	locks=0 ]	(	uvtangent	)
 baseNormal_scale	[ 0	locks=0 ]	(	1	)
-baseNormal_texture	[ 0	locks=0 ]	(	"`strreplace(chs(\"../../base_path\"), \"$(CHANNEL)\", \"normal\")`"	)
+baseNormal_texture	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	[ baseNormal_texture	C:/Github/GDT/hip/render/simplebaker_demoscene_normal.tga ] 	)
 baseNormal_wrap	[ 0	locks=0 ]	(	repeat	)
 baseNormal_filter	[ 0	locks=0 ]	(	gauss	)
 baseNormal_filterWidth	[ 0	locks=0 ]	(	1	)
@@ -3359,7 +5859,7 @@ baseNormal_channel	[ 0	locks=0 ]	(	0	)
 baseNormal_imagePlane	[ 0	locks=0 ]	(	""	)
 baseNormal_space	[ 0	locks=0 ]	(	0	)
 baseNormal_flipX	[ 0	locks=0 ]	(	"off"	)
-baseNormal_flipY	[ 0	locks=0 ]	(	"on"	)
+baseNormal_flipY	[ 0	locks=0 ]	(	[ baseNormal_flipY	1 ] 	)
 baseBump_useTexture	[ 0	locks=0 ]	(	[ baseBump_useTexture	0 ] 	)
 baseNormal_useTexture	[ 0	locks=0 ]	(	[ baseNormal_useTexture	1 ] 	)
 separateCoatNormals	[ 0	locks=0 ]	(	"off"	)
@@ -3474,10 +5974,11 @@ Dt	[ 0	locks=0 ]	(	0	0	0	)
 Vdt	[ 0	locks=0 ]	(	0	0	0	)
 baseN	[ 0	locks=0 ]	(	0	0	0	)
 coatN	[ 0	locks=0 ]	(	0	0	0	)
+speccolor	[ 0	locks=0 ]	(	1	1	1	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/matnet1/principledshader1.userdata"
+Content-Disposition: attachment; filename="hdaroot/sop_quickmaterial1/matnet/SimplebakerMaterial.userdata"
 Content-Type: text/plain
 
 {
@@ -3533,7 +6034,7 @@ Content-Type: text/plain
 objflags objflags =  origin off
 pretransform UT_DMatrix4 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1
 comment ""
-position -3.55911 7.00592
+position -4.00617 7.00592
 connectornextid 0
 flags =  lock off model off template off footprint off xray off bypass off display on render off highlight off unload off savedata off compress on colordefault on exposed on selectable on
 outputsNamed3
@@ -3548,7 +6049,7 @@ inputs
 stat
 {
   create 1496780581
-  modify 1534441585
+  modify 1512055944
   author Luiz@Luiz-PC
   access 0777
 }
@@ -4276,7 +6777,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.565"
+		"value":"17.5.229"
 	}
 }
 
@@ -4309,7 +6810,7 @@ inputs
 stat
 {
   create 1496780594
-  modify 1522864701
+  modify 1534435763
   author Luiz@Luiz-PC
   access 0777
 }
@@ -4343,7 +6844,7 @@ pivot	[ 0	locks=0 ]	(	"centroid"	)
 viewportlod	[ 0	locks=0 ]	(	"full"	)
 addpath	[ 0	locks=0 ]	(	"on"	)
 enable1	[ 0	locks=0 ]	(	"on"	)
-objpath1	[ 0	locks=0 ]	(	""	)
+objpath1	[ 0	locks=0 ]	(	../../../../../LOW	)
 group1	[ 0	locks=0 ]	(	""	)
 expand1	[ 0	locks=0 ]	(	"off"	)
 }
@@ -4355,7 +6856,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.565"
+		"value":"17.5.229"
 	}
 }
 
@@ -4391,7 +6892,7 @@ inputs
 stat
 {
   create 1504474956
-  modify 1504475241
+  modify 1534435763
   author Luiz@Luiz-PC
   access 0777
 }
@@ -4419,7 +6920,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -4429,7 +6930,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.565"
+		"value":"17.5.229"
 	}
 }
 
@@ -4466,7 +6967,7 @@ inputs
 stat
 {
   create 1504475028
-  modify 1504475241
+  modify 1534435763
   author Luiz@Luiz-PC
   access 0777
 }
@@ -4504,7 +7005,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.565"
+		"value":"17.5.229"
 	}
 }
 
@@ -4557,6 +7058,8 @@ version 0.8
 inname	[ 0	locks=0 ]	(	N	)
 inclass	[ 0	locks=0 ]	(	"point"	)
 outclass	[ 0	locks=0 ]	(	"vertex"	)
+usepieceattrib	[ 0	locks=0 ]	(	"off"	)
+pieceattrib	[ 0	locks=0 ]	(	name	)
 method	[ 0	locks=0 ]	(	"mean"	)
 useoutname	[ 0	locks=0 ]	(	"off"	)
 outname	[ 0	locks=0 ]	(	""	)
@@ -4570,7 +7073,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.565"
+		"value":"17.5.229"
 	}
 }
 
@@ -4622,9 +7125,16 @@ Content-Type: text/plain
 version 0.8
 group	[ 0	locks=0 ]	(	""	)
 grouptype	[ 0	locks=0 ]	(	"guess"	)
+overridenormal	[ 0	locks=0 ]	(	"off"	)
+normalattrib	[ 0	locks=0 ]	(	N	)
+construct	[ 0	locks=0 ]	(	0	)
+docompute	[ 0	locks=0 ]	(	"on"	)
 type	[ 0	locks=0 ]	(	"typevertex"	)
 cuspangle	[ 0	locks=0 ]	(	60	)
 method	[ 0	locks=0 ]	(	1	)
+modify	[ 0	locks=0 ]	(	0	)
+normalize	[ 0	locks=0 ]	(	"off"	)
+reverse	[ 0	locks=0 ]	(	"off"	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -4634,7 +7144,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.565"
+		"value":"17.5.229"
 	}
 }
 
@@ -5412,7 +7922,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.565"
+		"value":"17.5.229"
 	}
 }
 
@@ -5445,7 +7955,7 @@ inputs
 stat
 {
   create 1496780594
-  modify 1504548321
+  modify 1534435763
   author Luiz@Luiz-PC
   access 0777
 }
@@ -5491,7 +8001,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.565"
+		"value":"17.5.229"
 	}
 }
 
@@ -5528,7 +8038,7 @@ inputs
 stat
 {
   create 1496782511
-  modify 1504475266
+  modify 1534435763
   author Luiz@Luiz-PC
   access 0777
 }
@@ -5556,7 +8066,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -5566,7 +8076,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.565"
+		"value":"17.5.229"
 	}
 }
 
@@ -5599,7 +8109,7 @@ inputs
 stat
 {
   create 1496780594
-  modify 1522864706
+  modify 1534435763
   author Luiz@Luiz-PC
   access 0777
 }
@@ -5633,7 +8143,7 @@ pivot	[ 0	locks=0 ]	(	"centroid"	)
 viewportlod	[ 0	locks=0 ]	(	"full"	)
 addpath	[ 0	locks=0 ]	(	"on"	)
 enable1	[ 0	locks=0 ]	(	"on"	)
-objpath1	[ 0	locks=0 ]	(	""	)
+objpath1	[ 0	locks=0 ]	(	../../../../../HIGH	)
 group1	[ 0	locks=0 ]	(	""	)
 expand1	[ 0	locks=0 ]	(	"off"	)
 }
@@ -5645,7 +8155,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.565"
+		"value":"17.5.229"
 	}
 }
 
@@ -5682,7 +8192,7 @@ inputs
 stat
 {
   create 1504474956
-  modify 1509742009
+  modify 1534435763
   author Luiz@Luiz-PC
   access 0777
 }
@@ -5720,7 +8230,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.565"
+		"value":"17.5.229"
 	}
 }
 
@@ -5757,7 +8267,7 @@ inputs
 stat
 {
   create 1504475028
-  modify 1504475351
+  modify 1534435763
   author Luiz@Luiz-PC
   access 0777
 }
@@ -5795,7 +8305,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.565"
+		"value":"17.5.229"
 	}
 }
 
@@ -5848,6 +8358,8 @@ version 0.8
 inname	[ 0	locks=0 ]	(	N	)
 inclass	[ 0	locks=0 ]	(	"point"	)
 outclass	[ 0	locks=0 ]	(	"vertex"	)
+usepieceattrib	[ 0	locks=0 ]	(	"off"	)
+pieceattrib	[ 0	locks=0 ]	(	name	)
 method	[ 0	locks=0 ]	(	"mean"	)
 useoutname	[ 0	locks=0 ]	(	"off"	)
 outname	[ 0	locks=0 ]	(	""	)
@@ -5861,7 +8373,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.565"
+		"value":"17.5.229"
 	}
 }
 
@@ -5913,9 +8425,16 @@ Content-Type: text/plain
 version 0.8
 group	[ 0	locks=0 ]	(	""	)
 grouptype	[ 0	locks=0 ]	(	"guess"	)
+overridenormal	[ 0	locks=0 ]	(	"off"	)
+normalattrib	[ 0	locks=0 ]	(	N	)
+construct	[ 0	locks=0 ]	(	0	)
+docompute	[ 0	locks=0 ]	(	"on"	)
 type	[ 0	locks=0 ]	(	"typevertex"	)
 cuspangle	[ 0	locks=0 ]	(	60	)
 method	[ 0	locks=0 ]	(	1	)
+modify	[ 0	locks=0 ]	(	0	)
+normalize	[ 0	locks=0 ]	(	"off"	)
+reverse	[ 0	locks=0 ]	(	"off"	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -5925,7 +8444,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.565"
+		"value":"17.5.229"
 	}
 }
 
@@ -5960,7 +8479,7 @@ inputs
 stat
 {
   create 1509741512
-  modify 1509743708
+  modify 1534435763
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -5994,7 +8513,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.565"
+		"value":"17.5.229"
 	}
 }
 
@@ -6030,7 +8549,7 @@ inputs
 stat
 {
   create 1509741521
-  modify 1522863722
+  modify 1534435763
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -6058,7 +8577,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -6068,7 +8587,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.565"
+		"value":"17.5.229"
 	}
 }
 
@@ -6737,7 +9256,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.565"
+		"value":"17.5.229"
 	}
 }
 
@@ -6812,7 +9331,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.565"
+		"value":"17.5.229"
 	}
 }
 
@@ -6889,6 +9408,8 @@ cachesize	[ 0	locks=0 ]	(	0	)
 prefetch	[ 0	locks=0 ]	(	"off"	)
 f	[ 0	locks=0 ]	(	1	24	)
 index	[ 0	locks=0 ]	(	[ index	0 ] 	)
+wrap	[ 0	locks=0 ]	(	"cycle"	)
+retry	[ 0	locks=0 ]	(	0	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -6898,7 +9419,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.565"
+		"value":"17.5.229"
 	}
 }
 
@@ -6985,6 +9506,9 @@ updatenmls	[ 0	locks=0 ]	(	"off"	)
 updateaffectednmls	[ 0	locks=0 ]	(	"on"	)
 vlength	[ 0	locks=0 ]	(	"on"	)
 invertxform	[ 0	locks=0 ]	(	"off"	)
+addattrib	[ 0	locks=0 ]	(	"off"	)
+outputattrib	[ 0	locks=0 ]	(	xform	)
+outputmerge	[ 0	locks=0 ]	(	"post"	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -6994,7 +9518,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.565"
+		"value":"17.5.229"
 	}
 }
 
@@ -7048,7 +9572,7 @@ inputs
 stat
 {
   create 1496780594
-  modify 1504553455
+  modify 1534435763
   author Luiz@Luiz-PC
   access 0777
 }
@@ -7094,7 +9618,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.565"
+		"value":"17.5.229"
 	}
 }
 
@@ -7131,7 +9655,7 @@ inputs
 stat
 {
   create 1496782511
-  modify 1497629664
+  modify 1534435763
   author Luiz@Luiz-PC
   access 0777
 }
@@ -7159,7 +9683,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -7169,7 +9693,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.565"
+		"value":"17.5.229"
 	}
 }
 
@@ -7202,7 +9726,7 @@ inputs
 stat
 {
   create 1496780594
-  modify 1504553421
+  modify 1534435763
   author Luiz@Luiz-PC
   access 0777
 }
@@ -7248,7 +9772,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.565"
+		"value":"17.5.229"
 	}
 }
 
@@ -7269,862 +9793,15 @@ Content-Type: text/plain
 1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/ropnet1/rop_games_baker/objnet/cage.init"
-Content-Type: text/plain
-
-type = geo
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/ropnet1/rop_games_baker/objnet/cage.def"
-Content-Type: text/plain
-
-objflags objflags =  origin off
-pretransform UT_DMatrix4 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1
-comment ""
-position -5.91205 7.00592
-connectornextid 0
-flags =  lock off model off template off footprint off xray off bypass off display on render off highlight off unload off savedata off compress on colordefault on exposed on selectable on
-outputsNamed3
-{
-}
-inputsNamed3
-{
-}
-inputs
-{
-}
-stat
-{
-  create 1496780581
-  modify 1534441583
-  author Luiz@Luiz-PC
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/ropnet1/rop_games_baker/objnet/cage.spareparmdef"
-Content-Type: text/plain
-
-    group {
-        name    "stdswitcher4"
-        label   "Transform"
-
-        parm {
-            name    "xOrd"
-            baseparm
-            label   "Transform Order"
-            joinnext
-            export  none
-        }
-        parm {
-            name    "rOrd"
-            baseparm
-            label   "Rotate Order"
-            nolabel
-            export  none
-        }
-        parm {
-            name    "t"
-            baseparm
-            label   "Translate"
-            export  all
-        }
-        parm {
-            name    "r"
-            baseparm
-            label   "Rotate"
-            export  all
-        }
-        parm {
-            name    "s"
-            baseparm
-            label   "Scale"
-            export  none
-        }
-        parm {
-            name    "p"
-            baseparm
-            label   "Pivot Translate"
-            export  none
-        }
-        parm {
-            name    "scale"
-            baseparm
-            label   "Uniform Scale"
-            export  none
-        }
-        parm {
-            name    "pre_xform"
-            baseparm
-            label   "Modify Pre-Transform"
-            export  none
-        }
-        parm {
-            name    "keeppos"
-            baseparm
-            label   "Keep Position When Parenting"
-            export  none
-        }
-        parm {
-            name    "childcomp"
-            baseparm
-            label   "Child Compensation"
-            export  none
-        }
-        parm {
-            name    "constraints_on"
-            baseparm
-            label   "Enable Constraints"
-            export  none
-        }
-        parm {
-            name    "constraints_path"
-            baseparm
-            label   "Constraints"
-            export  none
-        }
-        parm {
-            name    "lookatpath"
-            baseparm
-            label   "Look At"
-            invisible
-            export  none
-        }
-        parm {
-            name    "lookupobjpath"
-            baseparm
-            label   "Look Up Object"
-            invisible
-            export  none
-        }
-        parm {
-            name    "lookup"
-            baseparm
-            label   "Look At Up Vector"
-            invisible
-            export  none
-        }
-        parm {
-            name    "pathobjpath"
-            baseparm
-            label   "Path Object"
-            invisible
-            export  none
-        }
-        parm {
-            name    "roll"
-            baseparm
-            label   "Roll"
-            invisible
-            export  none
-        }
-        parm {
-            name    "pos"
-            baseparm
-            label   "Position"
-            invisible
-            export  none
-        }
-        parm {
-            name    "uparmtype"
-            baseparm
-            label   "Parameterization"
-            invisible
-            export  none
-        }
-        parm {
-            name    "pathorient"
-            baseparm
-            label   "Orient Along Path"
-            invisible
-            export  none
-        }
-        parm {
-            name    "up"
-            baseparm
-            label   "Orient Up Vector"
-            invisible
-            export  none
-        }
-        parm {
-            name    "bank"
-            baseparm
-            label   "Auto-Bank factor"
-            invisible
-            export  none
-        }
-    }
-
-    group {
-        name    "stdswitcher4_1"
-        label   "Render"
-
-        parm {
-            name    "shop_materialpath"
-            baseparm
-            label   "Material"
-            export  none
-        }
-        parm {
-            name    "shop_materialopts"
-            baseparm
-            label   "Options"
-            invisible
-            export  none
-        }
-        parm {
-            name    "tdisplay"
-            baseparm
-            label   "Display"
-            joinnext
-            export  none
-        }
-        parm {
-            name    "display"
-            baseparm
-            label   "Display"
-            export  none
-        }
-        parm {
-            name    "viewportlod"
-            label   "Display As"
-            type    ordinal
-            default { "full" }
-            help    "Choose how the object's geometry should be rendered in the viewport"
-            menu {
-                "full"      "Full Geometry"
-                "points"    "Point Cloud"
-                "box"       "Bounding Box"
-                "centroid"  "Centroid"
-                "hidden"    "Hidden"
-                "subd"      "Subdivision Surface / Curves"
-            }
-            parmtag { "spare_category" "Render" }
-        }
-        parm {
-            name    "vm_rendervisibility"
-            label   "Render Visibility"
-            type    string
-            default { "*" }
-            menureplace {
-                "*"                             "Visible to all"
-                "primary"                       "Visible only to primary rays"
-                "primary|shadow"                "Visible only to primary and shadow rays"
-                "-primary"                      "Invisible to primary rays (Phantom)"
-                "-diffuse"                      "Invisible to diffuse rays"
-                "-diffuse&-reflect&-refract"    "Invisible to secondary rays"
-                ""                              "Invisible (Unrenderable)"
-            }
-            parmtag { "mantra_class" "object" }
-            parmtag { "mantra_name" "rendervisibility" }
-            parmtag { "spare_category" "Render" }
-        }
-        parm {
-            name    "vm_rendersubd"
-            label   "Render Polygons As Subdivision (Mantra)"
-            type    toggle
-            default { "0" }
-            parmtag { "mantra_class" "object" }
-            parmtag { "mantra_name" "rendersubd" }
-            parmtag { "spare_category" "Geometry" }
-        }
-        parm {
-            name    "vm_subdstyle"
-            label   "Subdivision Style"
-            type    string
-            default { "mantra_catclark" }
-            hidewhen "{ vm_rendersubd == 0 }"
-            menu {
-                "mantra_catclark"   "Mantra Catmull-Clark"
-                "osd_catclark"      "OpenSubdiv Catmull-Clark"
-            }
-            parmtag { "mantra_class" "object" }
-            parmtag { "mantra_name" "subdstyle" }
-            parmtag { "spare_category" "Geometry" }
-        }
-        parm {
-            name    "vm_subdgroup"
-            label   "Subdivision Group"
-            type    string
-            default { "" }
-            hidewhen "{ vm_rendersubd == 0 }"
-            parmtag { "mantra_class" "object" }
-            parmtag { "mantra_name" "subdgroup" }
-            parmtag { "spare_category" "Geometry" }
-        }
-        group {
-            name    "folder0"
-            label   "Shading"
-
-            parm {
-                name    "categories"
-                label   "Categories"
-                type    string
-                default { "" }
-                help    "A list of tags which can be used to select the object"
-                parmtag { "spare_category" "Shading" }
-            }
-            parm {
-                name    "reflectmask"
-                label   "Reflection Mask"
-                type    oplist
-                default { "*" }
-                help    "Objects that will be reflected on this object."
-                parmtag { "opexpand" "1" }
-                parmtag { "opfilter" "!!OBJ/GEOMETRY!!" }
-                parmtag { "oprelative" "/obj" }
-                parmtag { "spare_category" "Shading" }
-            }
-            parm {
-                name    "refractmask"
-                label   "Refraction Mask"
-                type    oplist
-                default { "*" }
-                help    "Objects that will be refracted on this object."
-                parmtag { "opexpand" "1" }
-                parmtag { "opfilter" "!!OBJ/GEOMETRY!!" }
-                parmtag { "oprelative" "/obj" }
-                parmtag { "spare_category" "Shading" }
-            }
-            parm {
-                name    "lightmask"
-                label   "Light Mask"
-                type    oplist
-                default { "*" }
-                help    "Lights that illuminate this object."
-                parmtag { "opexpand" "1" }
-                parmtag { "opfilter" "!!OBJ/LIGHT!!" }
-                parmtag { "oprelative" "/obj" }
-                parmtag { "spare_category" "Shading" }
-            }
-            parm {
-                name    "lightcategories"
-                label   "Light Selection"
-                type    string
-                default { "*" }
-                parmtag { "spare_category" "Shading" }
-            }
-            parm {
-                name    "vm_volumefilter"
-                label   "Volume Filter"
-                type    string
-                default { "box" }
-                menu {
-                    "box"       "Box Filter"
-                    "gaussian"  "Gaussian"
-                    "bartlett"  "Bartlett (triangle)"
-                    "catrom"    "Catmull-Rom"
-                    "hanning"   "Hanning"
-                    "blackman"  "Blackman"
-                    "sinc"      "Sinc (sharpening)"
-                }
-                parmtag { "mantra_class" "object" }
-                parmtag { "mantra_name" "filter" }
-                parmtag { "spare_category" "Shading" }
-            }
-            parm {
-                name    "vm_volumefilterwidth"
-                label   "Volume Filter Width"
-                type    float
-                default { "1" }
-                range   { 0.001 5 }
-                parmtag { "mantra_class" "object" }
-                parmtag { "mantra_name" "filterwidth" }
-                parmtag { "spare_category" "Shading" }
-            }
-            parm {
-                name    "vm_matte"
-                label   "Matte shading"
-                type    toggle
-                default { "0" }
-                parmtag { "mantra_class" "object" }
-                parmtag { "mantra_name" "matte" }
-                parmtag { "spare_category" "Shading" }
-            }
-            parm {
-                name    "vm_rayshade"
-                label   "Raytrace Shading"
-                type    toggle
-                default { "0" }
-                parmtag { "mantra_class" "object" }
-                parmtag { "mantra_name" "rayshade" }
-                parmtag { "spare_category" "Shading" }
-            }
-        }
-
-        group {
-            name    "folder0_1"
-            label   "Sampling"
-
-            parm {
-                name    "geo_velocityblur"
-                label   "Geometry Velocity Blur"
-                type    toggle
-                default { "0" }
-                disablewhen "{ allowmotionblur == 0 }"
-                parmtag { "spare_category" "Sampling" }
-            }
-        }
-
-        group {
-            name    "folder0_2"
-            label   "Dicing"
-
-            parm {
-                name    "vm_shadingquality"
-                label   "Shading Quality"
-                type    float
-                default { "1" }
-                range   { 0 10 }
-                parmtag { "mantra_class" "object" }
-                parmtag { "mantra_name" "shadingquality" }
-                parmtag { "spare_category" "Dicing" }
-            }
-            parm {
-                name    "vm_flatness"
-                label   "Dicing Flatness"
-                type    float
-                default { "0.05" }
-                range   { 0 1 }
-                parmtag { "mantra_class" "object" }
-                parmtag { "mantra_name" "flatness" }
-                parmtag { "spare_category" "Dicing" }
-            }
-            parm {
-                name    "vm_raypredice"
-                label   "Ray Predicing"
-                type    integer
-                default { "0" }
-                menu {
-                    "0" "Disable Predicing"
-                    "1" "Full Predicing"
-                    "2" "Precompute Bounds"
-                }
-                range   { 0 10 }
-                parmtag { "mantra_class" "object" }
-                parmtag { "mantra_name" "raypredice" }
-                parmtag { "spare_category" "Dicing" }
-            }
-            parm {
-                name    "vm_curvesurface"
-                label   "Shade Curves As Surfaces"
-                type    toggle
-                default { "0" }
-                parmtag { "mantra_class" "object" }
-                parmtag { "mantra_name" "curvesurface" }
-                parmtag { "spare_category" "Dicing" }
-            }
-        }
-
-        group {
-            name    "folder0_3"
-            label   "Geometry"
-
-            parm {
-                name    "vm_rmbackface"
-                label   "Backface Removal"
-                type    toggle
-                default { "0" }
-                parmtag { "mantra_class" "object" }
-                parmtag { "mantra_name" "rmbackface" }
-                parmtag { "spare_category" "Geometry" }
-            }
-            parm {
-                name    "shop_geometrypath"
-                label   "Procedural Shader"
-                type    oppath
-                default { "" }
-                parmtag { "opfilter" "!!SHOP/GEOMETRY!!" }
-                parmtag { "oprelative" "." }
-                parmtag { "spare_category" "Geometry" }
-            }
-            parm {
-                name    "vm_forcegeometry"
-                label   "Force Procedural Geometry Output"
-                type    toggle
-                default { "1" }
-                parmtag { "spare_category" "Geometry" }
-            }
-            parm {
-                name    "vm_rendersubdcurves"
-                label   "Render Polygon Curves As Subdivision (Mantra)"
-                type    toggle
-                default { "0" }
-                parmtag { "mantra_class" "object" }
-                parmtag { "mantra_name" "rendersubdcurves" }
-                parmtag { "spare_category" "Geometry" }
-            }
-            parm {
-                name    "vm_renderpoints"
-                label   "Render As Points (Mantra)"
-                type    integer
-                default { "2" }
-                menu {
-                    "0" "No Point Rendering"
-                    "1" "Render Only Points"
-                    "2" "Render Unconnected Points"
-                }
-                range   { 0 10 }
-                parmtag { "mantra_class" "object" }
-                parmtag { "mantra_name" "renderpoints" }
-                parmtag { "spare_category" "Geometry" }
-            }
-            parm {
-                name    "vm_renderpointsas"
-                label   "Render Points As (Mantra)"
-                type    integer
-                default { "0" }
-                disablewhen "{ vm_renderpoints == 0 }"
-                menu {
-                    "0" "Spheres"
-                    "1" "Circles"
-                }
-                range   { 0 10 }
-                parmtag { "mantra_class" "object" }
-                parmtag { "mantra_name" "renderpointsas" }
-                parmtag { "spare_category" "Geometry" }
-            }
-            parm {
-                name    "vm_usenforpoints"
-                label   "Use N For Point Rendering"
-                type    toggle
-                default { "0" }
-                disablewhen "{ vm_renderpoints == 0 }"
-                parmtag { "mantra_class" "object" }
-                parmtag { "mantra_name" "usenforpoints" }
-                parmtag { "spare_category" "Geometry" }
-            }
-            parm {
-                name    "vm_pointscale"
-                label   "Point Scale"
-                type    float
-                default { "1" }
-                disablewhen "{ vm_renderpoints == 0 }"
-                range   { 0! 10 }
-                parmtag { "mantra_class" "object" }
-                parmtag { "mantra_name" "pointscale" }
-                parmtag { "spare_category" "Geometry" }
-            }
-            parm {
-                name    "vm_pscalediameter"
-                label   "Treat Point Scale as Diameter Instead of Radius"
-                type    toggle
-                default { "0" }
-                parmtag { "mantra_class" "object" }
-                parmtag { "mantra_name" "pscalediameter" }
-                parmtag { "spare_category" "Geometry" }
-            }
-            parm {
-                name    "vm_metavolume"
-                label   "Metaballs as Volume"
-                type    toggle
-                default { "0" }
-                parmtag { "mantra_class" "object" }
-                parmtag { "mantra_name" "metavolume" }
-                parmtag { "spare_category" "Geometry" }
-            }
-            parm {
-                name    "vm_coving"
-                label   "Coving"
-                type    integer
-                default { "1" }
-                menu {
-                    "0" "Disable Coving"
-                    "1" "Coving for displacement/sub-d"
-                    "2" "Coving for all primitives"
-                }
-                range   { 0 10 }
-                parmtag { "mantra_class" "object" }
-                parmtag { "mantra_name" "coving" }
-                parmtag { "spare_category" "Geometry" }
-            }
-            parm {
-                name    "vm_materialoverride"
-                label   "Material Override"
-                type    string
-                default { "compact" }
-                menu {
-                    "none"      "Disabled"
-                    "full"      "Evaluate for Each Primitve/Point"
-                    "compact"   "Evaluate Once"
-                }
-                parmtag { "spare_category" "Geometry" }
-            }
-            parm {
-                name    "vm_overridedetail"
-                label   "Ignore Geometry Attribute Shaders"
-                type    toggle
-                default { "0" }
-                parmtag { "mantra_class" "object" }
-                parmtag { "mantra_name" "overridedetail" }
-                parmtag { "spare_category" "Geometry" }
-            }
-            parm {
-                name    "vm_procuseroottransform"
-                label   "Proc Use Root Transform"
-                type    toggle
-                default { "1" }
-                parmtag { "mantra_class" "object" }
-                parmtag { "mantra_name" "procuseroottransform" }
-                parmtag { "spare_category" "Geometry" }
-            }
-        }
-
-    }
-
-    group {
-        name    "stdswitcher4_2"
-        label   "Misc"
-
-        parm {
-            name    "use_dcolor"
-            baseparm
-            label   "Set Wireframe Color"
-            export  none
-        }
-        parm {
-            name    "dcolor"
-            baseparm
-            label   "Wireframe Color"
-            export  none
-        }
-        parm {
-            name    "picking"
-            baseparm
-            label   "Viewport Selecting Enabled"
-            export  none
-        }
-        parm {
-            name    "pickscript"
-            baseparm
-            label   "Select Script"
-            export  none
-        }
-        parm {
-            name    "caching"
-            baseparm
-            label   "Cache Object Transform"
-            export  none
-        }
-        parm {
-            name    "vport_shadeopen"
-            baseparm
-            label   "Shade Open Curves In Viewport"
-            export  none
-        }
-        parm {
-            name    "vport_displayassubdiv"
-            baseparm
-            label   "Display as Subdivision in Viewport"
-            invisible
-            export  none
-        }
-        parm {
-            name    "vport_onionskin"
-            baseparm
-            label   "Onion Skinning"
-            export  none
-        }
-    }
-
-    parm {
-        name    "pr"
-        baseparm
-        label   "Pivot Rotate"
-        export  none
-    }
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/ropnet1/rop_games_baker/objnet/cage.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-stdswitcher	[ 0	locks=0 ]	(	0	0	0	)
-xOrd	[ 0	locks=0 ]	(	"srt"	)
-rOrd	[ 0	locks=0 ]	(	"xyz"	)
-t	[ 0	locks=0 ]	(	0	0	0	)
-r	[ 0	locks=0 ]	(	0	0	0	)
-s	[ 0	locks=0 ]	(	1	1	1	)
-p	[ 0	locks=0 ]	(	0	0	0	)
-pr	[ 0	locks=0 ]	(	0	0	0	)
-scale	[ 0	locks=0 ]	(	1	)
-pre_xform	[ 0	locks=0 ]	(	0	)
-keeppos	[ 0	locks=0 ]	(	"off"	)
-childcomp	[ 0	locks=0 ]	(	"off"	)
-constraints_on	[ 0	locks=0 ]	(	"off"	)
-constraints_path	[ 0	locks=0 ]	(	""	)
-lookatpath	[ 0	locks=0 ]	(	""	)
-lookupobjpath	[ 0	locks=0 ]	(	""	)
-lookup	[ 0	locks=0 ]	(	on	)
-pathobjpath	[ 0	locks=0 ]	(	""	)
-roll	[ 0	locks=0 ]	(	0	)
-pos	[ 0	locks=0 ]	(	0	)
-uparmtype	[ 0	locks=0 ]	(	"arc"	)
-pathorient	[ 0	locks=0 ]	(	1	)
-up	[ 0	locks=0 ]	(	0	1	0	)
-bank	[ 0	locks=0 ]	(	0	)
-shop_materialpath	[ 0	locks=0 ]	(	""	)
-shop_materialopts	[ 0	locks=0 ]	(	0	)
-tdisplay	[ 0	locks=0 ]	(	"off"	)
-display	[ 0	locks=0 ]	(	1	)
-use_dcolor	[ 0	locks=0 ]	(	"off"	)
-dcolor	[ 0	locks=0 ]	(	1	1	1	)
-picking	[ 0	locks=0 ]	(	"on"	)
-pickscript	[ 0	locks=0 ]	(	""	)
-caching	[ 0	locks=0 ]	(	"on"	)
-vport_shadeopen	[ 0	locks=0 ]	(	"off"	)
-vport_displayassubdiv	[ 0	locks=0 ]	(	"off"	)
-vport_onionskin	[ 0	locks=0 ]	(	"off"	)
-stdswitcher4	[ 0	locks=0 ]	(	1	1	1	)
-viewportlod	[ 0	locks=0 ]	(	"full"	)
-vm_rendervisibility	[ 0	locks=0 ]	(	*	)
-vm_rendersubd	[ 0	locks=0 ]	(	"off"	)
-vm_subdstyle	[ 0	locks=0 ]	(	mantra_catclark	)
-vm_subdgroup	[ 0	locks=0 ]	(	""	)
-folder0	[ 0	locks=0 ]	(	3	3	3	3	)
-categories	[ 0	locks=0 ]	(	""	)
-reflectmask	[ 0	locks=0 ]	(	*	)
-refractmask	[ 0	locks=0 ]	(	*	)
-lightmask	[ 0	locks=0 ]	(	*	)
-lightcategories	[ 0	locks=0 ]	(	*	)
-vm_volumefilter	[ 0	locks=0 ]	(	box	)
-vm_volumefilterwidth	[ 0	locks=0 ]	(	1	)
-vm_matte	[ 0	locks=0 ]	(	"off"	)
-vm_rayshade	[ 0	locks=0 ]	(	"off"	)
-geo_velocityblur	[ 0	locks=0 ]	(	"off"	)
-vm_shadingquality	[ 0	locks=0 ]	(	1	)
-vm_flatness	[ 0	locks=0 ]	(	0.050000000000000003	)
-vm_raypredice	[ 0	locks=0 ]	(	0	)
-vm_curvesurface	[ 0	locks=0 ]	(	"off"	)
-vm_rmbackface	[ 0	locks=0 ]	(	"off"	)
-shop_geometrypath	[ 0	locks=0 ]	(	""	)
-vm_forcegeometry	[ 0	locks=0 ]	(	"on"	)
-vm_rendersubdcurves	[ 0	locks=0 ]	(	"off"	)
-vm_renderpoints	[ 0	locks=0 ]	(	2	)
-vm_renderpointsas	[ 0	locks=0 ]	(	0	)
-vm_usenforpoints	[ 0	locks=0 ]	(	"off"	)
-vm_pointscale	[ 0	locks=0 ]	(	1	)
-vm_pscalediameter	[ 0	locks=0 ]	(	"off"	)
-vm_metavolume	[ 0	locks=0 ]	(	"off"	)
-vm_coving	[ 0	locks=0 ]	(	1	)
-vm_materialoverride	[ 0	locks=0 ]	(	compact	)
-vm_overridedetail	[ 0	locks=0 ]	(	"off"	)
-vm_procuseroottransform	[ 0	locks=0 ]	(	"on"	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/ropnet1/rop_games_baker/objnet/cage.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":"16.5.565"
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/ropnet1/rop_games_baker/objnet/cage/object_merge1.init"
-Content-Type: text/plain
-
-type = object_merge
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/ropnet1/rop_games_baker/objnet/cage/object_merge1.def"
-Content-Type: text/plain
-
-sopflags sopflags = 
-comment ""
-position -1.75666 1.64622
-connectornextid 1
-flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
-outputsNamed3
-{
-0 "output1"
-}
-inputsNamed3
-{
-}
-inputs
-{
-}
-stat
-{
-  create 1496780594
-  modify 1534441707
-  author Luiz@Luiz-PC
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/ropnet1/rop_games_baker/objnet/cage/object_merge1.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-numobj	[ 0	locks=0 ]	(	1	)
-_separator	[ 0	locks=0 ]	(	)
-xformtype	[ 0	locks=0 ]	(	"none"	)
-xformpath	[ 0	locks=0 ]	(	""	)
-invertxform	[ 0	locks=0 ]	(	"off"	)
-createptgroups	[ 0	locks=0 ]	(	"off"	)
-ptgroupprefix	[ 0	locks=0 ]	(	_ptgrp_	)
-createprimgroups	[ 0	locks=0 ]	(	"off"	)
-primgroupprefix	[ 0	locks=0 ]	(	_primgrp_	)
-verbosegroups	[ 0	locks=0 ]	(	"off"	)
-suffixfirstgroup	[ 0	locks=0 ]	(	"on"	)
-createptstring	[ 0	locks=0 ]	(	"off"	)
-createprimstring	[ 0	locks=0 ]	(	"off"	)
-pathattrib	[ 0	locks=0 ]	(	objname	)
-pack	[ 0	locks=0 ]	(	"off"	)
-pivot	[ 0	locks=0 ]	(	"centroid"	)
-viewportlod	[ 0	locks=0 ]	(	"full"	)
-addpath	[ 0	locks=0 ]	(	"on"	)
-enable1	[ 0	locks=0 ]	(	"on"	)
-objpath1	[ 0	locks=0 ]	(	`chsop(\"../../../vm_uvcageobject1\")`	)
-group1	[ 0	locks=0 ]	(	""	)
-expand1	[ 0	locks=0 ]	(	"off"	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/ropnet1/rop_games_baker/objnet/cage/object_merge1.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":"16.5.565"
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/ropnet1/rop_games_baker/objnet/cage.net"
-Content-Type: text/plain
-
-1
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/ropnet1/rop_games_baker/objnet.order"
 Content-Type: text/plain
 
-6
+5
 low
 high
 cam1
 matnet
 custom_export
-cage
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/ropnet1/rop_games_baker/objnet.net"
@@ -8153,7 +9830,7 @@ inputs
 stat
 {
   create 1496776162
-  modify 1534441601
+  modify 1534435763
   author Luiz@Luiz-PC
   access 0777
 }
@@ -8209,7 +9886,7 @@ Content-Type: text/plain
     parm {
         name    "take"
         baseparm
-        label   "Render With Take"
+        label   "Render with Take"
         export  none
     }
     parm {
@@ -9574,12 +11251,6 @@ Content-Disposition: attachment; filename="hdaroot/ropnet1/rop_games_baker/baket
 Content-Type: text/plain
 
 {
-    channel uvresmenu {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../uvresmenu\") }
-    }
     channel vm_quickplane_Oc {
       lefttype = extend
       righttype = extend
@@ -9686,12 +11357,6 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../bake_metallic\") }
     }
-    channel vm_bake_normalizep {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = 1-ch(\"../bake_P\") }
-    }
     channel vm_uvunwrapresx {
       lefttype = extend
       righttype = extend
@@ -9705,6 +11370,12 @@ Content-Type: text/plain
       default = 256
       flags = 0
       segment { length = 0 value = 256 256 expr = ch(\"../vm_uvunwrapresy\") }
+    }
+    channel uvresmenu {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../uvresmenu\") }
     }
   }
 
@@ -9723,7 +11394,7 @@ f	[ 8	locks=0 ]	(	1	10	1	)
 take	[ 0	locks=0 ]	(	_current_	)
 camera	[ 0	locks=0 ]	(	"`opfullpath(\"..\") + \"/objnet/cam1\"`"	)
 vm_uvtype	[ 0	locks=0 ]	(	udim	)
-vm_uvunwrapres	[ 8	locks=0 ]	(	[ vm_uvunwrapresx	2048 ] 	[ vm_uvunwrapresy	2048 ] 	)
+vm_uvunwrapres	[ 8	locks=0 ]	(	[ vm_uvunwrapresx	512 ] 	[ vm_uvunwrapresy	512 ] 	)
 uvresmenu	[ 0	locks=0 ]	(	[ uvresmenu	0 ] 	)
 vm_ptexmapminres	[ 0	locks=0 ]	(	8	8	)
 vm_uvptexminresmenu	[ 0	locks=0 ]	(	0	)
@@ -9744,7 +11415,7 @@ soho_previewsupport	[ 0	locks=0 ]	(	"on"	)
 main	[ 0	locks=0 ]	(	0	0	)
 vm_uv_unwrap_method	[ 0	locks=0 ]	(	1	)
 vm_uvattribute	[ 0	locks=0 ]	(	uv	)
-vm_uv_ray_bias	[ 8	locks=0 ]	(	[ vm_uv_ray_bias	0.10000000000000001 ] 	)
+vm_uv_ray_bias	[ 8	locks=0 ]	(	[ vm_uv_ray_bias	0.01 ] 	)
 vm_uv_ray_maxdist	[ 8	locks=0 ]	(	[ vm_uv_ray_maxdist	-1 ] 	)
 vm_uv_flip_normal	[ 0	locks=0 ]	(	"off"	)
 vm_uvpostprocess	[ 0	locks=0 ]	(	diffusefill	)
@@ -9788,19 +11459,19 @@ soho_initsim	[ 0	locks=0 ]	(	"off"	)
 soho_viewport_menu	[ 0	locks=0 ]	(	"off"	)
 vm_uvobjectenable1	[ 0	locks=0 ]	(	"on"	)
 vm_uvobject1	[ 0	locks=0 ]	(	"`opfullpath(\"..\") + \"/objnet/low\"`"	)
-vm_uvcageobject1	[ 8	locks=0 ]	(	"`opfullpath(\"..\") + \"/objnet/cage\"`"	)
+vm_uvcageobject1	[ 8	locks=0 ]	(	`chsop(\"../vm_uvcageobject1\")`	)
 vm_uvhires1	[ 0	locks=0 ]	(	"`opfullpath(\"..\") + \"/objnet/high\"`"	)
-vm_uvoutputpicture1	[ 0	locks=0 ]	(	$HIP/render/${HIPNAME}_${OS}_%(CHANNEL)s.%(UDIM)d.rat	)
+vm_uvoutputpicture1	[ 0	locks=0 ]	(	C:/Users/MAINGEAR/render/LOW_tmp.exr	)
 images6	[ 0	locks=0 ]	(	0	0	0	0	0	)
 main3	[ 0	locks=0 ]	(	0	0	)
-vm_bake_normalizep	[ 8	locks=0 ]	(	[ vm_bake_normalizep	1 ] 	)
+vm_bake_normalizep	[ 8	locks=0 ]	(	"on"	)
 vm_extractimageplanes	[ 0	locks=0 ]	(	"off"	)
 vm_extractimageplanesformat	[ 0	locks=0 ]	(	Targa	)
 vm_quickplane_Nt	[ 8	locks=0 ]	(	[ vm_quickplane_Nt	1 ] 	)
 vm_quickplane_Ds	[ 8	locks=0 ]	(	[ vm_quickplane_Ds	0 ] 	)
 vm_quickplane_Vd	[ 0	locks=0 ]	(	"off"	)
 vm_quickplane_Vdt	[ 0	locks=0 ]	(	"off"	)
-vm_quickplane_Oc	[ 8	locks=0 ]	(	[ vm_quickplane_Oc	0 ] 	)
+vm_quickplane_Oc	[ 8	locks=0 ]	(	[ vm_quickplane_Oc	1 ] 	)
 vm_quickplane_Cv	[ 0	locks=0 ]	(	"off"	)
 vm_quickplane_Th	[ 8	locks=0 ]	(	[ vm_quickplane_Th	0 ] 	)
 vm_quickplane_Cu	[ 8	locks=0 ]	(	[ vm_quickplane_Cu	0 ] 	)
@@ -9815,6 +11486,24 @@ vm_quickplane_metallic	[ 8	locks=0 ]	(	[ vm_quickplane_metallic	0 ] 	)
 vm_quickplane_specrough	[ 8	locks=0 ]	(	[ vm_quickplane_specrough	0 ] 	)
 vm_showextraplaneparms	[ 0	locks=0 ]	(	"off"	)
 vm_numaux	[ 0	locks=0 ]	(	1	)
+vm_disable_plane1	[ 0	locks=0 ]	(	"off"	)
+vm_excludedcm_plane1	[ 0	locks=0 ]	(	"off"	)
+vm_variable_plane1	[ 0	locks=0 ]	(	Af	)
+vm_vextype_plane1	[ 0	locks=0 ]	(	float	)
+vm_channel_plane1	[ 0	locks=0 ]	(	alpha	)
+vm_usefile_plane1	[ 0	locks=0 ]	(	"off"	)
+vm_filename_plane1	[ 0	locks=0 ]	(	""	)
+vm_quantize_plane1	[ 0	locks=0 ]	(	half	)
+vm_sfilter_plane1	[ 0	locks=0 ]	(	alpha	)
+vm_pfilter_plane1	[ 0	locks=0 ]	(	""	)
+vm_gamma_plane1	[ 0	locks=0 ]	(	1	)
+vm_gain_plane1	[ 0	locks=0 ]	(	1	)
+vm_dither_plane1	[ 0	locks=0 ]	(	0.5	)
+vm_whitepoint_plane1	[ 0	locks=0 ]	(	1	)
+vm_componentexport1	[ 0	locks=0 ]	(	"off"	)
+vm_lightexport1	[ 0	locks=0 ]	(	0	)
+vm_lightexport_scope1	[ 0	locks=0 ]	(	*	)
+vm_lightexport_select1	[ 0	locks=0 ]	(	*	)
 vm_extractseparator	[ 0	locks=0 ]	(	_	)
 vm_channel_names_seperator_bar	[ 0	locks=0 ]	(	)
 vm_quickplane_Nt_channel	[ 0	locks=0 ]	(	Nt	)
@@ -9829,7 +11518,7 @@ vm_quickplane_P_channel	[ 0	locks=0 ]	(	P	)
 vm_quickplane_N_channel	[ 0	locks=0 ]	(	N	)
 vm_bake_skipcf	[ 0	locks=0 ]	(	"on"	)
 vm_bake_layerexport	[ 0	locks=0 ]	(	"on"	)
-vm_bake_samples	[ 8	locks=0 ]	(	[ vm_bake_samples	8 ] 	)
+vm_bake_samples	[ 8	locks=0 ]	(	[ vm_bake_samples	4 ] 	)
 vm_bake_usemikkt	[ 0	locks=0 ]	(	[ vm_bake_usemikkt	1 ] 	)
 vm_bake_tangentnormalflipx	[ 0	locks=0 ]	(	"off"	)
 vm_bake_tangentnormalflipy	[ 0	locks=0 ]	(	[ vm_bake_tangentnormalflipy	0 ] 	)
@@ -9866,24 +11555,6 @@ vm_extractlinearplanes	[ 0	locks=0 ]	(	`propertys('vm_quickplane_Nt_channel','Nt
 vm_inlinestorage	[ 0	locks=0 ]	(	"off"	)
 declare_stylesheets	[ 0	locks=0 ]	(	*	)
 apply_stylesheets	[ 0	locks=0 ]	(	opdef:..?stylesheet.json	)
-vm_disable_plane1	[ 0	locks=0 ]	(	"off"	)
-vm_excludedcm_plane1	[ 0	locks=0 ]	(	"off"	)
-vm_variable_plane1	[ 0	locks=0 ]	(	Af	)
-vm_vextype_plane1	[ 0	locks=0 ]	(	float	)
-vm_channel_plane1	[ 0	locks=0 ]	(	alpha	)
-vm_usefile_plane1	[ 0	locks=0 ]	(	"off"	)
-vm_filename_plane1	[ 0	locks=0 ]	(	""	)
-vm_quantize_plane1	[ 0	locks=0 ]	(	half	)
-vm_sfilter_plane1	[ 0	locks=0 ]	(	alpha	)
-vm_pfilter_plane1	[ 0	locks=0 ]	(	""	)
-vm_gamma_plane1	[ 0	locks=0 ]	(	1	)
-vm_gain_plane1	[ 0	locks=0 ]	(	1	)
-vm_dither_plane1	[ 0	locks=0 ]	(	0.5	)
-vm_whitepoint_plane1	[ 0	locks=0 ]	(	1	)
-vm_componentexport1	[ 0	locks=0 ]	(	"off"	)
-vm_lightexport1	[ 0	locks=0 ]	(	0	)
-vm_lightexport_scope1	[ 0	locks=0 ]	(	*	)
-vm_lightexport_select1	[ 0	locks=0 ]	(	*	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -9894,18 +11565,6 @@ Content-Type: text/plain
 	"___Version___":{
 		"type":"string",
 		"value":""
-	},
-	"sidefx::parm_filter_raw_value_pattern":{
-		"type":"string",
-		"value":"tmp"
-	},
-	"sidefx::parm_filter_text_pattern":{
-		"type":"string",
-		"value":"tmp"
-	},
-	"sidefx::parm_filter_visibility_option":{
-		"type":"string",
-		"value":"raw_value_or_expr"
 	}
 }
 
@@ -9953,7 +11612,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.565"
+		"value":"17.5.229"
 	}
 }
 
@@ -9985,7 +11644,7 @@ inputs
 stat
 {
   create 1496798847
-  modify 1522864656
+  modify 1532526866
   author Luiz@Luiz-PC
   access 0777
 }
@@ -10019,7 +11678,7 @@ nodename	[ 0	locks=0 ]	(	"userdef"	)
 reload	[ 0	locks=0 ]	(	0	)
 subframes	[ 0	locks=0 ]	(	"off"	)
 overridesize	[ 0	locks=0 ]	(	"natural"	)
-size	[ 0	locks=0 ]	(	1024	1024	)
+size	[ 0	locks=0 ]	(	512	512	)
 sizemenu	[ 0	locks=0 ]	(	0	)
 filter	[ 0	locks=0 ]	(	box	)
 overrideaspect	[ 0	locks=0 ]	(	"off"	)
@@ -10068,7 +11727,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.565"
+		"value":"17.5.229"
 	}
 }
 
@@ -10077,7 +11736,7 @@ Content-Disposition: attachment; filename="hdaroot/ropnet1/rop_games_baker/extra
 Content-Type: text/plain
 
 2
-708
+717
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -10163,7 +11822,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.565"
+		"value":"17.5.229"
 	}
 }
 
@@ -10233,7 +11892,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.565"
+		"value":"17.5.229"
 	}
 }
 
@@ -10335,7 +11994,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.565"
+		"value":"17.5.229"
 	}
 }
 
@@ -10440,7 +12099,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.565"
+		"value":"17.5.229"
 	}
 }
 
@@ -10532,7 +12191,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.565"
+		"value":"17.5.229"
 	}
 }
 
@@ -10637,7 +12296,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.565"
+		"value":"17.5.229"
 	}
 }
 
@@ -10677,7 +12336,7 @@ inputs
 stat
 {
   create 1496952905
-  modify 1504533723
+  modify 1534435763
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -10745,7 +12404,7 @@ maskplane	[ 0	locks=0 ]	(	C	)
 maskresize	[ 0	locks=0 ]	(	"off"	)
 maskinvert	[ 0	locks=0 ]	(	"off"	)
 overridesize	[ 0	locks=0 ]	(	"on"	)
-size	[ 8	locks=0 ]	(	[ size1	1 ] 	[ size2	1 ] 	)
+size	[ 8	locks=0 ]	(	[ size1	256 ] 	[ size2	256 ] 	)
 sizemenu	[ 0	locks=0 ]	(	0	)
 overrideaspect	[ 0	locks=0 ]	(	"off"	)
 aspect	[ 0	locks=0 ]	(	[ aspect	1 ] 	)
@@ -10777,7 +12436,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.565"
+		"value":"17.5.229"
 	}
 }
 
@@ -10786,7 +12445,7 @@ Content-Disposition: attachment; filename="hdaroot/ropnet1/rop_games_baker/extra
 Content-Type: text/plain
 
 2
-13
+14
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -10882,7 +12541,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.565"
+		"value":"17.5.229"
 	}
 }
 
@@ -10948,7 +12607,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.565"
+		"value":"17.5.229"
 	}
 }
 
@@ -11014,7 +12673,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.565"
+		"value":"17.5.229"
 	}
 }
 
@@ -11105,7 +12764,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.565"
+		"value":"17.5.229"
 	}
 }
 
@@ -11210,7 +12869,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.565"
+		"value":"17.5.229"
 	}
 }
 
@@ -11315,7 +12974,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.565"
+		"value":"17.5.229"
 	}
 }
 
@@ -11420,7 +13079,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.565"
+		"value":"17.5.229"
 	}
 }
 
@@ -11486,7 +13145,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.565"
+		"value":"17.5.229"
 	}
 }
 
@@ -11552,7 +13211,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.565"
+		"value":"17.5.229"
 	}
 }
 
@@ -11630,7 +13289,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.565"
+		"value":"17.5.229"
 	}
 }
 
@@ -11708,7 +13367,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.565"
+		"value":"17.5.229"
 	}
 }
 
@@ -11788,7 +13447,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.565"
+		"value":"17.5.229"
 	}
 }
 
@@ -11865,7 +13524,7 @@ inputs
 stat
 {
   create 1496798868
-  modify 1532595913
+  modify 1534435763
   author Luiz@Luiz-PC
   access 0777
 }
@@ -11888,9 +13547,9 @@ take	[ 0	locks=0 ]	(	_current_	)
 copswitcher	[ 0	locks=0 ]	(	0	0	0	0	0	)
 coppath	[ 0	locks=0 ]	(	../extract_net/base_image	)
 tres	[ 0	locks=0 ]	(	"natural"	)
-res	[ 0	locks=0 ]	(	1024	1024	)
+res	[ 0	locks=0 ]	(	512	512	)
 resmenu	[ 0	locks=0 ]	(	0	)
-copoutput	[ 0	locks=0 ]	(	md	)
+copoutput	[ 0	locks=0 ]	(	C:/Users/MAINGEAR/render/untitled_ao.tga	)
 mkpath	[ 0	locks=0 ]	(	"on"	)
 color	[ 0	locks=0 ]	(	Oc	)
 alpha	[ 0	locks=0 ]	(	A	)
@@ -11903,7 +13562,7 @@ batchmode	[ 0	locks=0 ]	(	"off"	)
 batchsize	[ 0	locks=0 ]	(	2	)
 reloadfiles	[ 0	locks=0 ]	(	"on"	)
 outputarea	[ 0	locks=0 ]	(	"frame"	)
-pixelcrop	[ 0	locks=0 ]	(	0	0	1023	1023	)
+pixelcrop	[ 0	locks=0 ]	(	0	0	511	511	)
 uvcrop	[ 0	locks=0 ]	(	0	0	1	1	)
 limitcanvaspixels	[ 0	locks=0 ]	(	"on"	)
 canvaspixels	[ 0	locks=0 ]	(	64	)
@@ -11937,7 +13596,7 @@ vm_image_mplay_gamma	[ 0	locks=0 ]	(	1	)
 vm_image_jpeg_quality	[ 0	locks=0 ]	(	100	)
 vm_image_tiff_compression	[ 0	locks=0 ]	(	"LZW"	)
 vm_image_exr_compression	[ 0	locks=0 ]	(	"piz"	)
-png_alpha_multiplication	[ 0	locks=0 ]	(	"premult"	)
+pngtga_alpha_multiplication	[ 0	locks=0 ]	(	"premult"	)
 tprerender	[ 0	locks=0 ]	(	"on"	)
 prerender	[ 0	locks=0 ]	(	""	)
 lprerender	[ 0	locks=0 ]	(	hscript	)
@@ -11959,15 +13618,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.565"
-	},
-	"sidefx::parm_filter_raw_value_pattern":{
-		"type":"string",
-		"value":"tmp"
-	},
-	"sidefx::parm_filter_visibility_option":{
-		"type":"string",
-		"value":"raw_value_or_expr"
+		"value":"17.5.229"
 	}
 }
 
@@ -11992,7 +13643,7 @@ inputs
 stat
 {
   create 1496776162
-  modify 1534441603
+  modify 1534435763
   author Luiz@Luiz-PC
   access 0777
 }
@@ -12048,7 +13699,7 @@ Content-Type: text/plain
     parm {
         name    "take"
         baseparm
-        label   "Render With Take"
+        label   "Render with Take"
         export  none
     }
     parm {
@@ -13372,12 +15023,6 @@ Content-Disposition: attachment; filename="hdaroot/ropnet1/rop_games_baker/custo
 Content-Type: text/plain
 
 {
-    channel uvresmenu {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../uvresmenu\") }
-    }
     channel vm_uvborderpixels {
       lefttype = extend
       righttype = extend
@@ -13420,6 +15065,12 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 256 256 expr = ch(\"../vm_uvunwrapresy\") }
     }
+    channel uvresmenu {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../uvresmenu\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -13437,7 +15088,7 @@ f	[ 8	locks=0 ]	(	1	10	1	)
 take	[ 0	locks=0 ]	(	_current_	)
 camera	[ 0	locks=0 ]	(	"`opfullpath(\"..\") + \"/objnet/cam1\"`"	)
 vm_uvtype	[ 0	locks=0 ]	(	udim	)
-vm_uvunwrapres	[ 8	locks=0 ]	(	[ vm_uvunwrapresx	2048 ] 	[ vm_uvunwrapresy	2048 ] 	)
+vm_uvunwrapres	[ 8	locks=0 ]	(	[ vm_uvunwrapresx	512 ] 	[ vm_uvunwrapresy	512 ] 	)
 uvresmenu	[ 0	locks=0 ]	(	[ uvresmenu	0 ] 	)
 vm_ptexmapminres	[ 0	locks=0 ]	(	8	8	)
 vm_uvptexminresmenu	[ 0	locks=0 ]	(	0	)
@@ -13458,7 +15109,7 @@ soho_previewsupport	[ 0	locks=0 ]	(	"on"	)
 main	[ 0	locks=0 ]	(	0	0	)
 vm_uv_unwrap_method	[ 0	locks=0 ]	(	1	)
 vm_uvattribute	[ 8	locks=0 ]	(	uv	)
-vm_uv_ray_bias	[ 8	locks=0 ]	(	[ vm_uv_ray_bias	0.10000000000000001 ] 	)
+vm_uv_ray_bias	[ 8	locks=0 ]	(	[ vm_uv_ray_bias	0.01 ] 	)
 vm_uv_ray_maxdist	[ 8	locks=0 ]	(	[ vm_uv_ray_maxdist	-1 ] 	)
 vm_uv_flip_normal	[ 0	locks=0 ]	(	"off"	)
 vm_uvpostprocess	[ 0	locks=0 ]	(	borderfill	)
@@ -13502,7 +15153,7 @@ soho_initsim	[ 0	locks=0 ]	(	"off"	)
 soho_viewport_menu	[ 0	locks=0 ]	(	"off"	)
 vm_uvobjectenable1	[ 0	locks=0 ]	(	"on"	)
 vm_uvobject1	[ 0	locks=0 ]	(	"`opfullpath(\"..\") + \"/objnet/low\"`"	)
-vm_uvcageobject1	[ 0	locks=0 ]	(	"`opfullpath(\"..\") + \"/objnet/cage\"`"	)
+vm_uvcageobject1	[ 8	locks=0 ]	(	`chsop(\"../vm_uvcageobject1\")`	)
 vm_uvhires1	[ 0	locks=0 ]	(	"`opfullpath(\"..\") + \"/objnet/custom_export\"`"	)
 vm_uvoutputpicture1	[ 0	locks=0 ]	(	""	)
 images6	[ 0	locks=0 ]	(	0	0	0	0	0	)
@@ -13541,9 +15192,9 @@ vm_quickplane_Th_channel	[ 0	locks=0 ]	(	Th	)
 vm_quickplane_Cu_channel	[ 0	locks=0 ]	(	Cu	)
 vm_quickplane_P_channel	[ 0	locks=0 ]	(	P	)
 vm_quickplane_N_channel	[ 0	locks=0 ]	(	N	)
-vm_bake_skipcf	[ 0	locks=0 ]	(	"on"	)
+vm_bake_skipcf	[ 8	locks=0 ]	(	"on"	)
 vm_bake_layerexport	[ 0	locks=0 ]	(	"on"	)
-vm_bake_samples	[ 8	locks=0 ]	(	[ vm_bake_samples	8 ] 	)
+vm_bake_samples	[ 8	locks=0 ]	(	[ vm_bake_samples	4 ] 	)
 vm_bake_usemikkt	[ 0	locks=0 ]	(	"on"	)
 vm_bake_tangentnormalflipx	[ 0	locks=0 ]	(	"off"	)
 vm_bake_tangentnormalflipy	[ 0	locks=0 ]	(	"off"	)
@@ -13575,7 +15226,7 @@ vm_transparentsamples	[ 0	locks=0 ]	(	4	)
 vm_samplelock	[ 0	locks=0 ]	(	"off"	)
 vm_randomseed	[ 0	locks=0 ]	(	0	)
 vm_imageblur	[ 0	locks=0 ]	(	"on"	)
-objects4	[ 0	locks=0 ]	(	1	1	1	)
+objects4	[ 0	locks=0 ]	(	2	2	2	)
 vm_extractlinearplanes	[ 0	locks=0 ]	(	`propertys('vm_quickplane_Nt_channel','Nt')`,`propertys('vm_quickplane_Ds_channel','Ds')`,`propertys('vm_quickplane_Vd_channel','Vd')`,`propertys('vm_quickplane_Vdt_channel','Vdt')`,`propertys('vm_quickplane_Cv_channel','Cv')`,`propertys('vm_quickplane_Th_channel','Th')`,`propertys('vm_quickplane_Cu_channel','Cu')`,`propertys('vm_quickplane_N_channel','N')`,`propertys('vm_quickplane_P_channel','P')`	)
 vm_inlinestorage	[ 0	locks=0 ]	(	"off"	)
 }
@@ -13588,14 +15239,6 @@ Content-Type: text/plain
 	"___Version___":{
 		"type":"string",
 		"value":""
-	},
-	"sidefx::parm_filter_raw_value_pattern":{
-		"type":"string",
-		"value":"tmp"
-	},
-	"sidefx::parm_filter_visibility_option":{
-		"type":"string",
-		"value":"raw_value_or_expr"
 	}
 }
 
@@ -13619,7 +15262,7 @@ inputs
 stat
 {
   create 1496798844
-  modify 1522864654
+  modify 1532526864
   author Luiz@Luiz-PC
   access 0777
 }
@@ -13643,7 +15286,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.565"
+		"value":"17.5.229"
 	}
 }
 
@@ -13674,7 +15317,7 @@ inputs
 stat
 {
   create 1496798868
-  modify 1532595905
+  modify 1534435763
   author Luiz@Luiz-PC
   access 0777
 }
@@ -13697,9 +15340,9 @@ take	[ 0	locks=0 ]	(	_current_	)
 copswitcher	[ 0	locks=0 ]	(	0	0	0	0	0	)
 coppath	[ 0	locks=0 ]	(	../composite_net	)
 tres	[ 0	locks=0 ]	(	"natural"	)
-res	[ 0	locks=0 ]	(	1024	1024	)
+res	[ 0	locks=0 ]	(	512	512	)
 resmenu	[ 0	locks=0 ]	(	0	)
-copoutput	[ 0	locks=0 ]	(	md	)
+copoutput	[ 0	locks=0 ]	(	C:/Users/MAINGEAR/render\\tmp.exr	)
 mkpath	[ 0	locks=0 ]	(	"on"	)
 color	[ 0	locks=0 ]	(	Nt	)
 alpha	[ 0	locks=0 ]	(	A	)
@@ -13712,7 +15355,7 @@ batchmode	[ 0	locks=0 ]	(	"off"	)
 batchsize	[ 0	locks=0 ]	(	2	)
 reloadfiles	[ 0	locks=0 ]	(	"on"	)
 outputarea	[ 0	locks=0 ]	(	"frame"	)
-pixelcrop	[ 0	locks=0 ]	(	0	0	1023	1023	)
+pixelcrop	[ 0	locks=0 ]	(	0	0	511	511	)
 uvcrop	[ 0	locks=0 ]	(	0	0	1	1	)
 limitcanvaspixels	[ 0	locks=0 ]	(	"on"	)
 canvaspixels	[ 0	locks=0 ]	(	64	)
@@ -13746,7 +15389,7 @@ vm_image_mplay_gamma	[ 0	locks=0 ]	(	1	)
 vm_image_jpeg_quality	[ 0	locks=0 ]	(	100	)
 vm_image_tiff_compression	[ 0	locks=0 ]	(	"LZW"	)
 vm_image_exr_compression	[ 0	locks=0 ]	(	"piz"	)
-png_alpha_multiplication	[ 0	locks=0 ]	(	"premult"	)
+pngtga_alpha_multiplication	[ 0	locks=0 ]	(	"premult"	)
 tprerender	[ 0	locks=0 ]	(	"on"	)
 prerender	[ 0	locks=0 ]	(	""	)
 lprerender	[ 0	locks=0 ]	(	hscript	)
@@ -13768,15 +15411,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.565"
-	},
-	"sidefx::parm_filter_raw_value_pattern":{
-		"type":"string",
-		"value":"tmp"
-	},
-	"sidefx::parm_filter_visibility_option":{
-		"type":"string",
-		"value":"raw_value_or_expr"
+		"value":"17.5.229"
 	}
 }
 
@@ -13801,7 +15436,7 @@ inputs
 stat
 {
   create 1496776162
-  modify 1534441569
+  modify 1534435763
   author Luiz@Luiz-PC
   access 0777
 }
@@ -13857,7 +15492,7 @@ Content-Type: text/plain
     parm {
         name    "take"
         baseparm
-        label   "Render With Take"
+        label   "Render with Take"
         export  none
     }
     parm {
@@ -15181,12 +16816,6 @@ Content-Disposition: attachment; filename="hdaroot/ropnet1/rop_games_baker/alpha
 Content-Type: text/plain
 
 {
-    channel uvresmenu {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../uvresmenu\") }
-    }
     channel vm_uvborderpixels {
       lefttype = extend
       righttype = extend
@@ -15229,6 +16858,12 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 256 256 expr = ch(\"../vm_uvunwrapresy\") }
     }
+    channel uvresmenu {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../uvresmenu\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -15246,7 +16881,7 @@ f	[ 8	locks=0 ]	(	1	10	1	)
 take	[ 0	locks=0 ]	(	_current_	)
 camera	[ 0	locks=0 ]	(	"`opfullpath(\"..\") + \"/objnet/cam1\"`"	)
 vm_uvtype	[ 0	locks=0 ]	(	udim	)
-vm_uvunwrapres	[ 8	locks=0 ]	(	[ vm_uvunwrapresx	2048 ] 	[ vm_uvunwrapresy	2048 ] 	)
+vm_uvunwrapres	[ 8	locks=0 ]	(	[ vm_uvunwrapresx	512 ] 	[ vm_uvunwrapresy	512 ] 	)
 uvresmenu	[ 0	locks=0 ]	(	[ uvresmenu	0 ] 	)
 vm_ptexmapminres	[ 0	locks=0 ]	(	8	8	)
 vm_uvptexminresmenu	[ 0	locks=0 ]	(	0	)
@@ -15267,7 +16902,7 @@ soho_previewsupport	[ 0	locks=0 ]	(	"on"	)
 main	[ 0	locks=0 ]	(	0	0	)
 vm_uv_unwrap_method	[ 0	locks=0 ]	(	1	)
 vm_uvattribute	[ 8	locks=0 ]	(	uv	)
-vm_uv_ray_bias	[ 8	locks=0 ]	(	[ vm_uv_ray_bias	0.10000000000000001 ] 	)
+vm_uv_ray_bias	[ 8	locks=0 ]	(	[ vm_uv_ray_bias	0.01 ] 	)
 vm_uv_ray_maxdist	[ 8	locks=0 ]	(	[ vm_uv_ray_maxdist	-1 ] 	)
 vm_uv_flip_normal	[ 0	locks=0 ]	(	"off"	)
 vm_uvpostprocess	[ 0	locks=0 ]	(	"Border Expansion"	)
@@ -15311,10 +16946,10 @@ soho_initsim	[ 0	locks=0 ]	(	"off"	)
 soho_viewport_menu	[ 0	locks=0 ]	(	"off"	)
 vm_uvobjectenable1	[ 0	locks=0 ]	(	"on"	)
 vm_uvobject1	[ 0	locks=0 ]	(	"`opfullpath(\"..\") + \"/objnet/low\"`"	)
-vm_uvcageobject1	[ 0	locks=0 ]	(	""	)
+vm_uvcageobject1	[ 0	locks=0 ]	(	`chsop(\"../vm_uvcageobject1\")`	)
 vm_uvhires1	[ 0	locks=0 ]	(	"`opfullpath(\"..\") + \"/objnet/custom_export\"`"	)
-vm_uvoutputpicture1	[ 0	locks=0 ]	(	$HIP/render/${HIPNAME}_${OS}_%(CHANNEL)s.%(UDIM)d.rat	)
-images6	[ 0	locks=0 ]	(	1	1	1	1	1	)
+vm_uvoutputpicture1	[ 0	locks=0 ]	(	C:/Users/MAINGEAR/render\\LOW_tmp.exr	)
+images6	[ 0	locks=0 ]	(	2	2	2	2	2	)
 main3	[ 0	locks=0 ]	(	0	0	)
 vm_bake_normalizep	[ 0	locks=0 ]	(	"on"	)
 vm_extractimageplanes	[ 0	locks=0 ]	(	"off"	)
@@ -15338,6 +16973,24 @@ vm_quickplane_metallic	[ 0	locks=0 ]	(	"off"	)
 vm_quickplane_specrough	[ 0	locks=0 ]	(	"off"	)
 vm_showextraplaneparms	[ 0	locks=0 ]	(	"off"	)
 vm_numaux	[ 0	locks=0 ]	(	1	)
+vm_disable_plane1	[ 0	locks=0 ]	(	"off"	)
+vm_excludedcm_plane1	[ 0	locks=0 ]	(	"off"	)
+vm_variable_plane1	[ 0	locks=0 ]	(	Af	)
+vm_vextype_plane1	[ 0	locks=0 ]	(	float	)
+vm_channel_plane1	[ 0	locks=0 ]	(	alpha	)
+vm_usefile_plane1	[ 0	locks=0 ]	(	"off"	)
+vm_filename_plane1	[ 0	locks=0 ]	(	""	)
+vm_quantize_plane1	[ 0	locks=0 ]	(	half	)
+vm_sfilter_plane1	[ 0	locks=0 ]	(	alpha	)
+vm_pfilter_plane1	[ 0	locks=0 ]	(	""	)
+vm_gamma_plane1	[ 0	locks=0 ]	(	1	)
+vm_gain_plane1	[ 0	locks=0 ]	(	1	)
+vm_dither_plane1	[ 0	locks=0 ]	(	0.5	)
+vm_whitepoint_plane1	[ 0	locks=0 ]	(	1	)
+vm_componentexport1	[ 0	locks=0 ]	(	"off"	)
+vm_lightexport1	[ 0	locks=0 ]	(	0	)
+vm_lightexport_scope1	[ 0	locks=0 ]	(	*	)
+vm_lightexport_select1	[ 0	locks=0 ]	(	*	)
 vm_extractseparator	[ 0	locks=0 ]	(	_	)
 vm_channel_names_seperator_bar	[ 0	locks=0 ]	(	)
 vm_quickplane_Nt_channel	[ 0	locks=0 ]	(	Nt	)
@@ -15350,9 +17003,9 @@ vm_quickplane_Th_channel	[ 0	locks=0 ]	(	Th	)
 vm_quickplane_Cu_channel	[ 0	locks=0 ]	(	Cu	)
 vm_quickplane_P_channel	[ 0	locks=0 ]	(	P	)
 vm_quickplane_N_channel	[ 0	locks=0 ]	(	N	)
-vm_bake_skipcf	[ 0	locks=0 ]	(	"on"	)
+vm_bake_skipcf	[ 8	locks=0 ]	(	"on"	)
 vm_bake_layerexport	[ 0	locks=0 ]	(	"on"	)
-vm_bake_samples	[ 8	locks=0 ]	(	[ vm_bake_samples	8 ] 	)
+vm_bake_samples	[ 8	locks=0 ]	(	[ vm_bake_samples	4 ] 	)
 vm_bake_usemikkt	[ 0	locks=0 ]	(	"on"	)
 vm_bake_tangentnormalflipx	[ 0	locks=0 ]	(	"off"	)
 vm_bake_tangentnormalflipy	[ 0	locks=0 ]	(	"off"	)
@@ -15384,27 +17037,9 @@ vm_transparentsamples	[ 0	locks=0 ]	(	4	)
 vm_samplelock	[ 0	locks=0 ]	(	"off"	)
 vm_randomseed	[ 0	locks=0 ]	(	0	)
 vm_imageblur	[ 0	locks=0 ]	(	"on"	)
-objects4	[ 0	locks=0 ]	(	1	1	1	)
+objects4	[ 0	locks=0 ]	(	2	2	2	)
 vm_extractlinearplanes	[ 0	locks=0 ]	(	`propertys('vm_quickplane_Nt_channel','Nt')`,`propertys('vm_quickplane_Ds_channel','Ds')`,`propertys('vm_quickplane_Vd_channel','Vd')`,`propertys('vm_quickplane_Vdt_channel','Vdt')`,`propertys('vm_quickplane_Cv_channel','Cv')`,`propertys('vm_quickplane_Th_channel','Th')`,`propertys('vm_quickplane_Cu_channel','Cu')`,`propertys('vm_quickplane_N_channel','N')`,`propertys('vm_quickplane_P_channel','P')`	)
 vm_inlinestorage	[ 0	locks=0 ]	(	"off"	)
-vm_disable_plane1	[ 0	locks=0 ]	(	"off"	)
-vm_excludedcm_plane1	[ 0	locks=0 ]	(	"off"	)
-vm_variable_plane1	[ 0	locks=0 ]	(	Af	)
-vm_vextype_plane1	[ 0	locks=0 ]	(	float	)
-vm_channel_plane1	[ 0	locks=0 ]	(	alpha	)
-vm_usefile_plane1	[ 0	locks=0 ]	(	"off"	)
-vm_filename_plane1	[ 0	locks=0 ]	(	""	)
-vm_quantize_plane1	[ 0	locks=0 ]	(	half	)
-vm_sfilter_plane1	[ 0	locks=0 ]	(	alpha	)
-vm_pfilter_plane1	[ 0	locks=0 ]	(	""	)
-vm_gamma_plane1	[ 0	locks=0 ]	(	1	)
-vm_gain_plane1	[ 0	locks=0 ]	(	1	)
-vm_dither_plane1	[ 0	locks=0 ]	(	0.5	)
-vm_whitepoint_plane1	[ 0	locks=0 ]	(	1	)
-vm_componentexport1	[ 0	locks=0 ]	(	"off"	)
-vm_lightexport1	[ 0	locks=0 ]	(	0	)
-vm_lightexport_scope1	[ 0	locks=0 ]	(	*	)
-vm_lightexport_select1	[ 0	locks=0 ]	(	*	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -15415,25 +17050,11 @@ Content-Type: text/plain
 	"___Version___":{
 		"type":"string",
 		"value":""
-	},
-	"sidefx::parm_filter_raw_value_pattern":{
-		"type":"string",
-		"value":"tmp"
-	},
-	"sidefx::parm_filter_visibility_option":{
-		"type":"string",
-		"value":"raw_value_or_expr"
 	}
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/ropnet1.net"
-Content-Type: text/plain
-
-1
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/matnet1.net"
 Content-Type: text/plain
 
 1
@@ -15469,7 +17090,7 @@ inputs
 stat
 {
   create 1509395733
-  modify 1522783364
+  modify 1541451877
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -15495,7 +17116,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.565"
+		"value":"17.5.229"
 	}
 }
 
@@ -15529,7 +17150,7 @@ inputs
 stat
 {
   create 1509395733
-  modify 1511887435
+  modify 1539887624
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -15555,76 +17176,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.565"
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/material1.init"
-Content-Type: text/plain
-
-type = material
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/material1.def"
-Content-Type: text/plain
-
-sopflags sopflags = 
-comment ""
-position -0.00852317 2.92507
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
-outputsNamed3
-{
-1 "output1"
-}
-inputsNamed3
-{
-0 	LOW 1 1 "input1"
-}
-inputs
-{
-0 	LOW 0 1
-}
-stat
-{
-  create 1509396298
-  modify 1522783367
-  author MAINGEAR@DESKTOP-P98C1VA
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/material1.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-style	[ 0	locks=0 ]	(	primitive	)
-uselabels	[ 0	locks=0 ]	(	"uselabels"	)
-createstylesheets	[ 0	locks=0 ]	(	"off"	)
-fullpath	[ 0	locks=0 ]	(	"on"	)
-num_materials	[ 0	locks=0 ]	(	1	)
-group1	[ 0	locks=0 ]	(	""	)
-shop_materialpath1	[ 0	locks=0 ]	(	../matnet1/principledshader1	)
-localvar1	[ 0	locks=0 ]	(	"off"	)
-mergeoverride1	[ 0	locks=0 ]	(	"off"	)
-num_local1	[ 0	locks=0 ]	(	0	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/material1.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":"16.5.565"
+		"value":"17.5.229"
 	}
 }
 
@@ -15735,7 +17287,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.565"
+		"value":"17.5.229"
 	}
 }
 
@@ -15772,7 +17324,7 @@ inputs
 stat
 {
   create 1511369678
-  modify 1511887435
+  modify 1539887616
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -15800,7 +17352,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -15810,7 +17362,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.565"
+		"value":"17.5.229"
 	}
 }
 
@@ -15845,7 +17397,7 @@ inputs
 stat
 {
   create 1511369771
-  modify 1522767594
+  modify 1539887618
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -15871,7 +17423,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.565"
+		"value":"17.5.229"
 	}
 }
 
@@ -15932,7 +17484,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.565"
+		"value":"17.5.229"
 	}
 }
 
@@ -15997,7 +17549,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -16007,7 +17559,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.565"
+		"value":"17.5.229"
 	}
 }
 
@@ -16075,7 +17627,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.565"
+		"value":"17.5.229"
 	}
 }
 
@@ -16136,7 +17688,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.565"
+		"value":"17.5.229"
 	}
 }
 
@@ -16153,7 +17705,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.00852317 1.88779
+position -0.00852317 -0.07493
 connectornextid 1
 flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -16161,16 +17713,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	material1 1 1 "input1"
+0 	FrameRangeWarning 0 1 "input1"
 }
 inputs
 {
-0 	material1 0 1
+0 	FrameRangeWarning 0 1
 }
 stat
 {
   create 1522783354
-  modify 1522783370
+  modify 1543279149
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -16195,7 +17747,185 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.565"
+		"value":"17.5.229"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_quickmaterial1/matnet.net"
+Content-Type: text/plain
+
+1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_quickmaterial1/materialassignment.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -1.11759e-08 4.9334
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	(0) "" 1 "input1"
+}
+inputs
+{
+0 	(0) 0 1
+}
+stat
+{
+  create 1532953615
+  modify 1541451877
+  author paula@DESKTOP-5213MPP
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_quickmaterial1/materialassignment.chn"
+Content-Type: text/plain
+
+{
+    channel group1 {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"\\\"\\\"\"
+      flags = 0
+      segment { options = {	 autoslope  ai ao }
+
+	 length = 0 accel = 0.33333333333333331 0.33333333333333331 expr = chs(\"../groupselection_1\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_quickmaterial1/materialassignment.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+style	[ 0	locks=0 ]	(	primitive	)
+uselabels	[ 0	locks=0 ]	(	"uselabels"	)
+createstylesheets	[ 0	locks=0 ]	(	"off"	)
+fullpath	[ 0	locks=0 ]	(	"on"	)
+num_materials	[ 8	locks=0 ]	(	1	)
+group1	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	[ group1	"" ] 	)
+shop_materialpath1	[ 0	locks=0 ]	(	../matnet/SimplebakerMaterial	)
+localvar1	[ 0	locks=0 ]	(	"off"	)
+mergeoverride1	[ 0	locks=0 ]	(	"off"	)
+num_local1	[ 0	locks=0 ]	(	0	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_quickmaterial1/materialassignment.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.5.229"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/FrameRangeWarning.init"
+Content-Type: text/plain
+
+type = error
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/FrameRangeWarning.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -0.00852317 0.92507
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+0 "output1"
+}
+inputsNamed3
+{
+1 	sop_quickmaterial1 1 1 "input1"
+}
+inputs
+{
+0 	sop_quickmaterial1 0 1
+}
+stat
+{
+  create 1543276722
+  modify 1543279531
+  author Paul_Ambrosiussen@DESKTOP-A0373M3
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/FrameRangeWarning.chn"
+Content-Type: text/plain
+
+{
+    channel enable1 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { options = {	 autoslope  ai ao }
+
+	 length = 0 accel = 0.33333333333333331 0.33333333333333331 expr = "import hou
+
+if hou.parm(\"../trange\").evalAsString() != \"off\":
+    return \"$F\" not in hou.parm(\"../base_path\").unexpandedString()
+else:
+    return 0" language = python }
+    }
+    channel errormsg1 {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"\"
+      flags = 0
+      segment { options = {	 autoslope  ai ao }
+
+	 length = 0 accel = 0.33333333333333331 0.33333333333333331 expr = "import hou
+
+return \"Output File (Base Path) does not contain any frame number information. Adding $F will assure the baker will output a unique file per frame!\"" language = python }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/FrameRangeWarning.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+numerror	[ 0	locks=0 ]	(	1	)
+errormsg1	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	[ errormsg1	"Output File (Base Path) does not contain any frame number information. Adding $F will assure the baker will output a unique file per frame!" ] 	)
+severity1	[ 0	locks=0 ]	(	"warn"	)
+enable1	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	[ enable1	0 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/FrameRangeWarning.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.5.229"
 	}
 }
 
@@ -16203,12 +17933,10 @@ Content-Type: text/plain
 Content-Disposition: attachment; filename="hdaroot.order"
 Content-Type: text/plain
 
-13
+14
 ropnet1
-matnet1
 LOW
 HIGH
-material1
 rop_fbx1
 switch1
 IN_HIGH
@@ -16217,6 +17945,9 @@ switch2
 uvunwrap1
 low
 output1
+color1
+sop_quickmaterial1
+FrameRangeWarning
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.net"

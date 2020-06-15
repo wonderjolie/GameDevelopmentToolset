@@ -32,7 +32,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -7.52353 -2.07853
+position -12.0956 5.85
 connectornextid 0
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -46,8 +46,8 @@ inputs
 }
 stat
 {
-  create 1533237567
-  modify 1533237579
+  create 1551809134
+  modify 1551809196
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -130,7 +130,7 @@ inputs
 stat
 {
   create 1477605232
-  modify 1502994400
+  modify 1551809178
   author lucapataracchia@sesi-la-macbook-pro.local
   access 0777
 }
@@ -342,7 +342,7 @@ snippet	[ 0	locks=0 ]	(	"v@normal = cross(v@tangent,v@binormal);
 
 matrix3 worldToTangent = 1;
 
-v@v = normalize(v@v);
+//v@v = normalize(v@v);
 v@tangent = cross(v@normal, v@binormal);
 
 worldToTangent.xx = v@tangent.x;
@@ -357,7 +357,7 @@ worldToTangent.zx = v@tangent.z;
 worldToTangent.zy = v@normal.z;
 worldToTangent.zz = v@binormal.z;
 
-v@Cd = (normalize( v@v * worldToTangent) +1) * .5 ;
+v@Cd = (( v@v * worldToTangent) +1) * .5 ;
 v@Cd.y = v@Cd.z;
 v@Cd.z = 0;
 if (int(ch(\"flip_green\"))) @Cd.g = 1 - @Cd.g;
@@ -546,7 +546,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.0.484"
 	}
 }
 
@@ -681,7 +681,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.0.484"
 	}
 }
 
@@ -806,7 +806,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.0.484"
 	}
 }
 
@@ -881,7 +881,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.0.484"
 	}
 }
 
@@ -950,7 +950,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.0.484"
 	}
 }
 
@@ -1011,7 +1011,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.0.484"
 	}
 }
 
@@ -1070,7 +1070,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.0.484"
 	}
 }
 

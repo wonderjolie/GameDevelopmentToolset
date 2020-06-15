@@ -20,7 +20,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -12.1353 -1.26676
+position -1.74263 1.59168
 connectornextid 0
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -34,8 +34,8 @@ inputs
 }
 stat
 {
-  create 1533241355
-  modify 1533241358
+  create 1571756720
+  modify 1571756769
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -131,7 +131,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.5.360"
 	}
 }
 
@@ -204,7 +204,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.5.360"
 	}
 }
 
@@ -223,7 +223,7 @@ sopflags sopflags =
 comment ""
 position 0.455776 1.68838
 connectornextid 3
-flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 2 "output1"
@@ -241,7 +241,7 @@ inputs
 stat
 {
   create 1500485439
-  modify 1504402649
+  modify 1556133748
   author Luiz@Luiz-PC
   access 0777
 }
@@ -279,7 +279,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.5.360"
 	}
 }
 
@@ -298,7 +298,7 @@ sopflags sopflags =
 comment ""
 position 0.167321 4.62147
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 1 "output1"
@@ -314,7 +314,7 @@ inputs
 stat
 {
   create 1504401384
-  modify 1504403703
+  modify 1556133748
   author Luiz@Luiz-PC
   access 0777
 }
@@ -382,7 +382,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.5.360"
 	}
 }
 
@@ -441,7 +441,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.5.360"
 	}
 }
 

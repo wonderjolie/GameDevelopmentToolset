@@ -19,16 +19,10 @@
         label   "Occlusion Settings"
 
         parm {
-            name    "sepparm2"
-            label   "Separator"
-            type    separator
-            default { "" }
-        }
-        parm {
             name    "raycount"
             label   "Number of Rays"
             type    integer
-            default { "20" }
+            default { "50" }
             range   { 0! 100 }
             parmtag { "autoscope" "0000000000000000" }
             parmtag { "parmvop" "1" }
@@ -45,22 +39,41 @@
             parmtag { "shaderparmcontexts" "cvex" }
         }
         parm {
-            name    "raybbias"
-            label   "Surface Offset"
-            type    float
-            default { "0.01" }
-            range   { 0! 1 }
-            parmtag { "autoscope" "0000000000000000" }
-            parmtag { "parmvop" "1" }
-            parmtag { "shaderparmcontexts" "cvex" }
-        }
-        parm {
             name    "intensity"
             label   "Intensity"
+            type    float
+            default { "3" }
+            range   { 0 10 }
+        }
+        parm {
+            name    "gamma"
+            label   "Gamma"
             type    float
             default { "1" }
             range   { 0 10 }
         }
+        groupcollapsible {
+            name    "folder0"
+            label   "Advanced"
+
+            parm {
+                name    "conewidth"
+                label   "Cone Width"
+                type    angle
+                default { "70" }
+                range   { 1! 90! }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "raybias"
+                label   "Ray Bias"
+                type    float
+                default { "0.01" }
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+        }
+
     }
 
     groupsimple {
@@ -100,20 +113,8 @@
             parmtag { "rampvalues_var" "outputramp_the_key_values" }
             parmtag { "shaderparmcontexts" "cvex" }
         }
-        parm {
-            name    "sepparm"
-            label   "Separator"
-            type    separator
-            default { "" }
-        }
     }
 
-    parm {
-        name    "sepparm3"
-        label   "Separator"
-        type    separator
-        default { "" }
-    }
     groupsimple {
         name    "folder1"
         label   "Smoothing"
@@ -141,7 +142,7 @@
             parmtag { "autoscope" "0000000000000000" }
         }
         parm {
-            name    "iterations2"
+            name    "iterations"
             label   "Blurring Iterations"
             type    integer
             default { "2" }
@@ -180,5 +181,42 @@
         default { "0" }
         parmtag { "script_callback" "import gamedevutils;gamedevutils.like_node(hou.pwd())" }
         parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "sepparm"
+        label   "Separator"
+        type    separator
+        invisible
+        default { "" }
+    }
+    parm {
+        name    "sepparm2"
+        label   "Separator"
+        type    separator
+        invisible
+        default { "" }
+    }
+    parm {
+        name    "sepparm3"
+        label   "Separator"
+        type    separator
+        invisible
+        default { "" }
+    }
+    parm {
+        name    "raybbias"
+        label   "__UNUSED"
+        type    float
+        invisible
+        default { "0" }
+        range   { 0 10 }
+    }
+    parm {
+        name    "iterations2"
+        label   "__UNUSED"
+        type    integer
+        invisible
+        default { "0" }
+        range   { 0 10 }
     }
 }

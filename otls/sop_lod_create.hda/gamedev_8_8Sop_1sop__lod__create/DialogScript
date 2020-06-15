@@ -56,36 +56,46 @@
         label   "Settings"
 
         parm {
-            name    "bDebugCamera"
-            label   "Debug Camera"
+            name    "bShowVisualizer"
+            label   "Visualizer"
             type    toggle
-            nolabel
             joinnext
+            default { "1" }
+        }
+        parm {
+            name    "bViewAllLOD"
+            label   "Debug All LOD"
+            type    toggle
             default { "0" }
         }
         parm {
+            name    "mViewingMode"
+            label   "LOD Viewing Mode"
+            type    ordinal
+            default { "0" }
+            menu usetokenvalue {
+                "0" "Forced"
+                "1" "Camera Distance"
+                "2" "None"
+            }
+        }
+        parm {
             name    "oDebugCamera"
-            label   "Debug Camera"
+            label   "Camera"
             type    oppath
             default { "" }
+            disablewhen "{ bViewAllLOD == 1 }"
+            hidewhen "{ mViewingMode == 0 } { mViewingMode == 2 }"
             parmtag { "opfilter" "!!OBJ/CAMERA!!" }
             parmtag { "oprelative" "." }
         }
         parm {
-            name    "bVisualize"
-            label   "Visualize"
-            type    toggle
-            nolabel
-            joinnext
-            default { "on" }
-            disablewhen "{ bDebugCamera == 1 }"
-        }
-        parm {
             name    "iVisibleLOD"
-            label   "Visible LOD"
+            label   "LOD"
             type    integer
             default { "0" }
-            disablewhen "{ bVisualize == 0 } { bDebugCamera == 1 }"
+            disablewhen "{ bDebugCamera == 1 } { bViewAllLOD == 1 }"
+            hidewhen "{ mViewingMode == 1 } { mViewingMode == 2 }"
             range   { 0 10 }
         }
         parm {
@@ -136,12 +146,6 @@
             }
         }
         parm {
-            name    "bRemoveInsides"
-            label   "Remove Insides"
-            type    toggle
-            default { "1" }
-        }
-        parm {
             name    "bLastLODImpostor"
             label   "Last LOD is Impostor"
             type    toggle
@@ -169,6 +173,12 @@
                 label   "Output Geometry"
 
                 parm {
+                    name    "bRemoveInsides"
+                    label   "Remove Insides"
+                    type    toggle
+                    default { "1" }
+                }
+                parm {
                     name    "preservequads"
                     label   "Preserve Quads"
                     type    toggle
@@ -181,6 +191,41 @@
                     type    float
                     default { "1e-10" }
                     range   { 0! 1 }
+                    parmtag { "autoscope" "0000000000000000" }
+                }
+            }
+
+            groupsimple {
+                name    "folder19"
+                label   "Normals"
+
+                parm {
+                    name    "bRecalcNormals"
+                    label   "Recalculate Normals"
+                    type    toggle
+                    default { "0" }
+                }
+                parm {
+                    name    "cuspangle"
+                    label   "Cusp Angle"
+                    type    float
+                    default { "20" }
+                    disablewhen "{ bRecalcNormals == 0 }"
+                    range   { 0! 180! }
+                    parmtag { "autoscope" "0000000000000000" }
+                }
+                parm {
+                    name    "method2"
+                    label   "Weighting Method"
+                    type    integer
+                    default { "1" }
+                    disablewhen "{ bRecalcNormals == 0 }"
+                    menu {
+                        "uniform"   "Each Vertex Equally"
+                        "angle"     "By Vertex Angle"
+                        "area"      "By Face Area"
+                    }
+                    range   { 0! 2! }
                     parmtag { "autoscope" "0000000000000000" }
                 }
             }
@@ -461,8 +506,8 @@
                     name    "bUniqueLODNormal"
                     label   "Unique Normal Map per LOD"
                     type    toggle
+                    invisible
                     default { "0" }
-                    disablewhen "{ bAlwaysTrue == 1 }"
                 }
             }
 
@@ -479,6 +524,13 @@
                     parmtag { "mantra_class" "renderer" }
                     parmtag { "mantra_name" "bake_usemikkt" }
                     parmtag { "spare_category" "Baking" }
+                }
+                parm {
+                    name    "bBasecolorLinearSpace"
+                    label   "Output basecolor in Linear Space"
+                    type    toggle
+                    default { "off" }
+                    parmtag { "autoscope" "0000000000000000" }
                 }
                 parm {
                     name    "vm_bake_tangentnormalflipy"
@@ -1151,6 +1203,12 @@
                     type    string
                     default { "LOD_Group" }
                 }
+                parm {
+                    name    "sLODNamePrefix"
+                    label   "LOD Mesh Name Prefix"
+                    type    string
+                    default { "mesh" }
+                }
             }
 
         }
@@ -1192,7 +1250,7 @@
                 name    "exportDir"
                 label   "Output"
                 type    directory
-                default { "$HIP/lodexport/${OS}_Source_$(CHANNEL).tga" }
+                default { "$HIP/lodexport/${OS}_Source_$(MATERIAL)_$(CHANNEL).tga" }
                 disablewhen "{ bExportLOD0Tex == 0 }"
             }
         }
@@ -1233,6 +1291,7 @@
                 }
                 parmtag { "autoscope" "0000000000000000" }
                 parmtag { "script_callback" "opparm . vm_uvunwrapres (`arg(\"$script_value\", 0)` `arg(\"$script_value\", 1)`" }
+                parmtag { "script_callback_language" "hscript" }
             }
         }
 
@@ -1298,6 +1357,18 @@
                 default { "$HIP/lodexport/${OS}_Impostor_normal.tga" }
                 disablewhen "{ normals_toggle == 0 }"
                 parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "sopoutput2"
+                label   "Output Geo"
+                type    file
+                default { "$HIP/export/${OS}.fbx" }
+                hidewhen "{ imposter_enum < 3 }"
+                menureplace {
+                    [ "opmenu -l objnet1/ropnet1/rop_impostor_texture1 sopoutput" ]
+                }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "filechooser_mode" "write" }
             }
         }
 

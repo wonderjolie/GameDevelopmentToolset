@@ -28,7 +28,7 @@
             name    "method"
             label   "Method"
             type    ordinal
-            default { "0" }
+            default { "2" }
             menu {
                 "0" "Volume Analysis"
                 "1" "Polynomial Fitting"
@@ -122,11 +122,19 @@
         label   "Visualize As Color"
         type    toggle
         joinnext
-        default { "0" }
+        default { "1" }
     }
     parm {
         name    "single_color"
         label   "Single Color Value"
+        type    toggle
+        joinnext
+        default { "0" }
+        disablewhen "{ vis_color == 0 }"
+    }
+    parm {
+        name    "fit_01"
+        label   "Fit From 0-1"
         type    toggle
         default { "0" }
         disablewhen "{ vis_color == 0 }"

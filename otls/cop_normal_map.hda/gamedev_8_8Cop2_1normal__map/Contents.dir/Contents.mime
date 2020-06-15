@@ -31,22 +31,25 @@ Content-Disposition: attachment; filename="hdaroot.def"
 Content-Type: text/plain
 
 comment ""
-position -1.57896 3.16514
-connectornextid 0
+position -4.72621 2.70347
+connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault on exposed on
 outputsNamed3
 {
+1 "output1"
 }
 inputsNamed3
 {
+0 	shape1 0 1 "input1"
 }
 inputs
 {
+0 	shape1 0 1
 }
 stat
 {
-  create 1533238427
-  modify 1533238441
+  create 1570810436
+  modify 1570814125
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -71,7 +74,7 @@ Content-Disposition: attachment; filename="hdaroot.cop2"
 Content-Type: text/plain
 
 2
-2
+26
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -111,7 +114,7 @@ inputs
 stat
 {
   create 1475086517
-  modify 1533238438
+  modify 1570812873
   author Luiz@Luiz-PC
   access 0777
 }
@@ -154,7 +157,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.5.360"
 	}
 }
 
@@ -163,7 +166,7 @@ Content-Disposition: attachment; filename="hdaroot/normalize.cop2"
 Content-Type: text/plain
 
 2
-47
+48
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -253,7 +256,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.5.360"
 	}
 }
 
@@ -328,7 +331,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.5.360"
 	}
 }
 
@@ -685,7 +688,7 @@ inputs
 stat
 {
   create 1475103098
-  modify 1475103426
+  modify 1570813947
   author Luiz@Luiz-PC
   access 0777
 }
@@ -878,7 +881,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.5.360"
 	}
 }
 
@@ -887,7 +890,7 @@ Content-Disposition: attachment; filename="hdaroot/vopcop2filter1.cop2"
 Content-Type: text/plain
 
 2
-24
+25
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -977,7 +980,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.5.360"
 	}
 }
 
@@ -1052,7 +1055,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.5.360"
 	}
 }
 
@@ -1141,8 +1144,8 @@ vectoradef	[ 0	locks=0 ]	(	)
 pointadef	[ 0	locks=0 ]	(	)
 normaladef	[ 0	locks=0 ]	(	)
 coloradef	[ 0	locks=0 ]	(	)
-float4adef	[ 0	locks=0 ]	(	)
 floatm2adef	[ 0	locks=0 ]	(	)
+float4adef	[ 0	locks=0 ]	(	)
 float9adef	[ 0	locks=0 ]	(	)
 float16adef	[ 0	locks=0 ]	(	)
 stringadef	[ 0	locks=0 ]	(	)
@@ -1182,7 +1185,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.5.360"
 	}
 }
 
@@ -1311,7 +1314,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.5.360"
 	}
 }
 
@@ -1414,7 +1417,7 @@ inputs
 stat
 {
   create 1475103098
-  modify 1533238438
+  modify 1570813947
   author Luiz@Luiz-PC
   access 0777
 }
@@ -1607,7 +1610,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.5.360"
 	}
 }
 
@@ -1616,7 +1619,7 @@ Content-Disposition: attachment; filename="hdaroot/vopcop2filter5.cop2"
 Content-Type: text/plain
 
 2
-24
+25
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1706,7 +1709,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.5.360"
 	}
 }
 
@@ -1781,7 +1784,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.5.360"
 	}
 }
 
@@ -1870,8 +1873,8 @@ vectoradef	[ 0	locks=0 ]	(	)
 pointadef	[ 0	locks=0 ]	(	)
 normaladef	[ 0	locks=0 ]	(	)
 coloradef	[ 0	locks=0 ]	(	)
-float4adef	[ 0	locks=0 ]	(	)
 floatm2adef	[ 0	locks=0 ]	(	)
+float4adef	[ 0	locks=0 ]	(	)
 float9adef	[ 0	locks=0 ]	(	)
 float16adef	[ 0	locks=0 ]	(	)
 stringadef	[ 0	locks=0 ]	(	)
@@ -1911,7 +1914,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.5.360"
 	}
 }
 
@@ -2040,7 +2043,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.5.360"
 	}
 }
 
@@ -2143,7 +2146,7 @@ inputs
 stat
 {
   create 1475103098
-  modify 1500395021
+  modify 1570813947
   author Luiz@Luiz-PC
   access 0777
 }
@@ -2309,7 +2312,7 @@ Content-Type: text/plain
       lefttype = extend
       righttype = extend
       flags = 0
-      segment { length = 0 expr = ch(\"../strength\") }
+      segment { length = 0 expr = ch(\"../multiplier\") }
     }
   }
 
@@ -2339,7 +2342,7 @@ fmenu	[ 0	locks=0 ]	(	"scopeall"	)
 fautoadjust	[ 0	locks=0 ]	(	"on"	)
 currange	[ 0	locks=0 ]	(	240	)
 stdswitcher4	[ 0	locks=0 ]	(	0	0	0	)
-strength	[ 8	locks=0 ]	(	[ strength	0.92000000000000004 ] 	)
+strength	[ 8	locks=0 ]	(	[ strength	5 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2349,7 +2352,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.5.360"
 	}
 }
 
@@ -2358,7 +2361,7 @@ Content-Disposition: attachment; filename="hdaroot/multiply.cop2"
 Content-Type: text/plain
 
 2
-27
+29
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2448,7 +2451,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.5.360"
 	}
 }
 
@@ -2523,7 +2526,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.5.360"
 	}
 }
 
@@ -2612,8 +2615,8 @@ vectoradef	[ 0	locks=0 ]	(	)
 pointadef	[ 0	locks=0 ]	(	)
 normaladef	[ 0	locks=0 ]	(	)
 coloradef	[ 0	locks=0 ]	(	)
-float4adef	[ 0	locks=0 ]	(	)
 floatm2adef	[ 0	locks=0 ]	(	)
+float4adef	[ 0	locks=0 ]	(	)
 float9adef	[ 0	locks=0 ]	(	)
 float16adef	[ 0	locks=0 ]	(	)
 stringadef	[ 0	locks=0 ]	(	)
@@ -2653,7 +2656,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.5.360"
 	}
 }
 
@@ -2782,7 +2785,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.5.360"
 	}
 }
 
@@ -2885,7 +2888,7 @@ inputs
 stat
 {
   create 1475103098
-  modify 1500395059
+  modify 1570813947
   author Luiz@Luiz-PC
   access 0777
 }
@@ -3051,7 +3054,7 @@ Content-Type: text/plain
       lefttype = extend
       righttype = extend
       flags = 0
-      segment { length = 0 expr = ch(\"../strength\") }
+      segment { length = 0 expr = ch(\"../multiplier\") }
     }
   }
 
@@ -3081,7 +3084,7 @@ fmenu	[ 0	locks=0 ]	(	"scopeall"	)
 fautoadjust	[ 0	locks=0 ]	(	"on"	)
 currange	[ 0	locks=0 ]	(	240	)
 stdswitcher4	[ 0	locks=0 ]	(	0	0	0	)
-strength	[ 8	locks=0 ]	(	[ strength	0.92000000000000004 ] 	)
+strength	[ 8	locks=0 ]	(	[ strength	5 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -3091,7 +3094,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.5.360"
 	}
 }
 
@@ -3100,7 +3103,7 @@ Content-Disposition: attachment; filename="hdaroot/multiply1.cop2"
 Content-Type: text/plain
 
 2
-27
+29
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -3190,7 +3193,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.5.360"
 	}
 }
 
@@ -3265,7 +3268,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.5.360"
 	}
 }
 
@@ -3354,8 +3357,8 @@ vectoradef	[ 0	locks=0 ]	(	)
 pointadef	[ 0	locks=0 ]	(	)
 normaladef	[ 0	locks=0 ]	(	)
 coloradef	[ 0	locks=0 ]	(	)
-float4adef	[ 0	locks=0 ]	(	)
 floatm2adef	[ 0	locks=0 ]	(	)
+float4adef	[ 0	locks=0 ]	(	)
 float9adef	[ 0	locks=0 ]	(	)
 float16adef	[ 0	locks=0 ]	(	)
 stringadef	[ 0	locks=0 ]	(	)
@@ -3395,7 +3398,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.5.360"
 	}
 }
 
@@ -3524,7 +3527,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.5.360"
 	}
 }
 
@@ -3700,7 +3703,7 @@ units	[ 0	locks=0 ]	(	"pixel"	)
 t	[ 8	locks=0 ]	(	[ tx	1 ] 	[ ty	-1 ] 	)
 rz	[ 0	locks=0 ]	(	0	)
 s	[ 0	locks=0 ]	(	1	1	)
-p	[ 8	locks=0 ]	(	[ px	960 ] 	[ py	540 ] 	)
+p	[ 8	locks=0 ]	(	[ px	256 ] 	[ py	256 ] 	)
 xfilter	[ 0	locks=0 ]	(	box	)
 yfilter	[ 0	locks=0 ]	(	xfilter	)
 size	[ 0	locks=0 ]	(	1	1	)
@@ -3735,7 +3738,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.5.360"
 	}
 }
 
@@ -3744,7 +3747,7 @@ Content-Disposition: attachment; filename="hdaroot/right_down.cop2"
 Content-Type: text/plain
 
 2
-3
+4
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -3824,7 +3827,7 @@ units	[ 0	locks=0 ]	(	"pixel"	)
 t	[ 8	locks=0 ]	(	[ tx	-1 ] 	[ ty	-1 ] 	)
 rz	[ 0	locks=0 ]	(	0	)
 s	[ 0	locks=0 ]	(	1	1	)
-p	[ 8	locks=0 ]	(	[ px	960 ] 	240	)
+p	[ 8	locks=0 ]	(	[ px	256 ] 	240	)
 xfilter	[ 0	locks=0 ]	(	box	)
 yfilter	[ 0	locks=0 ]	(	xfilter	)
 size	[ 0	locks=0 ]	(	1	1	)
@@ -3859,7 +3862,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.5.360"
 	}
 }
 
@@ -3868,7 +3871,7 @@ Content-Disposition: attachment; filename="hdaroot/left_down.cop2"
 Content-Type: text/plain
 
 2
-3
+4
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -3942,7 +3945,7 @@ units	[ 0	locks=0 ]	(	"pixel"	)
 t	[ 8	locks=0 ]	(	0	[ ty	1 ] 	)
 rz	[ 0	locks=0 ]	(	0	)
 s	[ 0	locks=0 ]	(	1	1	)
-p	[ 8	locks=0 ]	(	[ px	960 ] 	240	)
+p	[ 8	locks=0 ]	(	[ px	256 ] 	240	)
 xfilter	[ 0	locks=0 ]	(	box	)
 yfilter	[ 0	locks=0 ]	(	xfilter	)
 size	[ 0	locks=0 ]	(	1	1	)
@@ -3977,7 +3980,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.5.360"
 	}
 }
 
@@ -3986,7 +3989,7 @@ Content-Disposition: attachment; filename="hdaroot/up.cop2"
 Content-Type: text/plain
 
 2
-3
+4
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -4088,7 +4091,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.5.360"
 	}
 }
 
@@ -4097,7 +4100,7 @@ Content-Disposition: attachment; filename="hdaroot/down.cop2"
 Content-Type: text/plain
 
 2
-3
+4
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -4193,7 +4196,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.5.360"
 	}
 }
 
@@ -4298,7 +4301,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.5.360"
 	}
 }
 
@@ -4364,7 +4367,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.5.360"
 	}
 }
 
@@ -4404,7 +4407,7 @@ inputs
 stat
 {
   create 1475087958
-  modify 1475102955
+  modify 1548454330
   author Luiz@Luiz-PC
   access 0777
 }
@@ -4442,7 +4445,7 @@ Content-Type: text/plain
       righttype = extend
       default = 1
       flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../strength\") }
+      segment { length = 0 value = 1 1 expr = ch(\"../multiplier\") }
     }
   }
 
@@ -4453,7 +4456,7 @@ Content-Type: text/plain
 {
 version 0.8
 radius	[ 0	locks=0 ]	(	1	)
-strength	[ 8	locks=0 ]	(	[ strength	10 ] 	)
+strength	[ 8	locks=0 ]	(	[ strength	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -4463,7 +4466,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.5.360"
 	}
 }
 
@@ -4472,7 +4475,7 @@ Content-Disposition: attachment; filename="hdaroot/CONTROLS.cop2"
 Content-Type: text/plain
 
 2
-3
+4
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -4537,7 +4540,7 @@ version 0.8
 stdswitcher	[ 0	locks=0 ]	(	2	2	2	)
 xfilter	[ 0	locks=0 ]	(	gauss	)
 yfilter	[ 0	locks=0 ]	(	xfilter	)
-blursize	[ 8	locks=0 ]	(	[ blursize	0 ] 	)
+blursize	[ 8	locks=0 ]	(	[ blursize	7.0700000000000003 ] 	)
 useindepy	[ 0	locks=0 ]	(	"off"	)
 blursizey	[ 0	locks=0 ]	(	1.2200000286102295	)
 units	[ 0	locks=0 ]	(	"pixel"	)
@@ -4569,7 +4572,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.5.360"
 	}
 }
 
@@ -4578,7 +4581,7 @@ Content-Disposition: attachment; filename="hdaroot/blur1.cop2"
 Content-Type: text/plain
 
 2
-3
+4
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -4659,7 +4662,7 @@ units	[ 0	locks=0 ]	(	"pixel"	)
 t	[ 8	locks=0 ]	(	[ tx	1 ] 	0	)
 rz	[ 0	locks=0 ]	(	0	)
 s	[ 0	locks=0 ]	(	1	1	)
-p	[ 8	locks=0 ]	(	[ px	960 ] 	[ py	540 ] 	)
+p	[ 8	locks=0 ]	(	[ px	256 ] 	[ py	256 ] 	)
 xfilter	[ 0	locks=0 ]	(	box	)
 yfilter	[ 0	locks=0 ]	(	xfilter	)
 size	[ 0	locks=0 ]	(	1	1	)
@@ -4694,7 +4697,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.5.360"
 	}
 }
 
@@ -4703,7 +4706,7 @@ Content-Disposition: attachment; filename="hdaroot/right_center.cop2"
 Content-Type: text/plain
 
 2
-3
+4
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -4777,7 +4780,7 @@ units	[ 0	locks=0 ]	(	"pixel"	)
 t	[ 8	locks=0 ]	(	[ tx	-1 ] 	0	)
 rz	[ 0	locks=0 ]	(	0	)
 s	[ 0	locks=0 ]	(	1	1	)
-p	[ 8	locks=0 ]	(	[ px	960 ] 	240	)
+p	[ 8	locks=0 ]	(	[ px	256 ] 	240	)
 xfilter	[ 0	locks=0 ]	(	box	)
 yfilter	[ 0	locks=0 ]	(	xfilter	)
 size	[ 0	locks=0 ]	(	1	1	)
@@ -4812,7 +4815,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.5.360"
 	}
 }
 
@@ -4821,7 +4824,7 @@ Content-Disposition: attachment; filename="hdaroot/left_center.cop2"
 Content-Type: text/plain
 
 2
-3
+4
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -4908,7 +4911,7 @@ units	[ 0	locks=0 ]	(	"pixel"	)
 t	[ 8	locks=0 ]	(	[ tx	1 ] 	[ ty	1 ] 	)
 rz	[ 0	locks=0 ]	(	0	)
 s	[ 0	locks=0 ]	(	1	1	)
-p	[ 8	locks=0 ]	(	[ px	960 ] 	[ py	540 ] 	)
+p	[ 8	locks=0 ]	(	[ px	256 ] 	[ py	256 ] 	)
 xfilter	[ 0	locks=0 ]	(	box	)
 yfilter	[ 0	locks=0 ]	(	xfilter	)
 size	[ 0	locks=0 ]	(	1	1	)
@@ -4943,7 +4946,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.5.360"
 	}
 }
 
@@ -4952,7 +4955,7 @@ Content-Disposition: attachment; filename="hdaroot/right_up.cop2"
 Content-Type: text/plain
 
 2
-3
+4
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -5032,7 +5035,7 @@ units	[ 0	locks=0 ]	(	"pixel"	)
 t	[ 8	locks=0 ]	(	[ tx	-1 ] 	[ ty	1 ] 	)
 rz	[ 0	locks=0 ]	(	0	)
 s	[ 0	locks=0 ]	(	1	1	)
-p	[ 8	locks=0 ]	(	[ px	960 ] 	240	)
+p	[ 8	locks=0 ]	(	[ px	256 ] 	240	)
 xfilter	[ 0	locks=0 ]	(	box	)
 yfilter	[ 0	locks=0 ]	(	xfilter	)
 size	[ 0	locks=0 ]	(	1	1	)
@@ -5067,7 +5070,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.5.360"
 	}
 }
 
@@ -5076,7 +5079,7 @@ Content-Disposition: attachment; filename="hdaroot/left_up.cop2"
 Content-Type: text/plain
 
 2
-3
+4
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -5172,7 +5175,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.5.360"
 	}
 }
 
@@ -5277,7 +5280,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.5.360"
 	}
 }
 
@@ -5382,7 +5385,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.5.360"
 	}
 }
 
@@ -5487,7 +5490,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.5.360"
 	}
 }
 
@@ -5592,7 +5595,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.5.360"
 	}
 }
 
@@ -5697,7 +5700,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.5.360"
 	}
 }
 
@@ -5802,7 +5805,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.5.360"
 	}
 }
 
@@ -5907,7 +5910,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.5.360"
 	}
 }
 
@@ -5997,7 +6000,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.5.360"
 	}
 }
 
@@ -6067,7 +6070,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.5.360"
 	}
 }
 
@@ -6225,7 +6228,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.5.360"
 	}
 }
 
@@ -6305,7 +6308,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.5.360"
 	}
 }
 
@@ -6379,7 +6382,7 @@ Content-Type: text/plain
 {
 version 0.8
 stdswitcher	[ 0	locks=0 ]	(	0	)
-index	[ 8	locks=0 ]	(	[ index	0 ] 	)
+index	[ 8	locks=0 ]	(	[ index	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -6389,7 +6392,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.5.360"
 	}
 }
 
@@ -6398,7 +6401,7 @@ Content-Disposition: attachment; filename="hdaroot/switch1.cop2"
 Content-Type: text/plain
 
 2
-2
+3
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -6475,7 +6478,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.5.360"
 	}
 }
 
@@ -6555,7 +6558,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.5.360"
 	}
 }
 
@@ -6638,7 +6641,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.5.360"
 	}
 }
 
@@ -6647,7 +6650,7 @@ Content-Disposition: attachment; filename="hdaroot/switch2.cop2"
 Content-Type: text/plain
 
 2
-2
+3
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY

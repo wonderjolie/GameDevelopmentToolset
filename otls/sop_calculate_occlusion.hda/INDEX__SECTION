@@ -10,5 +10,19 @@ Inputs:       1 to 2
 Subnet:       true
 Python:       false
 Empty:        false
-Modified:     Tue Jul 31 17:41:22 2018
+Modified:     Tue Jan 29 18:29:41 2019
+
+Operator:     gamedev::sop_calculate_occlusion::2.0
+Label:        GameDev Calculate Occlusion
+Path:         oplib:/gamedev::Sop/sop_calculate_occlusion::2.0?gamedev::Sop/sop_calculate_occlusion::2.0
+Icon:         opdef:/gamedev::Sop/sop_calculate_occlusion::2.0?IconSVG
+Table:        Sop
+License:      
+Extra:        
+User:         
+Inputs:       1 to 2
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Sat Oct 12 14:49:30 2019
 

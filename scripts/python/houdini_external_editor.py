@@ -82,7 +82,7 @@ def get_config_file():
 def set_external_editor():
 
     r = QtWidgets.QFileDialog.getOpenFileName(hou.ui.mainQtWindow(),
-                                                "Select an external text editor program")
+                                                u"Select an external text editor program")
     if r[0]:
 
         cfg = get_config_file()
@@ -93,8 +93,8 @@ def set_external_editor():
         root, file = os.path.split(r[0])
 
         QtWidgets.QMessageBox.information(hou.ui.mainQtWindow(),
-                                          "Editor set",
-                                          "External editor set to: " + file)
+                                          u"Editor set",
+                                          u"External editor set to: " + file)
 
         return r[0]
 
@@ -119,10 +119,10 @@ def get_external_editor():
     else:
 
         r = QtWidgets.QMessageBox.information(hou.ui.mainQtWindow(),
-                                             "Editor not set",
-                                             "No external editor set, pick one ?",
-                                             "Yes", "Cancel")
-        if r == 1:
+                                             u"Editor not set",
+                                             u"No external editor set, pick one ?",
+                                             QtWidgets.QMessageBox.Yes, QtWidgets.QMessageBox.No)
+        if r == QtWidgets.QMessageBox.No:
             return
 
         return set_external_editor()
@@ -250,7 +250,7 @@ def add_watcher(parm):
     try:
         data = parm.expression()
     except hou.OperationFailed:
-        data = str(parm.eval())
+        data = str(parm.eval().encode("utf-8"))
 
     with open(file_path, 'w') as f:
         f.write(data)

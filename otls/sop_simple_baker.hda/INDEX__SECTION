@@ -1,7 +1,7 @@
-Operator:     gamedev::sop_simple_baker
+Operator:     gamedev::sop_simple_baker::2.0
 Label:        GameDev Simple Baker
-Path:         oplib:/gamedev::Sop/sop_simple_baker?gamedev::Sop/sop_simple_baker
-Icon:         COMMON_bake
+Path:         oplib:/gamedev::Sop/sop_simple_baker::2.0?gamedev::Sop/sop_simple_baker::2.0
+Icon:         opdef:/gamedev::Sop/sop_simple_baker::2.0?IconSVG
 Table:        Sop
 License:      
 Extra:        
@@ -10,5 +10,19 @@ Inputs:       1 to 2
 Subnet:       true
 Python:       false
 Empty:        false
-Modified:     Thu Aug 16 13:54:01 2018
+Modified:     Thu Aug  8 10:02:46 2019
+
+Operator:     gamedev::sop_simple_baker
+Label:        GameDev Simple Baker
+Path:         oplib:/gamedev::Sop/sop_simple_baker?gamedev::Sop/sop_simple_baker
+Icon:         opdef:/gamedev::Sop/sop_simple_baker?IconSVG
+Table:        Sop
+License:      
+Extra:        
+User:         
+Inputs:       1 to 2
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Tue May  7 14:11:33 2019
 

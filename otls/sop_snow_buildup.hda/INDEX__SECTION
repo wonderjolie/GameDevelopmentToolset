@@ -1,0 +1,14 @@
+Operator:     gamedev::sop_snow_buildup
+Label:        GameDev Snow Buildup
+Path:         oplib:/gamedev::Sop/sop_snow_buildup?gamedev::Sop/sop_snow_buildup
+Icon:         opdef:/gamedev::Sop/sop_snow_buildup?IconSVG
+Table:        Sop
+License:      
+Extra:        
+User:         
+Inputs:       1 to 1
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Wed Oct 23 11:42:57 2019
+

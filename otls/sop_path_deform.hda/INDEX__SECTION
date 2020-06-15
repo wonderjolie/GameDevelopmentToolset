@@ -1,0 +1,14 @@
+Operator:     gamedev::sop_path_deform
+Label:        GameDev Path Deform
+Path:         oplib:/gamedev::Sop/sop_path_deform?gamedev::Sop/sop_path_deform
+Icon:         opdef:/gamedev::Sop/sop_path_deform?IconSVG
+Table:        Sop
+License:      
+Extra:        
+User:         
+Inputs:       2 to 3
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Wed Feb  6 11:49:33 2019
+

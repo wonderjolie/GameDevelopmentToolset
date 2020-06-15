@@ -1,0 +1,28 @@
+Operator:     gamedev::sop_gaea_tor_processor
+Label:        GameDev Gaea Tor Processor
+Path:         oplib:/gamedev::Sop/sop_gaea_tor_processor?gamedev::Sop/sop_gaea_tor_processor
+Icon:         opdef:/gamedev::Sop/sop_gaea_tor_processor?IconSVG
+Table:        Sop
+License:      
+Extra:        
+User:         
+Inputs:       1 to 1
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Thu Aug 29 11:57:28 2019
+
+Operator:     gamedev::sop_gaea_tor_processor::2.0
+Label:        GameDev Gaea Tor Processor
+Path:         oplib:/gamedev::Sop/sop_gaea_tor_processor::2.0?gamedev::Sop/sop_gaea_tor_processor::2.0
+Icon:         opdef:/gamedev::Sop/sop_gaea_tor_processor::2.0?IconSVG
+Table:        Sop
+License:      
+Extra:        
+User:         
+Inputs:       1 to 1
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Fri Oct  4 15:04:05 2019
+

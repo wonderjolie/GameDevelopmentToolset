@@ -32,11 +32,12 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -2.55844 0.93461
-connectornextid 0
-flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+position 1.06805 0.372682
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
+0 "output1"
 }
 inputsNamed3
 {
@@ -46,9 +47,9 @@ inputs
 }
 stat
 {
-  create 1534500114
-  modify 1534501020
-  author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
+  create 1574181344
+  modify 1574201750
+  author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -80,7 +81,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -2.68731 8.21972
+position -2.68731 10.914
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -96,7 +97,7 @@ inputs
 stat
 {
   create 1500592402
-  modify 1534500908
+  modify 1574201674
   author Luiz@Luiz-PC
   access 0777
 }
@@ -114,6 +115,7 @@ version 0.8
 python	[ 0	locks=0 ]	(	"import re
 from math import sin, cos, sqrt, atan2, radians
 import xml.etree.cElementTree as ET
+import StringIO
 
 try:
     from PySide2.QtGui import QColor
@@ -124,6 +126,7 @@ except:
 R = 6373.0
 
 READ_BUILDING_COLORS = hou.pwd().parent().parm(\"read_building_colors\").eval()
+ONLY_CLOSE_BUILDING_SHAPES = hou.pwd().parent().parm(\"only_close_buildings\").eval()
 
 def latlong_distance(lat_long_1, lat_long_2):
 
@@ -190,22 +193,44 @@ class OSMWay(object):
                                 
         return self
 
+class OSMRelation(object):
+
+    def __init__(self):
+        self.id = 0
+        self.tags = {}
+        self.members = []
+
+    @classmethod
+    def from_xml(cls, xml_node):
+        self = cls()
+
+        self.id = xml_node.attrib[\"id\"]
+        for child in xml_node:
+            if child.tag == \"tag\" and \"k\" in child.attrib:
+                clean_tag = re.sub('[^a-zA-Z0-9\\n]', '_', child.attrib[\"k\"])
+                self.tags[clean_tag] = child.attrib[\"v\"]
+
+            if child.tag == \"member\" and \"ref\" in child.attrib:
+                self.members.append(child.attrib[\"ref\"])
+                                
+        return self
 
 class OSMParser(object):
     def __init__(self, osm_file):
         self.osm_file = osm_file
 
-        self.min_lat = 0
-        self.max_lat = 0
+        self.min_lat = -1
+        self.max_lat = 1
 
-        self.min_lon = 0
-        self.max_lon = 0
+        self.min_lon = -1
+        self.max_lon = 1
 
-        self.length = 0
-        self.height = 0
+        self.length = 500  
+        self.height = 500
 
         self.ways = []
         self.nodes = {}
+        self.relations = []
         self.tagged_nodes = []
         self.tags= []
 
@@ -214,6 +239,8 @@ class OSMParser(object):
         self.height = latlong_distance([self.min_lat, self.min_lon], [self.min_lat, self.max_lon])
 
     def get_relative_coordinates(self, lat_long):
+    
+    
         rel_lat = (lat_long[0] - self.min_lat) / (self.max_lat - self.min_lat) * self.length
         rel_lon = (lat_long[1] - self.min_lon) / (self.max_lon - self.min_lon) * self.height
 
@@ -229,6 +256,8 @@ class OSMParser(object):
         geo.addAttrib(hou.attribType.Global, \"max_lat\", self.max_lat)
         geo.addAttrib(hou.attribType.Global, \"min_lon\", self.min_lon)
         geo.addAttrib(hou.attribType.Global, \"max_lon\", self.max_lon)
+        geo.addAttrib(hou.attribType.Global, \"map_length\", self.length)
+        geo.addAttrib(hou.attribType.Global, \"map_height\", self.height)
 
         for tag in self.tags:
             if tag == \"name\":
@@ -258,9 +287,15 @@ class OSMParser(object):
         if not geo.findPointAttrib(\"longitude\"):
             geo.addAttrib(hou.attribType.Point, \"longitude\", 0.0)
 
+        polys = {}
         for way in self.ways:
             positions = []
             latlongs = []
+            
+            closed = False
+            if way.nodes[0] == way.nodes[-1]:
+                closed = True
+                
             for node_id in way.nodes:
                 node = self.nodes[node_id]
                 pos_xy = self.get_relative_coordinates([float(node.lat), float(node.lon)])
@@ -274,8 +309,12 @@ class OSMParser(object):
                 point.setAttribValue(\"latitude\", latlongs[x][0])
                 point.setAttribValue(\"longitude\", latlongs[x][1])
 
-            if \"building\" not in way.tags and \"buildingpart\" not in way.tags:
-                poly.setIsClosed(0)
+            if ONLY_CLOSE_BUILDING_SHAPES:
+                if \"building\" not in way.tags and \"buildingpart\" not in way.tags and \"building_part\" not in way.tags: 
+                    poly.setIsClosed(0)
+            else:
+                if not closed:
+                    poly.setIsClosed(0)
 
             if READ_BUILDING_COLORS:
                 if \"buildingcolour\" in way.tags:
@@ -302,7 +341,36 @@ class OSMParser(object):
 
             for point in points:
                 poly.addVertex(point)
+            
+            polys[way.id] = poly
+            
+        for relation in self.relations: 
+            
+            # Currently we only care about relations that define buildings 
+            
+            is_building = 0
+            for tag in relation.tags:
+                if tag in [\"building\", \"buildingpart\", \"building_part\"]: 
+                    is_building = 1
+                    
+            if is_building:
+                for member in relation.members: 
+                   if member in polys:
+                        poly = polys[member]
+                        poly.setIsClosed(1)
+                        for tag in relation.tags:
+                            clean_value = relation.tags[tag].encode(\"utf-8\")
+                            if tag == \"name\":
+                                poly.setAttribValue(\"hou_name\", clean_value)
+                            else:
+                                poly.setAttribValue(tag, clean_value)
+                                
+                
 
+
+                               
+                    
+        # Marked Nodes 
         if hou.node(\"..\").parm(\"build_nodes\").eval():
             for node in self.tagged_nodes:
                 pos_xy = self.get_relative_coordinates([float(node.lat), float(node.lon)])
@@ -344,8 +412,11 @@ class OSMParser(object):
                 self.ways.append(way)
                 child.clear()
 
-            if child.tag == \"relations\":
-                pass #TODO: Handle Relations
+            if child.tag == \"relation\":
+                relation = OSMRelation.from_xml(child)
+                tags.extend(relation.tags.keys())
+                self.relations.append(relation)
+                child.clear()
 
             if child.tag == \"node\":
 
@@ -360,8 +431,16 @@ class OSMParser(object):
 
         self.tags = list(set(tags))
 
+# Make a File Object
+def make_file_object(filename):
+    if filename.startswith(\"opdef:\") or filename.startswith(\"oplib:\"):
+        return StringIO.StringIO(hou.readFile(filename))
+    else:
+        return file(filename, \"r\")
+
 osm_file = hou.node(\"..\").parm(\"osm_file\").eval()
-parser = OSMParser(osm_file)
+osm_file_object = make_file_object(osm_file) 
+parser = OSMParser(osm_file_object)
 parser.parse()
 parser.build()
 "	)
@@ -374,7 +453,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.5.360"
 	}
 }
 
@@ -391,9 +470,9 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -2.68731 7.14366
+position -2.68731 8.93206
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 1 "output1"
@@ -409,7 +488,7 @@ inputs
 stat
 {
   create 1508267018
-  modify 1522783218
+  modify 1574201708
   author Luiz@Luiz-PC
   access 0777
 }
@@ -437,7 +516,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.5.360"
 	}
 }
 
@@ -499,9 +578,16 @@ Content-Type: text/plain
 version 0.8
 group	[ 0	locks=0 ]	(	""	)
 grouptype	[ 0	locks=0 ]	(	"guess"	)
+overridenormal	[ 0	locks=0 ]	(	"off"	)
+normalattrib	[ 0	locks=0 ]	(	N	)
+construct	[ 0	locks=0 ]	(	0	)
+docompute	[ 0	locks=0 ]	(	"on"	)
 type	[ 0	locks=0 ]	(	"typepoint"	)
 cuspangle	[ 0	locks=0 ]	(	60	)
 method	[ 0	locks=0 ]	(	1	)
+modify	[ 0	locks=0 ]	(	0	)
+normalize	[ 0	locks=0 ]	(	"off"	)
+reverse	[ 0	locks=0 ]	(	"off"	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -511,7 +597,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.5.360"
 	}
 }
 
@@ -574,7 +660,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.5.360"
 	}
 }
 
@@ -690,9 +776,16 @@ Content-Type: text/plain
 version 0.8
 group	[ 0	locks=0 ]	(	""	)
 grouptype	[ 0	locks=0 ]	(	"guess"	)
+overridenormal	[ 0	locks=0 ]	(	"off"	)
+normalattrib	[ 0	locks=0 ]	(	N	)
+construct	[ 0	locks=0 ]	(	0	)
+docompute	[ 0	locks=0 ]	(	"on"	)
 type	[ 0	locks=0 ]	(	"typevertex"	)
 cuspangle	[ 0	locks=0 ]	(	60	)
 method	[ 0	locks=0 ]	(	1	)
+modify	[ 0	locks=0 ]	(	0	)
+normalize	[ 0	locks=0 ]	(	"off"	)
+reverse	[ 0	locks=0 ]	(	"off"	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -702,7 +795,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.5.360"
 	}
 }
 
@@ -763,7 +856,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.5.360"
 	}
 }
 
@@ -797,9 +890,9 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -2.68731 6.09934
+position -2.68731 6.99354
 connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
@@ -814,7 +907,7 @@ inputs
 stat
 {
   create 1522783210
-  modify 1534500910
+  modify 1574201704
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -839,7 +932,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"17.5.360"
 	}
 }
 
